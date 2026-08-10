@@ -28,7 +28,7 @@ export async function fetchLeaderboard(): Promise<Omit<ScoreRow, "player_seed">[
     .select("handle, stars, best_streak")
     .order("stars", { ascending: false })
     .order("best_streak", { ascending: false })
-    .limit(50);
+    .limit(100);
   return data ?? [];
 }
 

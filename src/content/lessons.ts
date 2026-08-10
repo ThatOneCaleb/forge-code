@@ -14,13 +14,42 @@ export const LESSONS: Lesson[] = [
     topic: "Basics",
     concept: "How solving works",
     before: "hello-forge",
-    body: `Every challenge asks you to write one function: **solve(text)**.
+    body: `## What is code?
 
-- \`text\` is the puzzle input, always a string.
-- Whatever you **return** is your answer. Forge Code compares it to the expected answer for you.
-- You can write in **Python or JavaScript**, switch with the toggle above the editor.
+Code is just instructions — steps you write down so a computer knows exactly what to do. The computer follows them in order, every single time, without getting confused or bored.
 
-Hit **Run** on the example to watch it work, then press Continue.`,
+Every challenge in Forge Code asks you to write one small set of instructions called a **function**. A function is like a machine: you put something in, it does some work, and hands something back out.
+
+## Your machine is called solve
+
+Your function is always named **solve**, and it always receives one thing called **text** — the puzzle input. Whatever you **return** is your answer. Forge Code compares it to the expected answer for you.
+
+## The example, line by line
+
+Read through this slowly — every word matters:
+
+\`\`\`javascript
+function solve(text) {
+  return "Hi, " + text;
+}
+\`\`\`
+
+- **Line 1** — "Start a function named \`solve\`. The thing it receives will be called \`text\`."
+- **Line 2** — "Glue the words \`"Hi, "\` and whatever is in \`text\` together, then send the result back."
+- The word \`return\` is what sends your answer out. Forget it and nothing comes back.
+
+## Python looks almost the same
+
+You can switch languages with the toggle above the editor. Python's version is:
+
+\`\`\`python
+def solve(text):
+    return "Hi, " + text
+\`\`\`
+
+Same idea, just spelled a little differently.
+
+Hit **Run** to watch it work. Then try changing \`"Hi, "\` to \`"Hello, "\` and run it again — you just changed code!`,
     example: {
       prompt: "Return a friendly hello to the name in the input.",
       input: "Sprocket",
@@ -37,11 +66,52 @@ Hit **Run** on the example to watch it work, then press Continue.`,
     topic: "Basics",
     concept: "if / else and modulo",
     before: "even-odd",
-    body: `Programs make decisions with **if / else**.
+    body: `## Variables: labeled boxes
 
-The **modulo** operator \`%\` gives the remainder of a division, it's how you test "is this divisible by…". For example \`n % 2\` is 0 for even numbers and 1 for odd ones.
+A **variable** is like a labeled box that holds a value. You give it a name, put something inside, and use that name to get the value back later.
 
-The example returns "big" or "small" depending on the number. Run it, then try changing the threshold.`,
+\`\`\`javascript
+const score = 42;          // a box called "score" holding the number 42
+const name  = "Sprocket";  // a box called "name" holding the text "Sprocket"
+\`\`\`
+
+In Python, it's even simpler — no \`const\` needed:
+\`\`\`python
+score = 42
+name  = "Sprocket"
+\`\`\`
+
+## Numbers in disguise
+
+When a number arrives through \`text\`, it looks like \`"7"\` — text, not a real number. You have to unwrap it before you can do math with it:
+
+- JavaScript: \`Number(text)\` turns \`"7"\` into \`7\`
+- Python: \`int(text)\` does the same thing
+
+## Making decisions with if / else
+
+Programs make choices with **if / else**. Think of it as a fork in the road: "if this is true, go left; otherwise, go right."
+
+\`\`\`javascript
+if (n > 10) {
+  // runs when n is bigger than 10
+} else {
+  // runs in every other case
+}
+\`\`\`
+
+## The example, line by line
+
+\`\`\`javascript
+function solve(text) {
+  const n = Number(text);              // unwrap the text into a real number
+  return n > 10 ? "big" : "small";    // if n > 10, return "big"; else "small"
+}
+\`\`\`
+
+The \`?\` and \`:\` on the second line are a quick shortcut for if/else. Read it as: "if \`n > 10\` is true, give me \`"big"\`, otherwise give me \`"small"\`."
+
+Hit **Run**, then try changing \`10\` to \`5\` and see which inputs change their answer.`,
     example: {
       prompt: 'Return "big" if the number is over 10, otherwise "small".',
       input: "7",
@@ -58,12 +128,56 @@ The example returns "big" or "small" depending on the number. Run it, then try c
     topic: "Loops",
     concept: "Repeating with a loop",
     before: "sum-to-n",
-    body: `A **loop** repeats work. To count from 1 to N you walk a **range** of numbers, doing something each step.
+    body: `## What is a loop?
 
-- JavaScript: \`for (let i = 1; i <= n; i++) { … }\`
-- Python: \`for i in range(1, n + 1): …\`
+A **loop** runs the same instructions over and over — once for each step in a range, or once for each item in a list. Without loops, you would have to write the same line hundreds of times.
 
-The example collects the numbers 1..N and joins them with spaces.`,
+## Counting with a loop
+
+Here is a loop that counts from 1 to 5 in JavaScript:
+
+\`\`\`javascript
+for (let i = 1; i <= 5; i++) {
+  // i is 1 on the first pass, 2 on the second, ... up to 5
+}
+\`\`\`
+
+Read the first line as three instructions separated by semicolons:
+1. **Start:** \`let i = 1\` — set \`i\` to 1
+2. **Keep going while:** \`i <= 5\` — stop when \`i\` gets bigger than 5
+3. **After each pass:** \`i++\` — add 1 to \`i\`
+
+Python uses a simpler spelling for the same idea:
+\`\`\`python
+for i in range(1, 6):   # range(1, 6) gives 1, 2, 3, 4, 5 (stops before 6)
+    pass
+\`\`\`
+
+## Collecting results
+
+Inside a loop, you can build up a list of results and join them into a string at the end:
+
+\`\`\`javascript
+const out = [];            // start with an empty list
+out.push(1);               // add 1 → [1]
+out.push(2);               // add 2 → [1, 2]
+out.join(" ");             // join into "1 2"
+\`\`\`
+
+## The example, line by line
+
+\`\`\`javascript
+function solve(text) {
+  const n = Number(text);          // turn the input into a number
+  const out = [];                  // empty list to collect results
+  for (let i = 1; i <= n; i++) {  // count from 1 to n
+    out.push(i);                   // add i to the list each turn
+  }
+  return out.join(" ");            // join everything into "1 2 3 ..."
+}
+\`\`\`
+
+Hit **Run**, then change the input from \`3\` to \`6\` and run again — watch the loop do more work.`,
     example: {
       prompt: "Return the numbers 1 to N separated by spaces.",
       input: "3",
@@ -80,12 +194,58 @@ The example collects the numbers 1..N and joins them with spaces.`,
     topic: "Strings",
     concept: "Looping over characters",
     before: "count-vowels",
-    body: `A string is a sequence of characters you can loop over one at a time.
+    body: `## What is a string?
 
-- Lowercase everything first (\`.toLowerCase()\` / \`.lower()\`) when case shouldn't matter.
-- Test a character with \`===\` / \`==\`, or check membership in a set of letters.
+A **string** is text stored in a program. It lives inside quotes and can contain letters, numbers, spaces — anything you can type.
 
-The example counts every "a", upper or lower.`,
+\`\`\`javascript
+const word     = "hello";    // a string with 5 characters
+const greeting = "Hi there"; // a string with 8 characters (space counts!)
+\`\`\`
+
+Strings are made of characters laid out in order, like beads on a necklace.
+
+## Looping over characters
+
+You can visit each character one at a time with a **for-of** loop:
+
+\`\`\`javascript
+for (const c of "hello") {
+  // c is "h" on pass 1, "e" on pass 2, "l", "l", "o"
+}
+\`\`\`
+
+## Counting a specific character
+
+Start a counter at 0, then add 1 every time you find the character you are looking for:
+
+\`\`\`javascript
+let count = 0;
+for (const c of text) {
+  if (c === "a") count++;    // count++ is short for count = count + 1
+}
+\`\`\`
+
+## Upper-case vs. lower-case
+
+\`"A"\` and \`"a"\` are different characters to a computer. To treat them the same, convert the whole string to lower-case first:
+
+- JavaScript: \`text.toLowerCase()\`
+- Python: \`text.lower()\`
+
+## The example, line by line
+
+\`\`\`javascript
+function solve(text) {
+  let count = 0;
+  for (const c of text.toLowerCase()) {  // loop, treating everything as lower-case
+    if (c === "a") count++;              // found an "a" — add 1 to count
+  }
+  return count;                          // send back the total
+}
+\`\`\`
+
+Hit **Run**. Then try changing \`"a"\` to \`"n"\` and run again — you are now counting a different letter.`,
     example: {
       prompt: 'Count how many times the letter "a" appears (any case).',
       input: "Banana",
@@ -102,12 +262,61 @@ The example counts every "a", upper or lower.`,
     topic: "Collections",
     concept: "Split & convert",
     before: "max-of-list",
-    body: `Lots of inputs are a line of numbers. Turn them into a real list you can work with:
+    body: `## What is a list?
 
-- **Split** the text on spaces to get pieces.
-- **Convert** each piece to a number.
+A **list** (called an **array** in JavaScript) is a collection of things stored in order. You can put numbers, words, or anything else inside:
 
-Once you have a list, you can loop, sum, or find the biggest. The example adds them up.`,
+\`\`\`javascript
+const nums  = [3, 1, 4];     // a list of 3 numbers
+const words = ["cat", "dog"]; // a list of 2 words
+\`\`\`
+
+You can grab any item by its **position** — positions start at 0, not 1:
+
+\`\`\`javascript
+nums[0]  // 3 (first item)
+nums[1]  // 1 (second item)
+nums[2]  // 4 (third item)
+\`\`\`
+
+## Turning a text line into a list
+
+Puzzle inputs often give you several numbers on one line: \`"2 4 6"\`. The trick is to **split** that text into pieces:
+
+\`\`\`javascript
+"2 4 6".split(/\s+/)  // → ["2", "4", "6"]
+\`\`\`
+
+Python:
+\`\`\`python
+"2 4 6".split()  # → ["2", "4", "6"]
+\`\`\`
+
+But those pieces are still text — not real numbers yet! To do math, convert each piece:
+
+\`\`\`javascript
+"2 4 6".split(/\s+/).map(Number)  // → [2, 4, 6]  (now real numbers)
+\`\`\`
+
+\`.map(Number)\` applies \`Number(...)\` to every item in one step.
+
+Python:
+\`\`\`python
+[int(x) for x in "2 4 6".split()]  # → [2, 4, 6]
+\`\`\`
+
+## The example, line by line
+
+\`\`\`javascript
+function solve(text) {
+  const nums = text.split(/\s+/).map(Number); // split into pieces, convert to numbers
+  let total = 0;
+  for (const n of nums) total += n;           // add each number to total
+  return total;                               // send back the sum
+}
+\`\`\`
+
+Hit **Run**, then try changing the input to \`"1 2 3 4 5"\` and see the new total.`,
     example: {
       prompt: "Add up a line of space-separated numbers.",
       input: "2 4 6",
@@ -124,11 +333,51 @@ Once you have a list, you can loop, sum, or find the biggest. The example adds t
     topic: "Collections",
     concept: "The set",
     before: "unique-count",
-    body: `A **set** is a collection that can't hold duplicates, adding the same value twice does nothing.
+    body: `## What is a set?
 
-That makes sets perfect for questions about "unique" or "already seen". If a set of your items is smaller than the list, there were duplicates.
+A **set** is like a list, but with one special rule: **no duplicates allowed**. If you add the same value twice, the second one is silently ignored.
 
-The example uses that trick to detect repeats.`,
+\`\`\`javascript
+const s = new Set();
+s.add("apple");   // set: {"apple"}
+s.add("banana");  // set: {"apple", "banana"}
+s.add("apple");   // ignored! still {"apple", "banana"}
+s.size;           // 2
+\`\`\`
+
+Python:
+\`\`\`python
+s = set()
+s.add("apple")
+s.add("banana")
+s.add("apple")   # ignored
+len(s)           # 2
+\`\`\`
+
+## The duplicate-detection trick
+
+Here is a clever use of this rule: if you drop a list of items into a set and the set comes out **smaller**, some items must have been repeated.
+
+\`\`\`javascript
+const items = ["a", "b", "a", "c"];   // 4 items
+const unique = new Set(items);        // set: {"a", "b", "c"} — 3 items
+unique.size < items.length            // true → there were duplicates
+\`\`\`
+
+That one comparison — set size vs. list length — is the whole check.
+
+## The example, line by line
+
+\`\`\`javascript
+function solve(text) {
+  const parts = text.split(/\s+/);              // split input into words
+  return new Set(parts).size < parts.length     // set smaller than list?
+    ? "yes"   // yes → duplicates exist
+    : "no";   // no → all unique
+}
+\`\`\`
+
+Hit **Run**, then try changing the input to \`"1 2 3 4"\` (all unique) and see how the answer changes.`,
     example: {
       prompt: 'Return "yes" if the list has any duplicates, otherwise "no".',
       input: "1 2 2 3",
