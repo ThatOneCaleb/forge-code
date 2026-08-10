@@ -1,0 +1,246 @@
+[
+  {
+    "id": "code-basics-1",
+    "track": "codeBasics",
+    "order": 1,
+    "title": "Move & Turn",
+    "introText": "Meet your robot! It can walk forward and spin left or right. Let's guide it to the glowing goal square. Small steps get you there.",
+    "goalDescription": "Steer the robot from the start to the goal at (2, 0).",
+    "hintText": "The robot starts facing up. Turn it to the right first, then move forward twice.",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 2, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight"],
+      "maxBlocks": 4
+    }
+  },
+  {
+    "id": "code-basics-2",
+    "track": "codeBasics",
+    "order": 2,
+    "title": "Sequences",
+    "introText": "A program is a list of steps that run in order, top to bottom. Change the order and you change where the robot ends up! This path needs a turn in the middle. You have up to 6 blocks, so plan each step.",
+    "goalDescription": "Walk the robot from the start up and across to the goal at (2, 2).",
+    "hintText": "The robot starts facing up. Move up twice, then turn right and move across twice.",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 2, "y": 2 },
+      "allowedCommands": ["move", "turnLeft", "turnRight"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "code-basics-3",
+    "track": "codeBasics",
+    "order": 3,
+    "title": "Loops",
+    "introText": "Typing the same step over and over is a lot of work. A loop lets you say \"do this a few times\" with just one block! Use repeat to march the robot across the row. You only have 2 blocks, so a loop is the way.",
+    "goalDescription": "Move the robot all the way across to the goal at (5, 0).",
+    "hintText": "The robot is already facing right. Wrap one move inside a repeat that runs 5 times.",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 5, "y": 0 },
+      "allowedCommands": ["move", "repeat"],
+      "maxBlocks": 2
+    }
+  },
+  {
+    "id": "code-basics-4",
+    "track": "codeBasics",
+    "order": 4,
+    "title": "Conditionals",
+    "introText": "Sometimes the robot needs to make a decision while it runs. An if block checks something and only acts when it's true. Here a wall blocks the path, so check wallAhead() and turn when you must. Reacting to the world is what real robots do!",
+    "goalDescription": "Guide the robot around the wall to the goal at (2, 2).",
+    "hintText": "Repeat 4 times: if there is a wall ahead, turn left, then move. The wall at (3, 0) makes the robot turn up right when it needs to.",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": [ { "x": 3, "y": 0 } ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 2, "y": 2 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "code-basics-5",
+    "track": "codeBasics",
+    "order": 5,
+    "title": "Variables",
+    "introText": "The number inside repeat is a value you can change. Right now it moves the robot 4 steps to reach the goal. Try imagining it as a dial: turn it up or down and the robot travels farther or shorter. Set it just right to land on (4, 0).",
+    "goalDescription": "Tune the repeat count to move the robot to the goal at (4, 0).",
+    "hintText": "The robot faces right. Put one move inside a repeat, and pick the number of times that lands you exactly on (4, 0).",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 4, "y": 0 },
+      "allowedCommands": ["move", "repeat"],
+      "maxBlocks": 2
+    }
+  },
+  {
+    "id": "code-basics-6",
+    "track": "codeBasics",
+    "order": 6,
+    "title": "Capstone",
+    "introText": "Time to put it all together: a sequence to get moving, a loop to save blocks, and an if to dodge the wall. Lead the robot up, across, and around the obstacle to the goal. Finish this one to earn a special badge!",
+    "goalDescription": "Combine your skills to reach the goal at (3, 3) while avoiding the wall.",
+    "hintText": "Go up twice, turn right, then repeat move 3 times. Before the last step, check wallAhead() and turn left so you don't hit the wall at (4, 2).",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": [ { "x": 4, "y": 2 } ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 3, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 10
+    }
+  },
+  {
+    "id": "code-basics-7",
+    "track": "codeBasics",
+    "order": 7,
+    "title": "Longer Path",
+    "introText": "Now that you know the basics, it is time for a longer journey. The goal is further away, so you will need more steps — and a turn right in the middle. Plan each move before you run it!",
+    "goalDescription": "Guide the robot from the start to the goal at (4, 3).",
+    "hintText": "Move up three times, turn right, then move across four times to reach (4, 3).",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 4, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight"],
+      "maxBlocks": 9
+    }
+  },
+  {
+    "id": "code-basics-8",
+    "track": "codeBasics",
+    "order": 8,
+    "title": "Repeat and Turn",
+    "introText": "Loops are even more powerful when the grid gets bigger. Use repeat to march across, then turn and repeat again to climb up. Two loops plus one turn — that is all you need!",
+    "goalDescription": "Move the robot from the start all the way to the goal at (5, 5).",
+    "hintText": "Repeat move 5 times to go right, turn left to face up, then repeat move 5 more times.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 5, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat"],
+      "maxBlocks": 5
+    }
+  },
+  {
+    "id": "code-basics-9",
+    "track": "codeBasics",
+    "order": 9,
+    "title": "Around the Block",
+    "introText": "Two walls are blocking the obvious path. You will need to think ahead and steer around both of them. Sometimes the smart route is not the straight one!",
+    "goalDescription": "Navigate around both walls to reach the goal at (5, 4).",
+    "hintText": "The wall at (3, 0) blocks going straight right. Try turning up first, going past both walls, then turning right to reach the goal.",
+    "challenge": {
+      "grid": {
+        "width": 7,
+        "height": 7,
+        "obstacles": [
+          { "x": 3, "y": 0 },
+          { "x": 3, "y": 3 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 5, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "code-basics-10",
+    "track": "codeBasics",
+    "order": 10,
+    "title": "Mini Maze",
+    "introText": "Welcome to your first real maze! A wall stretches across the middle and another blocks the right side at the bottom. You will need loops and careful turns to thread through the gaps. Can you find the path?",
+    "goalDescription": "Navigate the maze to reach the goal at (7, 7).",
+    "hintText": "Go up 3, turn right and cross the whole row, then turn left and go up 4 to reach the corner. Loops will keep your block count down.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [
+          { "x": 0, "y": 4 },
+          { "x": 1, "y": 4 },
+          { "x": 2, "y": 4 },
+          { "x": 3, "y": 4 },
+          { "x": 4, "y": 4 },
+          { "x": 5, "y": 4 },
+          { "x": 6, "y": 4 },
+          { "x": 7, "y": 0 },
+          { "x": 7, "y": 1 },
+          { "x": 7, "y": 2 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 7, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  }
+]

@@ -1,0 +1,884 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		010980031A7CC135FC97C9E7 /* RoboticsBlockEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C74FD4A73C85FBB8D27CD3 /* RoboticsBlockEditorView.swift */; };
+		0B1CDB1701715A9B27B818FB /* WarehouseMechShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210034B36B269657E57F4AF /* WarehouseMechShot.swift */; };
+		152BCACE5E4FE9EFAE19268C /* BuildLogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258FFBB7D0BF6D98599E4D3 /* BuildLogListView.swift */; };
+		170FC2AEE1FC590742C285B4 /* ChallengeRoboticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD0142DBD435B94D5986D13 /* ChallengeRoboticsViewModel.swift */; };
+		19808966844580938FFB51DE /* RoboticsBlockUnlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E607E247F9426707EF6F2 /* RoboticsBlockUnlocks.swift */; };
+		221C1349493D9487F125118E /* RoboticsMatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A2CE8CE4CDD3D6EF14CF3 /* RoboticsMatchListView.swift */; };
+		28FD42E50F01975F2E1A1DB1 /* RoboticsMissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A491B4ACC938AADC9CCA59CF /* RoboticsMissionViewModel.swift */; };
+		2F9BD7EFCF982BC0651A65E6 /* BlockPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB34F4FD91590D249CD529 /* BlockPaletteView.swift */; };
+		39275BE4F8F9E257EEB800AB /* SolveScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358000CF4F87A740FFEBC26E /* SolveScreenshots.swift */; };
+		3F3668925DE9FD70EC52B6DB /* GameArt in Resources */ = {isa = PBXBuildFile; fileRef = 346AF18A182B88441C380C1F /* GameArt */; };
+		3F56031A5C0EA844C3E71F47 /* BuildLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234EE250833E9D200F43C33 /* BuildLogEntry.swift */; };
+		440333E841284DD3543884AF /* RoboticsHeroModels in Resources */ = {isa = PBXBuildFile; fileRef = 7667483B13F655848C8EF0F3 /* RoboticsHeroModels */; };
+		48F61D17427EDBBAB62D480E /* RoboticsFieldScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0BF79F2DAD74C4EAA16D9 /* RoboticsFieldScene.swift */; };
+		4C76C44DBD73086BECA6C2C8 /* RoboticsMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04F496629D3584D04A1772 /* RoboticsMissionView.swift */; };
+		5107A296FAD39C28E70863D7 /* FieldPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067E7FD6BAC3100D6E8F3218 /* FieldPreviewView.swift */; };
+		5C4D40744FEC2D3870F8DD65 /* RoboticsFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC657E39A71F7D7DD6DDEF4 /* RoboticsFieldView.swift */; };
+		5E634591E00A77C5EBC16F18 /* GridBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FE79EF8A9D2A75DCFD5D /* GridBoardView.swift */; };
+		5F43802ECF37908F3F7C8CB4 /* ForgeCodeEngine in Frameworks */ = {isa = PBXBuildFile; productRef = A18FE7943A54FE1366157989 /* ForgeCodeEngine */; };
+		5F4496D59DB9F8063B8B1A3F /* CodeEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E0C215D20847D73FC5728 /* CodeEditorView.swift */; };
+		625BA079D7E3998D6374E7B9 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BA8AA3A194D8E03AEFDA85 /* Badge.swift */; };
+		6679DC0CE3AF83925BE3B265 /* Field3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C46202D8F63E3012D98B8 /* Field3DView.swift */; };
+		68F57459DAE35B82AAD0AFEF /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF70A127786DF61B8C25AB /* LessonView.swift */; };
+		70C2CCA2D1DFB3C3BBCBE12A /* Kid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90442B741379851A3366FA57 /* Kid.swift */; };
+		750B90ADD903DC5AE45E256D /* RoboticsMatchShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B8DC6A16F1C59A277954E /* RoboticsMatchShot.swift */; };
+		7827CFFFB160C13792EA7FF7 /* LessonMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6759193F2005ED1608E5B1F /* LessonMapView.swift */; };
+		7DBD205550B27BA58D43D95E /* SimulatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630929C88E028AE7E0211A8D /* SimulatorViewModel.swift */; };
+		7EF8F7C666D84A50962653A1 /* RoboticsHeroAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA648AB2D9B0D8B9DD7020 /* RoboticsHeroAssets.swift */; };
+		8092D661596622BC04D781FE /* ForgeBlockKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1291E047BBA75635EF2CC5A /* ForgeBlockKit.swift */; };
+		8130D8BD2D909A0AE4469101 /* AcademyModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26198E7F8A1BF8EC28BA82C7 /* AcademyModule.swift */; };
+		82B157A70FEFE10B90316480 /* RoboticsMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8E882D9D4255A25DC052E /* RoboticsMatchView.swift */; };
+		84BE905C37FE6EF89D55FAB0 /* ForgeCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583C54DF22808807C7D34759 /* ForgeCodeApp.swift */; };
+		8A78DDDEF0B4178F402951DC /* ChallengeJuice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937F396402719419125F9B26 /* ChallengeJuice.swift */; };
+		8DB75FB5B88BC4AF827B1B98 /* RoboticsBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACB8E6182D0BB619B570DEA /* RoboticsBlocks.swift */; };
+		92728381A65E57638E298CD7 /* ChallengesTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2239E933DD61D4EA64C8014 /* ChallengesTabTests.swift */; };
+		934632D16587A5D804F34817 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D234186502FB9CB430D61DE /* PlaceholderView.swift */; };
+		9373274214FF1BAB9FCD1D67 /* ChallengeRoboticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C1CEF798E3591C653913 /* ChallengeRoboticsView.swift */; };
+		94B6B08641E26E9B1607A52D /* ForgeCodeEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 461228B8190A5D367530D9B2 /* ForgeCodeEngine */; };
+		987C3965505C55B77643EB37 /* BlockProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96898A1542E25452A3401A66 /* BlockProgramView.swift */; };
+		B1A7A277B3093A88DE8F495A /* BadgeShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F822D493B835263E4A25F9D7 /* BadgeShelfView.swift */; };
+		B949C4FE3DFC275734493246 /* ProgressServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B85DC00628AC5BD1697C2DF /* ProgressServiceTests.swift */; };
+		BB72172AEC0F61E39C56DFE2 /* ChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C162DE5D447B90FEE318D7 /* ChallengesView.swift */; };
+		BDD26B42294F3F78AB3A8265 /* TourScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63C0480548E052CC7744A0 /* TourScreenshots.swift */; };
+		C73C0AC57FA7F16833DE5A6D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D3BA9C6C8FA61080BCC82 /* RootView.swift */; };
+		C8F30F091AE5D57B7894854D /* RoboticsMissionShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9AEEA3DAB1B06CB554C578 /* RoboticsMissionShot.swift */; };
+		CE159FC1FF2CC560AA9EDA3C /* ChallengeBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985BA0F773958ACF5F915352 /* ChallengeBoardView.swift */; };
+		D40C2E79757CF804293CAEE9 /* FieldShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF860B6508ABC054142E5ACE /* FieldShot.swift */; };
+		D9553E3729A0D805AA7AD211 /* RoboticsMatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72E1AE19F2F1BA87D66A150 /* RoboticsMatchViewModel.swift */; };
+		E138682B9C7AACAFC4BB7468 /* LessonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BA5229EDA511E3FBF0036 /* LessonStore.swift */; };
+		EF193345E27FDC3138F89EDB /* ProgressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A5352FCD6387460138AD09 /* ProgressService.swift */; };
+		F21F058AFA056925E95A5512 /* ResultOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575CDE1CDF2A3EDF622640C /* ResultOverlayView.swift */; };
+		F32AA7C6E079EBFBB551C56A /* AddBuildLogEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8860BDE5A971D1297812E4 /* AddBuildLogEntryView.swift */; };
+		F979A9B5FAFEE68213712043 /* AcademyHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85F7D8C2427E9B89B4457B /* AcademyHomeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49D0339D3EDAE1BBD8E1BC25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52690BB0D9EBE9E13BD165CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83429872DE5353ED1C58AD13;
+			remoteInfo = ForgeCode;
+		};
+		A22E24D89E178E1A466E3C09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52690BB0D9EBE9E13BD165CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83429872DE5353ED1C58AD13;
+			remoteInfo = ForgeCode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		067E7FD6BAC3100D6E8F3218 /* FieldPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldPreviewView.swift; sourceTree = "<group>"; };
+		0C6BA5229EDA511E3FBF0036 /* LessonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonStore.swift; sourceTree = "<group>"; };
+		11BA8AA3A194D8E03AEFDA85 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		1258FFBB7D0BF6D98599E4D3 /* BuildLogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildLogListView.swift; sourceTree = "<group>"; };
+		1EC657E39A71F7D7DD6DDEF4 /* RoboticsFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsFieldView.swift; sourceTree = "<group>"; };
+		210C46202D8F63E3012D98B8 /* Field3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field3DView.swift; sourceTree = "<group>"; };
+		22A5352FCD6387460138AD09 /* ProgressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressService.swift; sourceTree = "<group>"; };
+		26198E7F8A1BF8EC28BA82C7 /* AcademyModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyModule.swift; sourceTree = "<group>"; };
+		26C162DE5D447B90FEE318D7 /* ChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesView.swift; sourceTree = "<group>"; };
+		3234EE250833E9D200F43C33 /* BuildLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildLogEntry.swift; sourceTree = "<group>"; };
+		346AF18A182B88441C380C1F /* GameArt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GameArt; path = Resources/GameArt; sourceTree = SOURCE_ROOT; };
+		358000CF4F87A740FFEBC26E /* SolveScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveScreenshots.swift; sourceTree = "<group>"; };
+		3D234186502FB9CB430D61DE /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		3D2E607E247F9426707EF6F2 /* RoboticsBlockUnlocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsBlockUnlocks.swift; sourceTree = "<group>"; };
+		49FA648AB2D9B0D8B9DD7020 /* RoboticsHeroAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsHeroAssets.swift; sourceTree = "<group>"; };
+		4A04F496629D3584D04A1772 /* RoboticsMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsMissionView.swift; sourceTree = "<group>"; };
+		4EEF70A127786DF61B8C25AB /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
+		529D3BA9C6C8FA61080BCC82 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		583C54DF22808807C7D34759 /* ForgeCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgeCodeApp.swift; sourceTree = "<group>"; };
+		5C8A258E986C99ABBA3C9774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5D8860BDE5A971D1297812E4 /* AddBuildLogEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuildLogEntryView.swift; sourceTree = "<group>"; };
+		630929C88E028AE7E0211A8D /* SimulatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorViewModel.swift; sourceTree = "<group>"; };
+		63D0BF79F2DAD74C4EAA16D9 /* RoboticsFieldScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsFieldScene.swift; sourceTree = "<group>"; };
+		695E1C950D742AA64834596C /* Community service app */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Community service app"; path = .; sourceTree = SOURCE_ROOT; };
+		6DD0142DBD435B94D5986D13 /* ChallengeRoboticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRoboticsViewModel.swift; sourceTree = "<group>"; };
+		72A8E882D9D4255A25DC052E /* RoboticsMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsMatchView.swift; sourceTree = "<group>"; };
+		7575CDE1CDF2A3EDF622640C /* ResultOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOverlayView.swift; sourceTree = "<group>"; };
+		7667483B13F655848C8EF0F3 /* RoboticsHeroModels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RoboticsHeroModels; path = Resources/RoboticsHeroModels; sourceTree = SOURCE_ROOT; };
+		7D9A2CE8CE4CDD3D6EF14CF3 /* RoboticsMatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsMatchListView.swift; sourceTree = "<group>"; };
+		85F2CE297AA187E511F3B2D9 /* ForgeCode.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ForgeCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B99A3F21E31BEAF2FF84A7D /* ForgeCodeUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ForgeCodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90442B741379851A3366FA57 /* Kid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kid.swift; sourceTree = "<group>"; };
+		937F396402719419125F9B26 /* ChallengeJuice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeJuice.swift; sourceTree = "<group>"; };
+		96898A1542E25452A3401A66 /* BlockProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockProgramView.swift; sourceTree = "<group>"; };
+		985BA0F773958ACF5F915352 /* ChallengeBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeBoardView.swift; sourceTree = "<group>"; };
+		9B85DC00628AC5BD1697C2DF /* ProgressServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressServiceTests.swift; sourceTree = "<group>"; };
+		A491B4ACC938AADC9CCA59CF /* RoboticsMissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsMissionViewModel.swift; sourceTree = "<group>"; };
+		A6C1C1CEF798E3591C653913 /* ChallengeRoboticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRoboticsView.swift; sourceTree = "<group>"; };
+		B210034B36B269657E57F4AF /* WarehouseMechShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseMechShot.swift; sourceTree = "<group>"; };
+		BC63C0480548E052CC7744A0 /* TourScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourScreenshots.swift; sourceTree = "<group>"; };
+		BC85F7D8C2427E9B89B4457B /* AcademyHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyHomeView.swift; sourceTree = "<group>"; };
+		BF860B6508ABC054142E5ACE /* FieldShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldShot.swift; sourceTree = "<group>"; };
+		C02B8DC6A16F1C59A277954E /* RoboticsMatchShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsMatchShot.swift; sourceTree = "<group>"; };
+		C2239E933DD61D4EA64C8014 /* ChallengesTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesTabTests.swift; sourceTree = "<group>"; };
+		C6759193F2005ED1608E5B1F /* LessonMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonMapView.swift; sourceTree = "<group>"; };
+		D1291E047BBA75635EF2CC5A /* ForgeBlockKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgeBlockKit.swift; sourceTree = "<group>"; };
+		D435FE79EF8A9D2A75DCFD5D /* GridBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridBoardView.swift; sourceTree = "<group>"; };
+		D72E1AE19F2F1BA87D66A150 /* RoboticsMatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsMatchViewModel.swift; sourceTree = "<group>"; };
+		DE7E0C215D20847D73FC5728 /* CodeEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEditorView.swift; sourceTree = "<group>"; };
+		E5AB34F4FD91590D249CD529 /* BlockPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockPaletteView.swift; sourceTree = "<group>"; };
+		EACB8E6182D0BB619B570DEA /* RoboticsBlocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsBlocks.swift; sourceTree = "<group>"; };
+		ED9AEEA3DAB1B06CB554C578 /* RoboticsMissionShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsMissionShot.swift; sourceTree = "<group>"; };
+		F5C74FD4A73C85FBB8D27CD3 /* RoboticsBlockEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoboticsBlockEditorView.swift; sourceTree = "<group>"; };
+		F822D493B835263E4A25F9D7 /* BadgeShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeShelfView.swift; sourceTree = "<group>"; };
+		FCBA29F4EF039258DA782994 /* ForgeCodeTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ForgeCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44A8EFE9AB6BBA937BE7763D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B6B08641E26E9B1607A52D /* ForgeCodeEngine in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30660FB072D0F3C55044FD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F43802ECF37908F3F7C8CB4 /* ForgeCodeEngine in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C8B4ACBE5BA8826ADD70A85 /* Academy */ = {
+			isa = PBXGroup;
+			children = (
+				BC85F7D8C2427E9B89B4457B /* AcademyHomeView.swift */,
+				26198E7F8A1BF8EC28BA82C7 /* AcademyModule.swift */,
+			);
+			path = Academy;
+			sourceTree = "<group>";
+		};
+		26B7504487099C4B24C201A4 /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				210C46202D8F63E3012D98B8 /* Field3DView.swift */,
+				067E7FD6BAC3100D6E8F3218 /* FieldPreviewView.swift */,
+			);
+			path = Field;
+			sourceTree = "<group>";
+		};
+		3B626607874C531FD638F51E /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				985BA0F773958ACF5F915352 /* ChallengeBoardView.swift */,
+				937F396402719419125F9B26 /* ChallengeJuice.swift */,
+				A6C1C1CEF798E3591C653913 /* ChallengeRoboticsView.swift */,
+				6DD0142DBD435B94D5986D13 /* ChallengeRoboticsViewModel.swift */,
+				26C162DE5D447B90FEE318D7 /* ChallengesView.swift */,
+				3D2E607E247F9426707EF6F2 /* RoboticsBlockUnlocks.swift */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
+		3C3CB0D856FAD2F969BEAFE1 /* AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B85DC00628AC5BD1697C2DF /* ProgressServiceTests.swift */,
+			);
+			path = AppTests;
+			sourceTree = "<group>";
+		};
+		3CE137B6707091A94770FDFE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				583C54DF22808807C7D34759 /* ForgeCodeApp.swift */,
+				5C8A258E986C99ABBA3C9774 /* Info.plist */,
+				529D3BA9C6C8FA61080BCC82 /* RootView.swift */,
+				D53E4DF277DF3375BFEAC959 /* Features */,
+				61E8FAF02896266D4240058D /* Models */,
+				8DF28D5BC35D17CC9C032C9E /* Persistence */,
+				455D4D012310E23A5408DED5 /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		455D4D012310E23A5408DED5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		54CFC0FEC7E204B7182E8106 /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				F822D493B835263E4A25F9D7 /* BadgeShelfView.swift */,
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
+		61E8FAF02896266D4240058D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				11BA8AA3A194D8E03AEFDA85 /* Badge.swift */,
+				3234EE250833E9D200F43C33 /* BuildLogEntry.swift */,
+				90442B741379851A3366FA57 /* Kid.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8DF28D5BC35D17CC9C032C9E /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BA5229EDA511E3FBF0036 /* LessonStore.swift */,
+				22A5352FCD6387460138AD09 /* ProgressService.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		927ABA6CE76E5F75283B7E35 /* Robotics */ = {
+			isa = PBXGroup;
+			children = (
+				F5C74FD4A73C85FBB8D27CD3 /* RoboticsBlockEditorView.swift */,
+				EACB8E6182D0BB619B570DEA /* RoboticsBlocks.swift */,
+				63D0BF79F2DAD74C4EAA16D9 /* RoboticsFieldScene.swift */,
+				1EC657E39A71F7D7DD6DDEF4 /* RoboticsFieldView.swift */,
+				49FA648AB2D9B0D8B9DD7020 /* RoboticsHeroAssets.swift */,
+				7D9A2CE8CE4CDD3D6EF14CF3 /* RoboticsMatchListView.swift */,
+				72A8E882D9D4255A25DC052E /* RoboticsMatchView.swift */,
+				D72E1AE19F2F1BA87D66A150 /* RoboticsMatchViewModel.swift */,
+				4A04F496629D3584D04A1772 /* RoboticsMissionView.swift */,
+				A491B4ACC938AADC9CCA59CF /* RoboticsMissionViewModel.swift */,
+			);
+			path = Robotics;
+			sourceTree = "<group>";
+		};
+		B2FF2BF72BEA4595292D080A /* LessonMap */ = {
+			isa = PBXGroup;
+			children = (
+				C6759193F2005ED1608E5B1F /* LessonMapView.swift */,
+			);
+			path = LessonMap;
+			sourceTree = "<group>";
+		};
+		CBA8A02450D995AB5C99743B /* Placeholders */ = {
+			isa = PBXGroup;
+			children = (
+				3D234186502FB9CB430D61DE /* PlaceholderView.swift */,
+			);
+			path = Placeholders;
+			sourceTree = "<group>";
+		};
+		D53E4DF277DF3375BFEAC959 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1C8B4ACBE5BA8826ADD70A85 /* Academy */,
+				54CFC0FEC7E204B7182E8106 /* Badges */,
+				F840E848C7A1D3097D28920D /* BuildLog */,
+				3B626607874C531FD638F51E /* Challenges */,
+				26B7504487099C4B24C201A4 /* Field */,
+				D798A40D4890326CD3AC5592 /* Lesson */,
+				B2FF2BF72BEA4595292D080A /* LessonMap */,
+				CBA8A02450D995AB5C99743B /* Placeholders */,
+				927ABA6CE76E5F75283B7E35 /* Robotics */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		D60116F25320E46C1C440F9C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				695E1C950D742AA64834596C /* Community service app */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		D798A40D4890326CD3AC5592 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				E5AB34F4FD91590D249CD529 /* BlockPaletteView.swift */,
+				96898A1542E25452A3401A66 /* BlockProgramView.swift */,
+				DE7E0C215D20847D73FC5728 /* CodeEditorView.swift */,
+				D1291E047BBA75635EF2CC5A /* ForgeBlockKit.swift */,
+				D435FE79EF8A9D2A75DCFD5D /* GridBoardView.swift */,
+				4EEF70A127786DF61B8C25AB /* LessonView.swift */,
+				7575CDE1CDF2A3EDF622640C /* ResultOverlayView.swift */,
+				630929C88E028AE7E0211A8D /* SimulatorViewModel.swift */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
+		E1C4CBB6B6EE8026B25BAC4C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				346AF18A182B88441C380C1F /* GameArt */,
+				7667483B13F655848C8EF0F3 /* RoboticsHeroModels */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED0B2D93A18F4AF7605AD660 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85F2CE297AA187E511F3B2D9 /* ForgeCode.app */,
+				FCBA29F4EF039258DA782994 /* ForgeCodeTests.xctest */,
+				8B99A3F21E31BEAF2FF84A7D /* ForgeCodeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F12A78AA429229A0857D2CFB = {
+			isa = PBXGroup;
+			children = (
+				3CE137B6707091A94770FDFE /* App */,
+				3C3CB0D856FAD2F969BEAFE1 /* AppTests */,
+				FB5FD26C93E616BD0D00C5FC /* AppUITests */,
+				D60116F25320E46C1C440F9C /* Packages */,
+				E1C4CBB6B6EE8026B25BAC4C /* Resources */,
+				ED0B2D93A18F4AF7605AD660 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F840E848C7A1D3097D28920D /* BuildLog */ = {
+			isa = PBXGroup;
+			children = (
+				5D8860BDE5A971D1297812E4 /* AddBuildLogEntryView.swift */,
+				1258FFBB7D0BF6D98599E4D3 /* BuildLogListView.swift */,
+			);
+			path = BuildLog;
+			sourceTree = "<group>";
+		};
+		FB5FD26C93E616BD0D00C5FC /* AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C2239E933DD61D4EA64C8014 /* ChallengesTabTests.swift */,
+				BF860B6508ABC054142E5ACE /* FieldShot.swift */,
+				C02B8DC6A16F1C59A277954E /* RoboticsMatchShot.swift */,
+				ED9AEEA3DAB1B06CB554C578 /* RoboticsMissionShot.swift */,
+				358000CF4F87A740FFEBC26E /* SolveScreenshots.swift */,
+				BC63C0480548E052CC7744A0 /* TourScreenshots.swift */,
+				B210034B36B269657E57F4AF /* WarehouseMechShot.swift */,
+			);
+			path = AppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C39FEA02D2673B1953C22A1 /* ForgeCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B14DCC8E9138F59D9D72BC2A /* Build configuration list for PBXNativeTarget "ForgeCodeTests" */;
+			buildPhases = (
+				EC004ADE6AEC8F580BCBDF3B /* Sources */,
+				44A8EFE9AB6BBA937BE7763D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB582A1A2C5DE9D17EBDD11E /* PBXTargetDependency */,
+			);
+			name = ForgeCodeTests;
+			packageProductDependencies = (
+				461228B8190A5D367530D9B2 /* ForgeCodeEngine */,
+			);
+			productName = ForgeCodeTests;
+			productReference = FCBA29F4EF039258DA782994 /* ForgeCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		83429872DE5353ED1C58AD13 /* ForgeCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98AF1831E81AC2326361B4C8 /* Build configuration list for PBXNativeTarget "ForgeCode" */;
+			buildPhases = (
+				C62F3FE8D34F5C154D6F68ED /* Sources */,
+				1D7F2B2280C95C191BD94EE2 /* Resources */,
+				C30660FB072D0F3C55044FD4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ForgeCode;
+			packageProductDependencies = (
+				A18FE7943A54FE1366157989 /* ForgeCodeEngine */,
+			);
+			productName = ForgeCode;
+			productReference = 85F2CE297AA187E511F3B2D9 /* ForgeCode.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D52A1A113D34D53B7331C62B /* ForgeCodeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6D5895ACA1728169607B419 /* Build configuration list for PBXNativeTarget "ForgeCodeUITests" */;
+			buildPhases = (
+				C21C1BA0250B02E1F0287958 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9780B090C3D95061F595A41 /* PBXTargetDependency */,
+			);
+			name = ForgeCodeUITests;
+			packageProductDependencies = (
+			);
+			productName = ForgeCodeUITests;
+			productReference = 8B99A3F21E31BEAF2FF84A7D /* ForgeCodeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52690BB0D9EBE9E13BD165CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					83429872DE5353ED1C58AD13 = {
+						DevelopmentTeam = XA6CT62Z2N;
+						ProvisioningStyle = Automatic;
+					};
+					D52A1A113D34D53B7331C62B = {
+						TestTargetID = 83429872DE5353ED1C58AD13;
+					};
+				};
+			};
+			buildConfigurationList = 9C0D044C3371AB5BD61B601D /* Build configuration list for PBXProject "ForgeCode" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F12A78AA429229A0857D2CFB;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				291A8EE1C10895899AC227C7 /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = ED0B2D93A18F4AF7605AD660 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83429872DE5353ED1C58AD13 /* ForgeCode */,
+				3C39FEA02D2673B1953C22A1 /* ForgeCodeTests */,
+				D52A1A113D34D53B7331C62B /* ForgeCodeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D7F2B2280C95C191BD94EE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F3668925DE9FD70EC52B6DB /* GameArt in Resources */,
+				440333E841284DD3543884AF /* RoboticsHeroModels in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C21C1BA0250B02E1F0287958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92728381A65E57638E298CD7 /* ChallengesTabTests.swift in Sources */,
+				D40C2E79757CF804293CAEE9 /* FieldShot.swift in Sources */,
+				750B90ADD903DC5AE45E256D /* RoboticsMatchShot.swift in Sources */,
+				C8F30F091AE5D57B7894854D /* RoboticsMissionShot.swift in Sources */,
+				39275BE4F8F9E257EEB800AB /* SolveScreenshots.swift in Sources */,
+				BDD26B42294F3F78AB3A8265 /* TourScreenshots.swift in Sources */,
+				0B1CDB1701715A9B27B818FB /* WarehouseMechShot.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C62F3FE8D34F5C154D6F68ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F979A9B5FAFEE68213712043 /* AcademyHomeView.swift in Sources */,
+				8130D8BD2D909A0AE4469101 /* AcademyModule.swift in Sources */,
+				F32AA7C6E079EBFBB551C56A /* AddBuildLogEntryView.swift in Sources */,
+				625BA079D7E3998D6374E7B9 /* Badge.swift in Sources */,
+				B1A7A277B3093A88DE8F495A /* BadgeShelfView.swift in Sources */,
+				2F9BD7EFCF982BC0651A65E6 /* BlockPaletteView.swift in Sources */,
+				987C3965505C55B77643EB37 /* BlockProgramView.swift in Sources */,
+				3F56031A5C0EA844C3E71F47 /* BuildLogEntry.swift in Sources */,
+				152BCACE5E4FE9EFAE19268C /* BuildLogListView.swift in Sources */,
+				CE159FC1FF2CC560AA9EDA3C /* ChallengeBoardView.swift in Sources */,
+				8A78DDDEF0B4178F402951DC /* ChallengeJuice.swift in Sources */,
+				9373274214FF1BAB9FCD1D67 /* ChallengeRoboticsView.swift in Sources */,
+				170FC2AEE1FC590742C285B4 /* ChallengeRoboticsViewModel.swift in Sources */,
+				BB72172AEC0F61E39C56DFE2 /* ChallengesView.swift in Sources */,
+				5F4496D59DB9F8063B8B1A3F /* CodeEditorView.swift in Sources */,
+				6679DC0CE3AF83925BE3B265 /* Field3DView.swift in Sources */,
+				5107A296FAD39C28E70863D7 /* FieldPreviewView.swift in Sources */,
+				8092D661596622BC04D781FE /* ForgeBlockKit.swift in Sources */,
+				84BE905C37FE6EF89D55FAB0 /* ForgeCodeApp.swift in Sources */,
+				5E634591E00A77C5EBC16F18 /* GridBoardView.swift in Sources */,
+				70C2CCA2D1DFB3C3BBCBE12A /* Kid.swift in Sources */,
+				7827CFFFB160C13792EA7FF7 /* LessonMapView.swift in Sources */,
+				E138682B9C7AACAFC4BB7468 /* LessonStore.swift in Sources */,
+				68F57459DAE35B82AAD0AFEF /* LessonView.swift in Sources */,
+				934632D16587A5D804F34817 /* PlaceholderView.swift in Sources */,
+				EF193345E27FDC3138F89EDB /* ProgressService.swift in Sources */,
+				F21F058AFA056925E95A5512 /* ResultOverlayView.swift in Sources */,
+				010980031A7CC135FC97C9E7 /* RoboticsBlockEditorView.swift in Sources */,
+				19808966844580938FFB51DE /* RoboticsBlockUnlocks.swift in Sources */,
+				8DB75FB5B88BC4AF827B1B98 /* RoboticsBlocks.swift in Sources */,
+				48F61D17427EDBBAB62D480E /* RoboticsFieldScene.swift in Sources */,
+				5C4D40744FEC2D3870F8DD65 /* RoboticsFieldView.swift in Sources */,
+				7EF8F7C666D84A50962653A1 /* RoboticsHeroAssets.swift in Sources */,
+				221C1349493D9487F125118E /* RoboticsMatchListView.swift in Sources */,
+				82B157A70FEFE10B90316480 /* RoboticsMatchView.swift in Sources */,
+				D9553E3729A0D805AA7AD211 /* RoboticsMatchViewModel.swift in Sources */,
+				4C76C44DBD73086BECA6C2C8 /* RoboticsMissionView.swift in Sources */,
+				28FD42E50F01975F2E1A1DB1 /* RoboticsMissionViewModel.swift in Sources */,
+				C73C0AC57FA7F16833DE5A6D /* RootView.swift in Sources */,
+				7DBD205550B27BA58D43D95E /* SimulatorViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC004ADE6AEC8F580BCBDF3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B949C4FE3DFC275734493246 /* ProgressServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9780B090C3D95061F595A41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83429872DE5353ED1C58AD13 /* ForgeCode */;
+			targetProxy = A22E24D89E178E1A466E3C09 /* PBXContainerItemProxy */;
+		};
+		BB582A1A2C5DE9D17EBDD11E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83429872DE5353ED1C58AD13 /* ForgeCode */;
+			targetProxy = 49D0339D3EDAE1BBD8E1BC25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		225D70A2B3223C9D576C5E23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.forgecode.app.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ForgeCode.app/ForgeCode";
+			};
+			name = Debug;
+		};
+		55A09FED2C01D00F689A5B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		64D7F11584D0BDC1CBE00113 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.forgecode.app.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ForgeCode.app/ForgeCode";
+			};
+			name = Release;
+		};
+		B6AC2E94489A8B5D410FA2C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = XA6CT62Z2N;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.forgecode.app;
+				PRODUCT_NAME = ForgeCode;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C0E1614516AF043FA593E785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XA6CT62Z2N;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.forgecode.app;
+				PRODUCT_NAME = ForgeCode;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		DA29CAD9DF5764A0812BD7FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.forgecode.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ForgeCode;
+			};
+			name = Debug;
+		};
+		FB1CFE935959B53C62404200 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FFC4E9144CB0352557B9D15E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.forgecode.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ForgeCode;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98AF1831E81AC2326361B4C8 /* Build configuration list for PBXNativeTarget "ForgeCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6AC2E94489A8B5D410FA2C9 /* Debug */,
+				C0E1614516AF043FA593E785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9C0D044C3371AB5BD61B601D /* Build configuration list for PBXProject "ForgeCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55A09FED2C01D00F689A5B3D /* Debug */,
+				FB1CFE935959B53C62404200 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B14DCC8E9138F59D9D72BC2A /* Build configuration list for PBXNativeTarget "ForgeCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225D70A2B3223C9D576C5E23 /* Debug */,
+				64D7F11584D0BDC1CBE00113 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E6D5895ACA1728169607B419 /* Build configuration list for PBXNativeTarget "ForgeCodeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA29CAD9DF5764A0812BD7FF /* Debug */,
+				FFC4E9144CB0352557B9D15E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		291A8EE1C10895899AC227C7 /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		461228B8190A5D367530D9B2 /* ForgeCodeEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ForgeCodeEngine;
+		};
+		A18FE7943A54FE1366157989 /* ForgeCodeEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ForgeCodeEngine;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 52690BB0D9EBE9E13BD165CB /* Project object */;
+}

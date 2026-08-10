@@ -1,0 +1,1464 @@
+[
+  {
+    "id": "mission_reach_goal",
+    "fieldId": "field_warehouse",
+    "title": "Navigate to Base",
+    "brief": "Get your robot to the goal zone in the centre of the warehouse floor.",
+    "difficulty": 1,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_reach_goal",
+        "kind": "reachZone",
+        "points": 10,
+        "description": "Reach the goal zone",
+        "targetZoneId": "goal_zone",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_fetch_red_crate",
+    "fieldId": "field_warehouse",
+    "title": "Fetch the Red Crate",
+    "brief": "The red crate needs to reach the red depot across the warehouse floor. Get it there.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_pickup_red",
+        "kind": "pickUpItem",
+        "points": 8,
+        "description": "Pick up the red crate",
+        "targetItemId": "crate_A",
+        "isRequired": true
+      },
+      {
+        "id": "obj_deposit_red",
+        "kind": "depositItemInZone",
+        "points": 10,
+        "description": "Deposit the red crate in the red depot",
+        "targetItemId": "crate_A",
+        "targetZoneId": "depot_red",
+        "isRequired": true
+      },
+      {
+        "id": "obj_arm_lower",
+        "kind": "armToAngle",
+        "points": 2,
+        "description": "Arm reaches the pickup position",
+        "targetAngle": 90,
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_full_run",
+    "fieldId": "field_warehouse",
+    "title": "Full Warehouse Run",
+    "brief": "A full warehouse shift: confirm the centre pad is red and get the red crate into the red depot. Score 20 points to pass the shift.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 20
+    },
+    "objectives": [
+      {
+        "id": "obj_detect_red",
+        "kind": "detectColorInZone",
+        "points": 8,
+        "description": "Confirm the centre pad is red",
+        "targetZoneId": "color_sensor_zone",
+        "expectedColor": "red",
+        "isRequired": false
+      },
+      {
+        "id": "obj_pickup_crate",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Pick up the red crate",
+        "targetItemId": "crate_A",
+        "isRequired": false
+      },
+      {
+        "id": "obj_deposit_crate",
+        "kind": "depositItemInZone",
+        "points": 12,
+        "description": "Deposit the crate in the red depot",
+        "targetItemId": "crate_A",
+        "targetZoneId": "depot_red",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_arm_handshake",
+    "fieldId": "field_warehouse",
+    "title": "Signal the Tower",
+    "brief": "The dock supervisor won't wave you onto the warehouse floor until your robot is in the check-in zone with its crane arm at the 45-degree all-clear position.",
+    "difficulty": 1,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_reach_checkin",
+        "kind": "reachZone",
+        "points": 6,
+        "description": "Finish in the check-in zone",
+        "targetZoneId": "goal_zone",
+        "isRequired": true
+      },
+      {
+        "id": "obj_arm_signal",
+        "kind": "armToAngle",
+        "points": 4,
+        "description": "Arm at the 45-degree all-clear position",
+        "targetAngle": 45,
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_green_barrel_quickwin",
+    "fieldId": "field_warehouse",
+    "title": "Green Barrel Express",
+    "brief": "The green barrel out in the east open area needs to reach the green depot in the west corner. Your first solo delivery \u2014 get it home.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_pickup_barrel1",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Pick up the green barrel",
+        "targetItemId": "barrel_1",
+        "isRequired": true
+      },
+      {
+        "id": "obj_deposit_barrel1",
+        "kind": "depositItemInZone",
+        "points": 10,
+        "description": "Deposit the green barrel in the green depot",
+        "targetItemId": "barrel_1",
+        "targetZoneId": "depot_green",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_color_scout",
+    "fieldId": "field_warehouse",
+    "title": "Color Scout",
+    "brief": "Headquarters needs proof of what colour the east checkpoint pad is \u2014 and the report only counts if your robot is back at home base when the run ends.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_detect_blue",
+        "kind": "detectColorInZone",
+        "points": 12,
+        "description": "Confirm the east checkpoint pad is blue",
+        "targetZoneId": "detection_east",
+        "expectedColor": "blue",
+        "isRequired": true
+      },
+      {
+        "id": "obj_return_home",
+        "kind": "reachZone",
+        "points": 8,
+        "description": "Finish the run inside the home base zone",
+        "targetZoneId": "home_base",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_corridor_courier",
+    "fieldId": "field_warehouse",
+    "title": "Corridor Courier",
+    "brief": "Crate C is stuck east of the pipe rack, and the direct route is blocked. Get it to the blue depot in the north-east corner. Bonus points for confirming the east checkpoint on the way.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_pickup_crate_c",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Pick up crate C from behind the pipe rack",
+        "targetItemId": "crate_C",
+        "isRequired": true
+      },
+      {
+        "id": "obj_deposit_crate_c",
+        "kind": "depositItemInZone",
+        "points": 15,
+        "description": "Deposit crate C in the blue depot",
+        "targetItemId": "crate_C",
+        "targetZoneId": "depot_blue",
+        "isRequired": true
+      },
+      {
+        "id": "obj_detect_blue_bonus",
+        "kind": "detectColorInZone",
+        "points": 5,
+        "description": "Bonus: confirm the east checkpoint pad is blue",
+        "targetZoneId": "detection_east",
+        "expectedColor": "blue",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_double_dispatch",
+    "fieldId": "field_warehouse",
+    "title": "Double Dispatch",
+    "brief": "Two crates need to reach their colour-matched depots: blue to the blue depot in the north-east, red to the red depot in the south-west. You can only carry one at a time \u2014 and the direct path to the blue crate is blocked. Wrong bin scores nothing.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_dd_pickup_b",
+        "kind": "pickUpItem",
+        "points": 7,
+        "description": "Pick up the blue crate",
+        "targetItemId": "crate_B",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dd_deposit_b",
+        "kind": "depositItemInZone",
+        "points": 10,
+        "description": "Deliver the blue crate to the blue depot",
+        "targetItemId": "crate_B",
+        "targetZoneId": "depot_blue",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dd_pickup_a",
+        "kind": "pickUpItem",
+        "points": 6,
+        "description": "Pick up the red crate",
+        "targetItemId": "crate_A",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dd_deposit_a",
+        "kind": "depositItemInZone",
+        "points": 7,
+        "description": "Deliver the red crate to the red depot",
+        "targetItemId": "crate_A",
+        "targetZoneId": "depot_red",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_shelf_inspection",
+    "fieldId": "field_warehouse",
+    "title": "Shelf Inspection",
+    "brief": "The manager wants your robot parked at the inspection standoff in front of shelf 1 \u2014 close, but never touching \u2014 with the arm in the inspection position. Sloppy stopping fails the inspection.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_si_standoff",
+        "kind": "reachPose",
+        "points": 18,
+        "description": "Stop within 15 cm of the shelf-1 standoff point (120, 110)",
+        "targetX": 120,
+        "targetY": 110,
+        "toleranceCm": 15,
+        "isRequired": true
+      },
+      {
+        "id": "obj_si_arm",
+        "kind": "armToAngle",
+        "points": 12,
+        "description": "Crane arm in inspection position (90\u00b0)",
+        "targetAngle": 90,
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_track_finder",
+    "fieldId": "field_warehouse",
+    "title": "Track Finder",
+    "brief": "Crate A needs to reach the red depot, and headquarters wants confirmation that your robot passed the red checkpoint pad near the centre. Energy for only 45 moves \u2014 plan a route you can trust.",
+    "difficulty": 4,
+    "maxActions": 45,
+    "successRule": {
+      "type": "allRequiredAndScore",
+      "value": 26
+    },
+    "objectives": [
+      {
+        "id": "obj_tf_scan",
+        "kind": "detectColorInZone",
+        "points": 10,
+        "description": "Confirm the centre checkpoint pad is red",
+        "targetZoneId": "color_sensor_zone",
+        "expectedColor": "red",
+        "isRequired": true
+      },
+      {
+        "id": "obj_tf_pickup",
+        "kind": "pickUpItem",
+        "points": 18,
+        "description": "Pick up crate A",
+        "targetItemId": "crate_A",
+        "isRequired": false
+      },
+      {
+        "id": "obj_tf_deposit",
+        "kind": "depositItemInZone",
+        "points": 12,
+        "description": "Deliver crate A to the red depot",
+        "targetItemId": "crate_A",
+        "targetZoneId": "depot_red",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_gap_gambit",
+    "fieldId": "field_warehouse",
+    "title": "Gap Gambit",
+    "brief": "The power cell sits deep in the narrow gap between the two shelves \u2014 getting in and back out is the hard part. Deliver it to the blue depot. Return to home base for a bonus. Energy for 35 moves.",
+    "difficulty": 4,
+    "maxActions": 35,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 28
+    },
+    "objectives": [
+      {
+        "id": "obj_gg_pickup",
+        "kind": "pickUpItem",
+        "points": 18,
+        "description": "Retrieve the power cell from the gap",
+        "targetItemId": "cell_1",
+        "isRequired": false
+      },
+      {
+        "id": "obj_gg_deposit",
+        "kind": "depositItemInZone",
+        "points": 15,
+        "description": "Deposit the power cell in the blue depot",
+        "targetItemId": "cell_1",
+        "targetZoneId": "depot_blue",
+        "isRequired": false
+      },
+      {
+        "id": "obj_gg_home",
+        "kind": "reachZone",
+        "points": 7,
+        "description": "Return to home base after the drop-off",
+        "targetZoneId": "home_base",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_night_shift",
+    "fieldId": "field_warehouse",
+    "title": "Night Shift",
+    "brief": "The floor lights are off and the dock crew needs the red barrel from the far south-east pocket delivered to the green bay in the west. Get it there and make it back to base. Score 26 points to clear the shift. Energy for 40 moves.",
+    "difficulty": 4,
+    "maxActions": 40,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 26
+    },
+    "objectives": [
+      {
+        "id": "obj_ns_pickup",
+        "kind": "pickUpItem",
+        "points": 16,
+        "description": "Retrieve the red barrel from the south-east pocket",
+        "targetItemId": "barrel_3",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ns_deposit",
+        "kind": "depositItemInZone",
+        "points": 18,
+        "description": "Deliver the red barrel to the green bay",
+        "targetItemId": "barrel_3",
+        "targetZoneId": "depot_green",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ns_home",
+        "kind": "reachZone",
+        "points": 6,
+        "description": "Finish the shift inside home base",
+        "targetZoneId": "home_base",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_clear_the_lane",
+    "fieldId": "field_warehouse",
+    "title": "Clear the Lane",
+    "brief": "The blue crate is sitting in the lane your robot needs to run. Sort it into the blue depot, then fetch the red crate and get it to the red depot. Score 26 points to keep the warehouse moving. Energy for 40 moves.",
+    "difficulty": 4,
+    "maxActions": 40,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 26
+    },
+    "objectives": [
+      {
+        "id": "obj_cl_relocate",
+        "kind": "depositItemInZone",
+        "points": 10,
+        "description": "Get the blue crate into the blue depot",
+        "targetItemId": "crate_B",
+        "targetZoneId": "depot_blue",
+        "isRequired": false
+      },
+      {
+        "id": "obj_cl_pickup_a",
+        "kind": "pickUpItem",
+        "points": 12,
+        "description": "Pick up the red crate",
+        "targetItemId": "crate_A",
+        "isRequired": false
+      },
+      {
+        "id": "obj_cl_deposit_a",
+        "kind": "depositItemInZone",
+        "points": 12,
+        "description": "Deliver the red crate to the red depot",
+        "targetItemId": "crate_A",
+        "targetZoneId": "depot_red",
+        "isRequired": false
+      },
+      {
+        "id": "obj_cl_home",
+        "kind": "reachZone",
+        "points": 6,
+        "description": "Finish inside home base",
+        "targetZoneId": "home_base",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_triple_manifest",
+    "fieldId": "field_warehouse",
+    "title": "Triple Manifest",
+    "brief": "Three jobs on the manifest \u2014 pick the order that works for you. The red barrel in the south-east pocket needs the green bay. The red crate needs the red depot. The east checkpoint needs a colour report. Headquarters needs your robot back at home base. Score 33 points to stamp the manifest complete. Energy for 42 moves.",
+    "difficulty": 5,
+    "maxActions": 42,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 33
+    },
+    "objectives": [
+      {
+        "id": "obj_tm_pickup_b3",
+        "kind": "pickUpItem",
+        "points": 12,
+        "description": "Pick up the red barrel from the south-east pocket",
+        "targetItemId": "barrel_3",
+        "isRequired": false
+      },
+      {
+        "id": "obj_tm_deposit_b3",
+        "kind": "depositItemInZone",
+        "points": 14,
+        "description": "Deliver the red barrel to the green bay",
+        "targetItemId": "barrel_3",
+        "targetZoneId": "depot_green",
+        "isRequired": false
+      },
+      {
+        "id": "obj_tm_pickup_a",
+        "kind": "pickUpItem",
+        "points": 8,
+        "description": "Pick up the red crate",
+        "targetItemId": "crate_A",
+        "isRequired": false
+      },
+      {
+        "id": "obj_tm_deposit_a",
+        "kind": "depositItemInZone",
+        "points": 7,
+        "description": "Deliver the red crate to the red depot",
+        "targetItemId": "crate_A",
+        "targetZoneId": "depot_red",
+        "isRequired": false
+      },
+      {
+        "id": "obj_tm_detect",
+        "kind": "detectColorInZone",
+        "points": 5,
+        "description": "Confirm the east checkpoint pad is blue",
+        "targetZoneId": "detection_east",
+        "expectedColor": "blue",
+        "isRequired": false
+      },
+      {
+        "id": "obj_tm_home",
+        "kind": "reachZone",
+        "points": 4,
+        "description": "Finish inside home base",
+        "targetZoneId": "home_base",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_grand_circuit",
+    "fieldId": "field_warehouse",
+    "title": "Grand Circuit",
+    "brief": "The season finale \u2014 prove you can do it all. Confirm the centre pad, collect the crate from the east side, deliver it to the blue depot, and choose your finish: home base or the shelf standoff. Score 33 points to complete the circuit. Energy for 25 moves.",
+    "difficulty": 5,
+    "maxActions": 25,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 33
+    },
+    "objectives": [
+      {
+        "id": "obj_gc_detect",
+        "kind": "detectColorInZone",
+        "points": 8,
+        "description": "Confirm the centre pad is red",
+        "targetZoneId": "color_sensor_zone",
+        "expectedColor": "red",
+        "isRequired": false
+      },
+      {
+        "id": "obj_gc_pickup",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Collect the blue crate from the east side",
+        "targetItemId": "crate_C",
+        "isRequired": false
+      },
+      {
+        "id": "obj_gc_deposit",
+        "kind": "depositItemInZone",
+        "points": 12,
+        "description": "Deliver the blue crate to the blue depot",
+        "targetItemId": "crate_C",
+        "targetZoneId": "depot_blue",
+        "isRequired": false
+      },
+      {
+        "id": "obj_gc_precision",
+        "kind": "reachPose",
+        "points": 10,
+        "description": "Finish within 12 cm of the shelf standoff point (120, 110)",
+        "targetX": 120,
+        "targetY": 110,
+        "toleranceCm": 12,
+        "isRequired": false
+      },
+      {
+        "id": "obj_gc_home",
+        "kind": "reachZone",
+        "points": 10,
+        "description": "Finish inside home base",
+        "targetZoneId": "home_base",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_first_traverse",
+    "fieldId": "field_arena",
+    "title": "First Traverse",
+    "brief": "Mission control has cleared the launch pad for your rover's first long run. Get it there \u2014 the whole outpost is watching.",
+    "difficulty": 1,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_ft_launch",
+        "kind": "reachZone",
+        "points": 7,
+        "description": "Finish inside the launch pad",
+        "targetZoneId": "launch_pad",
+        "isRequired": true
+      },
+      {
+        "id": "obj_ft_signal",
+        "kind": "armToAngle",
+        "points": 3,
+        "description": "Arm at the 45-degree arrival signal position",
+        "targetAngle": 45,
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_beacon_salute",
+    "fieldId": "field_arena",
+    "title": "Beacon Salute",
+    "brief": "The south-west beacon is asking for a check-in. Get your rover to the beacon area and raise the signal arm \u2014 control needs to see it.",
+    "difficulty": 1,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_bs_reach",
+        "kind": "reachZone",
+        "points": 6,
+        "description": "Finish inside the beacon pad",
+        "targetZoneId": "beacon_pad",
+        "isRequired": true
+      },
+      {
+        "id": "obj_bs_arm",
+        "kind": "armToAngle",
+        "points": 4,
+        "description": "Arm at the 60-degree check-in position",
+        "targetAngle": 60,
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_first_sample",
+    "fieldId": "field_arena",
+    "title": "First Sample",
+    "brief": "Rock Alpha in the northern field is the first sample the science team needs. Get it into Sample Bay \u2014 mind the terrain between here and there.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_fsa_pickup",
+        "kind": "pickUpItem",
+        "points": 8,
+        "description": "Pick up Rock Alpha",
+        "targetItemId": "rock_alpha",
+        "isRequired": true
+      },
+      {
+        "id": "obj_fsa_deposit",
+        "kind": "depositItemInZone",
+        "points": 12,
+        "description": "Deliver Rock Alpha to Sample Bay",
+        "targetItemId": "rock_alpha",
+        "targetZoneId": "bay_alpha",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_solar_checkin",
+    "fieldId": "field_arena",
+    "title": "Solar Check-In",
+    "brief": "The solar array in the east sector needs a status report. Head out there, read what colour the panel is, then get back to base camp \u2014 the report only counts if you make it home.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_sc_detect",
+        "kind": "detectColorInZone",
+        "points": 12,
+        "description": "Read the solar panel colour from inside the solar pad",
+        "targetZoneId": "solar_pad",
+        "expectedColor": "yellow",
+        "isRequired": true
+      },
+      {
+        "id": "obj_sc_base",
+        "kind": "reachZone",
+        "points": 8,
+        "description": "Return to base camp before the run ends",
+        "targetZoneId": "base_camp",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_relay_delivery",
+    "fieldId": "field_arena",
+    "title": "Relay Delivery",
+    "brief": "The ion cell sitting in the east mid-field needs to reach the relay station on the west side. The boulder ring and crater rim sit between them \u2014 there is no straight shot across.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_rd_pickup",
+        "kind": "pickUpItem",
+        "points": 8,
+        "description": "Pick up the ion cell",
+        "targetItemId": "cell_ion",
+        "isRequired": true
+      },
+      {
+        "id": "obj_rd_deposit",
+        "kind": "depositItemInZone",
+        "points": 12,
+        "description": "Deliver the ion cell to the relay station",
+        "targetItemId": "cell_ion",
+        "targetZoneId": "relay_station",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_crater_detour",
+    "fieldId": "field_arena",
+    "title": "Crater Detour",
+    "brief": "Rock Gamma is stranded north of the crater rim, west of the boulder ring. Get it into Sample Bay. The direct path from the south is blocked \u2014 the crater rim cuts across the west corridor. Bonus points if the rover checks in at the beacon area on the way.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_cd_pickup",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Pick up Rock Gamma",
+        "targetItemId": "rock_gamma",
+        "isRequired": true
+      },
+      {
+        "id": "obj_cd_deposit",
+        "kind": "depositItemInZone",
+        "points": 15,
+        "description": "Deliver Rock Gamma to Sample Bay",
+        "targetItemId": "rock_gamma",
+        "targetZoneId": "bay_alpha",
+        "isRequired": true
+      },
+      {
+        "id": "obj_cd_beacon",
+        "kind": "detectColorInZone",
+        "points": 5,
+        "description": "Bonus: read the beacon area colour on the way",
+        "targetZoneId": "beacon_pad",
+        "expectedColor": "orange",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_deep_field_run",
+    "fieldId": "field_arena",
+    "title": "Deep Field Run",
+    "brief": "Core Zeta is waiting near the south-east corner. It belongs in the blue bay at the far north end of the field. The solar array is on the way \u2014 the science team needs a status reading before the core arrives.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_dfr_pickup",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Pick up Core Zeta",
+        "targetItemId": "core_zeta",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dfr_solar",
+        "kind": "detectColorInZone",
+        "points": 5,
+        "description": "Read the solar array status from inside the solar pad",
+        "targetZoneId": "solar_pad",
+        "expectedColor": "yellow",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dfr_deposit",
+        "kind": "depositItemInZone",
+        "points": 15,
+        "description": "Deliver Core Zeta to the blue bay",
+        "targetItemId": "core_zeta",
+        "targetZoneId": "bay_beta",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_ring_scout",
+    "fieldId": "field_arena",
+    "title": "Ring Scout",
+    "brief": "Before any rover enters the boulder ring, mission control needs a scout parked precisely at the east gap entrance with the survey arm raised to the 45-degree scan position. Stop close \u2014 but do not enter.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_rs_approach",
+        "kind": "reachPose",
+        "points": 20,
+        "description": "Stop within 14 cm of the gap entrance point (190, 162)",
+        "targetX": 190,
+        "targetY": 162,
+        "toleranceCm": 14,
+        "isRequired": true
+      },
+      {
+        "id": "obj_rs_survey",
+        "kind": "armToAngle",
+        "points": 10,
+        "description": "Arm at the 45-degree survey position",
+        "targetAngle": 45,
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_blue_courier",
+    "fieldId": "field_arena",
+    "title": "Blue Courier",
+    "brief": "Rock Beta has been sitting in the north-east field since the last survey. The science team has re-purposed the blue bay as the priority intake for high-value samples this run \u2014 get Rock Beta there. The solar array is on the way out; a reading from it earns extra credit.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_bc_pickup",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Pick up Rock Beta from the north-east field",
+        "targetItemId": "rock_beta",
+        "isRequired": true
+      },
+      {
+        "id": "obj_bc_deposit",
+        "kind": "depositItemInZone",
+        "points": 15,
+        "description": "Deliver Rock Beta to the blue bay",
+        "targetItemId": "rock_beta",
+        "targetZoneId": "bay_beta",
+        "isRequired": true
+      },
+      {
+        "id": "obj_bc_solar",
+        "kind": "detectColorInZone",
+        "points": 5,
+        "description": "Bonus: read the solar array status from the solar pad",
+        "targetZoneId": "solar_pad",
+        "expectedColor": "yellow",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_core_extraction",
+    "fieldId": "field_arena",
+    "title": "Core Extraction",
+    "brief": "Core Delta is locked inside the boulder ring. The lab intake on the west side needs it \u2014 but the only way in is the narrow gap on the ring's east face. Score 26 points to clear the extraction. Bonus points for making it back to base camp.",
+    "difficulty": 4,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 26
+    },
+    "objectives": [
+      {
+        "id": "obj_ce_pickup",
+        "kind": "pickUpItem",
+        "points": 20,
+        "description": "Retrieve Core Delta from inside the boulder ring",
+        "targetItemId": "core_delta",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ce_deposit",
+        "kind": "depositItemInZone",
+        "points": 15,
+        "description": "Deliver Core Delta to the lab intake",
+        "targetItemId": "core_delta",
+        "targetZoneId": "relay_station",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ce_home",
+        "kind": "reachZone",
+        "points": 5,
+        "description": "Return to base camp after the delivery",
+        "targetZoneId": "base_camp",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_rockslide_detour",
+    "fieldId": "field_arena",
+    "title": "Rockslide Detour",
+    "brief": "A rockslide has buried the main track under the boulder ring. Mission control still needs your rover at the launch pad, but reaching the pad alone is not enough to log the run \u2014 you will also need at least one confirmed status check-in from either the solar array or the beacon station. Score 26 points to complete the run. Your rover has energy for 30 moves.",
+    "difficulty": 4,
+    "maxActions": 30,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 26
+    },
+    "objectives": [
+      {
+        "id": "obj_rd2_launch",
+        "kind": "reachZone",
+        "points": 20,
+        "description": "Reach the launch pad",
+        "targetZoneId": "launch_pad",
+        "isRequired": false
+      },
+      {
+        "id": "obj_rd2_solar",
+        "kind": "detectColorInZone",
+        "points": 12,
+        "description": "Read the solar array status from the solar pad",
+        "targetZoneId": "solar_pad",
+        "expectedColor": "yellow",
+        "isRequired": false
+      },
+      {
+        "id": "obj_rd2_beacon",
+        "kind": "detectColorInZone",
+        "points": 8,
+        "description": "Read the beacon station colour from the beacon pad",
+        "targetZoneId": "beacon_pad",
+        "expectedColor": "orange",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_dark_side_survey",
+    "fieldId": "field_arena",
+    "title": "Dark Side Survey",
+    "brief": "Two check-in stations need readings: the beacon station in the south-west and the solar array in the south-east. Either one alone will not clear the threshold \u2014 together they comfortably do. Rock Omega near base camp is worth picking up if your route passes it. Your rover must return to base camp to file the report. Score 24 points with base camp confirmed. Your rover has energy for 35 moves.",
+    "difficulty": 4,
+    "maxActions": 35,
+    "successRule": {
+      "type": "allRequiredAndScore",
+      "value": 24
+    },
+    "objectives": [
+      {
+        "id": "obj_dss_beacon",
+        "kind": "detectColorInZone",
+        "points": 12,
+        "description": "Read the beacon station colour from inside the beacon pad",
+        "targetZoneId": "beacon_pad",
+        "expectedColor": "orange",
+        "isRequired": false
+      },
+      {
+        "id": "obj_dss_solar",
+        "kind": "detectColorInZone",
+        "points": 12,
+        "description": "Read the solar array status from inside the solar pad",
+        "targetZoneId": "solar_pad",
+        "expectedColor": "yellow",
+        "isRequired": false
+      },
+      {
+        "id": "obj_dss_rock",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Retrieve Rock Omega from the south-west corner",
+        "targetItemId": "rock_omega",
+        "isRequired": false
+      },
+      {
+        "id": "obj_dss_home",
+        "kind": "reachZone",
+        "points": 6,
+        "description": "Return to base camp to file the report",
+        "targetZoneId": "base_camp",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_precision_landing",
+    "fieldId": "field_arena",
+    "title": "Precision Landing",
+    "brief": "Mission control has painted a touchdown mark on the launch pad and configured the arm to a specific landing position. The rover must finish exactly on the mark with the arm set correctly \u2014 both are required to certify the landing. The solar array is lit on the way out; a confirmed reading earns extra credit. Score 26 points to certify the landing.",
+    "difficulty": 4,
+    "maxActions": 25,
+    "successRule": {
+      "type": "allRequiredAndScore",
+      "value": 26
+    },
+    "objectives": [
+      {
+        "id": "obj_pl_land",
+        "kind": "reachPose",
+        "points": 20,
+        "description": "Finish within 10 cm of the touchdown mark at (150, 270) on the launch pad",
+        "targetX": 150,
+        "targetY": 270,
+        "toleranceCm": 10,
+        "isRequired": false
+      },
+      {
+        "id": "obj_pl_arm",
+        "kind": "armToAngle",
+        "points": 10,
+        "description": "Arm at the 30-degree landing configuration",
+        "targetAngle": 30,
+        "isRequired": true
+      },
+      {
+        "id": "obj_pl_solar",
+        "kind": "detectColorInZone",
+        "points": 10,
+        "description": "Bonus: read the solar array status from the solar pad on the way",
+        "targetZoneId": "solar_pad",
+        "expectedColor": "yellow",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_sample_sort",
+    "fieldId": "field_arena",
+    "title": "Sample Sort",
+    "brief": "The labs need sorted deliveries \u2014 red samples belong in the red bay, blue cores belong in the blue bay. Rock Alpha and Core Zeta are both waiting for pickup. An ion cell can go to the relay station for extra points. Your rover can carry only one item at a time. Score 33 points to complete the sort. Your rover has energy for 40 moves.",
+    "difficulty": 5,
+    "maxActions": 40,
+    "successRule": {
+      "type": "scoreThreshold",
+      "value": 33
+    },
+    "objectives": [
+      {
+        "id": "obj_ss_pickup_a",
+        "kind": "pickUpItem",
+        "points": 7,
+        "description": "Pick up Rock Alpha (the red sample)",
+        "targetItemId": "rock_alpha",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ss_deposit_a",
+        "kind": "depositItemInZone",
+        "points": 10,
+        "description": "Deliver Rock Alpha to the red sample bay",
+        "targetItemId": "rock_alpha",
+        "targetZoneId": "bay_alpha",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ss_pickup_b",
+        "kind": "pickUpItem",
+        "points": 7,
+        "description": "Pick up Core Zeta (the blue core)",
+        "targetItemId": "core_zeta",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ss_deposit_b",
+        "kind": "depositItemInZone",
+        "points": 10,
+        "description": "Deliver Core Zeta to the blue bay",
+        "targetItemId": "core_zeta",
+        "targetZoneId": "bay_beta",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ss_pickup_c",
+        "kind": "pickUpItem",
+        "points": 6,
+        "description": "Bonus: pick up the ion cell",
+        "targetItemId": "cell_ion",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ss_deposit_c",
+        "kind": "depositItemInZone",
+        "points": 10,
+        "description": "Bonus: deliver the ion cell to the relay station",
+        "targetItemId": "cell_ion",
+        "targetZoneId": "relay_station",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "id": "mission_grand_expedition",
+    "fieldId": "field_arena",
+    "title": "Grand Expedition",
+    "brief": "The full Mars Outpost capstone. Core Delta is locked inside the boulder ring \u2014 extracting it and delivering it to the blue bay banks big points. The solar array and beacon station each have readings to collect. Rock Alpha is out in the field. Your rover must return to base camp to close out the run. Score 33 points to complete the expedition. Your rover has energy for 40 moves.",
+    "difficulty": 5,
+    "maxActions": 40,
+    "successRule": {
+      "type": "allRequiredAndScore",
+      "value": 33
+    },
+    "objectives": [
+      {
+        "id": "obj_ge_ring",
+        "kind": "pickUpItem",
+        "points": 9,
+        "description": "Retrieve Core Delta from inside the boulder ring",
+        "targetItemId": "core_delta",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ge_deliver",
+        "kind": "depositItemInZone",
+        "points": 8,
+        "description": "Deliver Core Delta to the blue bay",
+        "targetItemId": "core_delta",
+        "targetZoneId": "bay_beta",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ge_solar",
+        "kind": "detectColorInZone",
+        "points": 12,
+        "description": "Read the solar array status from inside the solar pad",
+        "targetZoneId": "solar_pad",
+        "expectedColor": "yellow",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ge_beacon",
+        "kind": "detectColorInZone",
+        "points": 10,
+        "description": "Read the beacon station colour from inside the beacon pad",
+        "targetZoneId": "beacon_pad",
+        "expectedColor": "orange",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ge_sample",
+        "kind": "pickUpItem",
+        "points": 6,
+        "description": "Retrieve Rock Alpha from the north-west field",
+        "targetItemId": "rock_alpha",
+        "isRequired": false
+      },
+      {
+        "id": "obj_ge_home",
+        "kind": "reachZone",
+        "points": 5,
+        "description": "Return to base camp to close out the expedition",
+        "targetZoneId": "base_camp",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_drill_wakeup",
+    "fieldId": "field_arena",
+    "title": "Drill Site Wake-Up",
+    "brief": "The survey drill out by the crater ridge has gone dormant. Wake it up, then report back to base camp.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_dw_drill",
+        "kind": "activateMechanism",
+        "points": 12,
+        "description": "Survey drill powered up",
+        "targetMechanismId": "mech_drill_lever",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dw_home",
+        "kind": "reachZone",
+        "points": 8,
+        "description": "Finish inside base camp",
+        "targetZoneId": "base_camp",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_storage_nook",
+    "fieldId": "field_arena",
+    "title": "Storage Nook Breakthrough",
+    "brief": "A sealed supply nook hides behind a locked gate on the outpost's north side. Pop the lock open and park your rover inside the nook.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_sn_gate",
+        "kind": "activateMechanism",
+        "points": 12,
+        "description": "Nook gate opened",
+        "targetMechanismId": "mech_nook_gate",
+        "isRequired": true
+      },
+      {
+        "id": "obj_sn_park",
+        "kind": "reachPose",
+        "points": 18,
+        "description": "Finish parked inside the nook",
+        "targetX": 85,
+        "targetY": 272,
+        "toleranceCm": 20,
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_signal_rocket",
+    "fieldId": "field_arena",
+    "title": "Signal Rocket",
+    "brief": "Base needs to fire the signal rocket on the north launch pad, but the launch lever is stiff \u2014 an ordinary gripper just slips off it. Pick the tool that can trip it, get to the lever, and set it off. Then bring the rover home.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_sr_launch",
+        "kind": "activateMechanism",
+        "points": 25,
+        "description": "Signal rocket launched",
+        "targetMechanismId": "mech_rocket_launch",
+        "isRequired": true
+      },
+      {
+        "id": "obj_sr_home",
+        "kind": "reachZone",
+        "points": 10,
+        "description": "Return to base camp",
+        "targetZoneId": "base_camp",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_buried_sample",
+    "fieldId": "field_arena",
+    "title": "Buried Sample",
+    "brief": "Sensors found something buried in the east flat. It is wedged into the ground \u2014 you will need the right tool to hook it and pull it free, and you have to be right on top of it. Free the sample, then head home.",
+    "difficulty": 4,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_bs_pull",
+        "kind": "activateMechanism",
+        "points": 25,
+        "description": "Buried sample pulled free",
+        "targetMechanismId": "mech_core_probe",
+        "isRequired": true
+      },
+      {
+        "id": "obj_bs_home",
+        "kind": "reachZone",
+        "points": 15,
+        "description": "Return to base camp",
+        "targetZoneId": "base_camp",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_precision_gauntlet",
+    "fieldId": "field_arena",
+    "title": "Precision Gauntlet",
+    "brief": "The hardest run on the field. First fire the signal rocket on the north pad. Then thread the rover deep into the tight rock pocket at the heart of the boulder field and come to rest dead-centre \u2014 walls on every side, only a few centimetres of room. Plan every turn; there is no straight line in.",
+    "difficulty": 5,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_pg_launch",
+        "kind": "activateMechanism",
+        "points": 20,
+        "description": "Signal rocket launched",
+        "targetMechanismId": "mech_rocket_launch",
+        "isRequired": true
+      },
+      {
+        "id": "obj_pg_pocket",
+        "kind": "reachPose",
+        "points": 30,
+        "description": "Come to rest dead-centre in the rock pocket",
+        "targetX": 150,
+        "targetY": 162,
+        "toleranceCm": 7,
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_bay_door",
+    "fieldId": "field_warehouse",
+    "title": "Open the Bay",
+    "brief": "The east receiving bay is sealed. Get in and park your rover inside it.",
+    "difficulty": 2,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_bd_open",
+        "kind": "activateMechanism",
+        "points": 15,
+        "description": "Open the receiving bay",
+        "targetMechanismId": "mech_bay_door",
+        "isRequired": true
+      },
+      {
+        "id": "obj_bd_reach",
+        "kind": "reachZone",
+        "points": 10,
+        "description": "Park inside the bay",
+        "targetZoneId": "bay_zone",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_dock_lift",
+    "fieldId": "field_warehouse",
+    "title": "Load the Dock",
+    "brief": "Ready the west dock, then get the red crate onto the red depot. Do both to clear the shift.",
+    "difficulty": 3,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_dl_ramp",
+        "kind": "activateMechanism",
+        "points": 12,
+        "description": "Ready the dock",
+        "targetMechanismId": "mech_dock_ramp",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dl_pickup",
+        "kind": "pickUpItem",
+        "points": 8,
+        "description": "Pick up the red crate",
+        "targetItemId": "crate_A",
+        "isRequired": true
+      },
+      {
+        "id": "obj_dl_deposit",
+        "kind": "depositItemInZone",
+        "points": 12,
+        "description": "Deliver the red crate to the red depot",
+        "targetItemId": "crate_A",
+        "targetZoneId": "depot_red",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_chute_release",
+    "fieldId": "field_warehouse",
+    "title": "Chute Release",
+    "brief": "A crate is locked in the south chute. Trip the release, then run the freed crate to the red depot.",
+    "difficulty": 4,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_cr_lever",
+        "kind": "activateMechanism",
+        "points": 15,
+        "description": "Trip the chute release",
+        "targetMechanismId": "mech_release_lever",
+        "isRequired": true
+      },
+      {
+        "id": "obj_cr_pickup",
+        "kind": "pickUpItem",
+        "points": 10,
+        "description": "Collect the freed crate",
+        "targetItemId": "crate_R",
+        "isRequired": true
+      },
+      {
+        "id": "obj_cr_deposit",
+        "kind": "depositItemInZone",
+        "points": 15,
+        "description": "Deliver the freed crate to the red depot",
+        "targetItemId": "crate_R",
+        "targetZoneId": "depot_red",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "id": "mission_warehouse_gauntlet",
+    "fieldId": "field_warehouse",
+    "title": "Warehouse Gauntlet",
+    "brief": "The full floor in one run, and the clock is unforgiving. Free the chute crate and get it to the red depot, then break into the sealed east bay and park dead-centre. Every stop has to fall on the way to the next — plan the whole route before you drive.",
+    "difficulty": 5,
+    "successRule": {
+      "type": "allRequired"
+    },
+    "objectives": [
+      {
+        "id": "obj_wg_lever",
+        "kind": "activateMechanism",
+        "points": 12,
+        "description": "Trip the chute release",
+        "targetMechanismId": "mech_release_lever",
+        "isRequired": true
+      },
+      {
+        "id": "obj_wg_deposit",
+        "kind": "depositItemInZone",
+        "points": 13,
+        "description": "Deliver the freed crate to the red depot",
+        "targetItemId": "crate_R",
+        "targetZoneId": "depot_red",
+        "isRequired": true
+      },
+      {
+        "id": "obj_wg_door",
+        "kind": "activateMechanism",
+        "points": 10,
+        "description": "Break into the east bay",
+        "targetMechanismId": "mech_bay_door",
+        "isRequired": true
+      },
+      {
+        "id": "obj_wg_park",
+        "kind": "reachPose",
+        "points": 15,
+        "description": "Park dead-centre in the bay",
+        "targetX": 227,
+        "targetY": 114,
+        "toleranceCm": 10,
+        "isRequired": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+.DS_Store
+.build/
+DerivedData/
+*.xcuserstate
+captures/
+
+# Node / web app
+node_modules/
+dist/
+.vite/
+*.local
+
+# Claude / dev artifacts
+.claude/
+playwright-output/
+scratch_gen.mjs
+scratch_verify.mjs
+scratch_verify2.mjs

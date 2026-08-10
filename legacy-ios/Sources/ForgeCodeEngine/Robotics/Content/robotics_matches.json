@@ -1,0 +1,38 @@
+[
+ {
+  "id": "match_cargo_command",
+  "fieldId": "field_warehouse",
+  "name": "Cargo Command Season Match",
+  "brief": "One run, five jobs, sixty moves. Complete as many deliveries and checks as you can before the buzzer. Every token you don't spend is ten bonus points.",
+  "missionIds": [
+   "mission_reach_goal",
+   "mission_arm_handshake",
+   "mission_fetch_red_crate",
+   "mission_color_scout",
+   "mission_green_barrel_quickwin",
+   "mission_bay_door"
+  ],
+  "moveBudget": 60,
+  "startingTokens": 6,
+  "pointsPerToken": 10,
+  "parScore": 100
+ },
+ {
+  "id": "match_mars_outpost",
+  "fieldId": "field_arena",
+  "name": "Mars Outpost Expedition Match",
+  "brief": "One rover run across the full outpost. Hit the beacon, check the solar array, gather samples, and make it back to base camp. Sixty moves to do it all.",
+  "missionIds": [
+   "mission_first_traverse",
+   "mission_beacon_salute",
+   "mission_first_sample",
+   "mission_solar_checkin",
+   "mission_relay_delivery",
+   "mission_storage_nook"
+  ],
+  "moveBudget": 60,
+  "startingTokens": 6,
+  "pointsPerToken": 10,
+  "parScore": 100
+ }
+]

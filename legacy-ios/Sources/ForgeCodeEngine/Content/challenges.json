@@ -1,0 +1,2994 @@
+[
+  {
+    "id": "challenge-1",
+    "track": "challenges",
+    "order": 1,
+    "title": "Staircase Sprint",
+    "introText": "Here is a brain-teaser: reach the goal by climbing a diagonal staircase. Each step: go up one, step right one, and repeat. One tight loop is the key — can you write it in just 5 blocks?",
+    "goalDescription": "Climb the staircase to reach the goal at (4, 4).",
+    "hintText": "Inside a repeat, move up, turn right, move right, then turn left to face up again. Do that 4 times.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 4, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 5
+    }
+  },
+  {
+    "id": "challenge-2",
+    "track": "challenges",
+    "order": 2,
+    "title": "The Long Way Around",
+    "introText": "The bottom row is almost completely blocked — you cannot go straight to the goal. You will have to go all the way around the outside of the grid. Three loops and two turns will get you there!",
+    "goalDescription": "Go around the blocked row to reach the goal at (7, 0).",
+    "hintText": "Go up the left side 7 steps, turn right and cross 7 steps, then turn right and come down 7 steps.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [
+          { "x": 1, "y": 0 },
+          { "x": 2, "y": 0 },
+          { "x": 3, "y": 0 },
+          { "x": 4, "y": 0 },
+          { "x": 5, "y": 0 },
+          { "x": 6, "y": 0 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 7, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  },
+  {
+    "id": "challenge-3",
+    "track": "challenges",
+    "order": 3,
+    "title": "Nested Square",
+    "introText": "Now try a nested loop — a loop inside a loop! Each outer step moves 2 cells then turns left. Three outer steps trace a partial square and land you exactly on the goal. Can you write it in 4 blocks?",
+    "goalDescription": "Use a nested loop to reach the goal at (0, 4).",
+    "hintText": "Outer repeat 3 times: inner repeat 2 times move, then turn left. Trace the path on paper first.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 2 },
+        "facing": "right"
+      },
+      "goal": { "x": 0, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4
+    }
+  },
+  {
+    "id": "challenge-4",
+    "track": "challenges",
+    "order": 4,
+    "title": "Dodge the Wall",
+    "introText": "A wall is hiding in the path ahead. Instead of counting steps, let the robot sense the wall itself! Use if(wallAhead()) to turn automatically when the robot hits a dead end.",
+    "goalDescription": "Use a conditional to dodge the wall and reach the goal at (3, 2).",
+    "hintText": "Repeat 5 times: if there is a wall ahead turn right, then move. The robot will turn right at the wall and keep going toward the goal.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [
+          { "x": 0, "y": 3 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 3, "y": 2 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4
+    }
+  },
+  {
+    "id": "challenge-5",
+    "track": "challenges",
+    "order": 5,
+    "title": "The Gauntlet",
+    "introText": "This is the ultimate challenge. Two walls — a column and a wide horizontal barrier — guard the goal. You will need sequences, loops, AND a conditional to find the one path through. Good luck!",
+    "goalDescription": "Navigate both barriers and reach the goal at (7, 7).",
+    "hintText": "Move right 2, turn up, move 3, then use if(wallAhead()) to turn right at the barrier. Cross the gap, turn left, and climb to the top-right corner.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [
+          { "x": 3, "y": 0 },
+          { "x": 3, "y": 1 },
+          { "x": 3, "y": 2 },
+          { "x": 0, "y": 4 },
+          { "x": 1, "y": 4 },
+          { "x": 2, "y": 4 },
+          { "x": 3, "y": 4 },
+          { "x": 4, "y": 4 },
+          { "x": 5, "y": 4 },
+          { "x": 6, "y": 4 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 7, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12
+    }
+  },
+  {
+    "id": "challenge-6",
+    "track": "challenges",
+    "order": 6,
+    "title": "Straight to the Top",
+    "introText": "The goal is all the way at the top of the grid! The robot is already facing up — the only trick is getting there without wasting blocks. A loop is much smarter than typing move seven times in a row.",
+    "goalDescription": "Reach the goal at the top of the column (0, 7).",
+    "hintText": "Use one repeat block to move up 7 times.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 0, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4
+    }
+  },
+  {
+    "id": "challenge-7",
+    "track": "challenges",
+    "order": 7,
+    "title": "Full Speed Ahead",
+    "introText": "The robot stands at the left edge of a 9-wide grid, already aimed right. Eight steps lie between it and the goal. Can you write a program that covers them all in just 2 blocks?",
+    "goalDescription": "Drive straight across to the goal at (8, 0).",
+    "hintText": "Use one repeat block to move right 8 times.",
+    "challenge": {
+      "grid": {
+        "width": 9,
+        "height": 9,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 8, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4
+    }
+  },
+  {
+    "id": "challenge-8",
+    "track": "challenges",
+    "order": 8,
+    "title": "L-Turn",
+    "introText": "Two straight segments joined at a corner — that is the shape of this challenge. Go up, make one turn, and drive across. Keep your block count low by using loops for both legs of the journey.",
+    "goalDescription": "Travel the L-shaped route to reach the goal at (5, 5).",
+    "hintText": "Use repeat to move up 5 times, turn right, then repeat to move right 5 times.",
+    "challenge": {
+      "grid": {
+        "width": 9,
+        "height": 9,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 5, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "challenge-9",
+    "track": "challenges",
+    "order": 9,
+    "title": "Corner to Corner",
+    "introText": "The grid is 10 wide and 10 tall — the longest journey yet! The goal is in the top-right corner, opposite the start. You will need two big loops and one turn. Think carefully about the order.",
+    "goalDescription": "Cross the entire grid to reach the far corner at (9, 9).",
+    "hintText": "Use repeat to move right 9 times, turn left to face up, then repeat to move up 9 times.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 9, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "challenge-10",
+    "track": "challenges",
+    "order": 10,
+    "title": "Diagonal March",
+    "introText": "No direct path leads to this goal — you will have to move diagonally by alternating up and right steps. Each pair of moves carries the robot one step closer to the target. Find the tight loop that makes it happen!",
+    "goalDescription": "March diagonally to reach the goal at (4, 4).",
+    "hintText": "Inside a repeat, move up once, turn right, move right once, then turn left to face up again.",
+    "challenge": {
+      "grid": {
+        "width": 9,
+        "height": 9,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 4, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 5
+    }
+  },
+  {
+    "id": "challenge-11",
+    "track": "challenges",
+    "order": 11,
+    "title": "Wall Detour",
+    "introText": "A wall sits at (0, 4), right in the middle of the upward path. If you charge straight ahead you will crash! Instead, climb partway, turn, and cross to the goal safely. Plan your route around the blocker.",
+    "goalDescription": "Navigate around the wall to reach the goal at (6, 3).",
+    "hintText": "Go up 3 steps first, then turn right and move across 6 steps to the goal.",
+    "challenge": {
+      "grid": {
+        "width": 9,
+        "height": 9,
+        "obstacles": [
+          { "x": 0, "y": 4 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 6, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "challenge-12",
+    "track": "challenges",
+    "order": 12,
+    "title": "Decoy Walls",
+    "introText": "Three obstacles lurk on the right side of the grid, tempting you to avoid them when you don't even need to. The cleanest path goes straight up and then turns right — the walls are nowhere near it! Spot the safe route.",
+    "goalDescription": "Find the safe path and reach the goal at (5, 5).",
+    "hintText": "Go straight up 5 steps, turn right, then move right 5 steps. The obstacles on the right side are nowhere near your path.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [
+          { "x": 6, "y": 0 },
+          { "x": 6, "y": 1 },
+          { "x": 6, "y": 2 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 5, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "challenge-13",
+    "track": "challenges",
+    "order": 13,
+    "title": "Tall Tower",
+    "introText": "The grid stretches 10 rows high and the goal waits all the way at (3, 9) — the top! Two walls at the bottom right are decoys that look scary. The real path is a long climb up the left side, then a short hop right.",
+    "goalDescription": "Climb high and then cross to the goal at (3, 9).",
+    "hintText": "Repeat move up 9 times, then turn right and move right 3 times.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [
+          { "x": 3, "y": 0 },
+          { "x": 3, "y": 1 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 3, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "challenge-14",
+    "track": "challenges",
+    "order": 14,
+    "title": "Wide Open",
+    "introText": "A wide-open 10×10 grid! The goal is far right and partway up. Drive the whole width of the grid, then turn and climb. Two loops with one turn in between — but you only have 6 blocks total.",
+    "goalDescription": "Race across and then climb to the goal at (9, 6).",
+    "hintText": "Repeat move right 9 times, then turn left and repeat move up 6 times.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 9, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6
+    }
+  },
+  {
+    "id": "challenge-15",
+    "track": "challenges",
+    "order": 15,
+    "title": "Obstacle Island",
+    "introText": "Three obstacles form a small island in the middle of the grid. They look threatening — but the safe route sails right past them without getting close. Find the path that goes above the island and arrives at the top-right corner.",
+    "goalDescription": "Navigate above the obstacle island and reach the goal at (7, 7).",
+    "hintText": "Go straight up 7 steps first, then turn right and move 7 steps across to the goal. The obstacles at y=3,4,5 are well below your path.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [
+          { "x": 3, "y": 3 },
+          { "x": 3, "y": 4 },
+          { "x": 3, "y": 5 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 7, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 7
+    }
+  },
+  {
+    "id": "challenge-16",
+    "track": "challenges",
+    "order": 16,
+    "title": "Column Bypass",
+    "introText": "A wall of three cells blocks the right side at the bottom. You can't just drive straight across! Navigate around the pillar: go right partway, climb past the wall, then continue right to the goal.",
+    "goalDescription": "Get past the column obstacle and reach the goal at (9, 5).",
+    "hintText": "Go right 4 steps, turn left and climb 5 steps, then turn right and move right 5 steps to the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [
+          { "x": 5, "y": 0 },
+          { "x": 5, "y": 1 },
+          { "x": 5, "y": 2 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 9, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  },
+  {
+    "id": "challenge-17",
+    "track": "challenges",
+    "order": 17,
+    "title": "Triple L",
+    "introText": "Three segments make this path look like a stretched letter Z. Go up halfway, dash all the way across the wide grid, then climb the rest of the way. Three loops and two turns — that is the whole program.",
+    "goalDescription": "Follow the triple-segment path to reach the goal at (10, 10).",
+    "hintText": "Go up 5, turn right and move 10 steps across, then turn left and move up 5 more.",
+    "challenge": {
+      "grid": {
+        "width": 11,
+        "height": 11,
+        "obstacles": []
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 10, "y": 10 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  },
+  {
+    "id": "challenge-18",
+    "track": "challenges",
+    "order": 18,
+    "title": "U-Turn",
+    "introText": "The goal is straight below the robot on the right side, but three obstacle blocks wall off the left column. The only way through is to climb up, cross right, then come back down. It is a U-shaped detour!",
+    "goalDescription": "Make the U-shaped detour and reach the goal at (5, 0).",
+    "hintText": "Go up 3, turn right and move right 5, then turn right again and come down 3 to the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [
+          { "x": 0, "y": 4 },
+          { "x": 0, "y": 5 },
+          { "x": 0, "y": 6 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 5, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  },
+  {
+    "id": "challenge-19",
+    "track": "challenges",
+    "order": 19,
+    "title": "Grand Cross",
+    "introText": "The grid is huge — 12 wide and 12 tall — and the goal is in the opposite corner. Two decoy walls in the middle look scary, but the direct diagonal route misses them entirely! Cross all the way right, then all the way up.",
+    "goalDescription": "Cross the 12×12 grid to reach the far corner at (11, 11).",
+    "hintText": "Go right all 11 steps, then turn left and move up all 11 steps. The obstacles in the middle never touch your path.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [
+          { "x": 5, "y": 5 },
+          { "x": 5, "y": 6 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 11, "y": 11 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 7
+    }
+  },
+  {
+    "id": "challenge-20",
+    "track": "challenges",
+    "order": 20,
+    "title": "Mid-Row Blocker",
+    "introText": "Three walls sit right in the middle of the row the robot needs to cross. The robot cannot push through them — it must climb above the barrier and then come back down to the right. Detour high, then descend!",
+    "goalDescription": "Get around the mid-row blockers and reach the goal at (10, 5).",
+    "hintText": "Turn left to face up, move up 2 to clear the barrier height, turn right and cross 10, then turn right and come down 2.",
+    "challenge": {
+      "grid": {
+        "width": 11,
+        "height": 11,
+        "obstacles": [
+          { "x": 5, "y": 4 },
+          { "x": 5, "y": 5 },
+          { "x": 5, "y": 6 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 5 },
+        "facing": "right"
+      },
+      "goal": { "x": 10, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9
+    }
+  },
+  {
+    "id": "challenge-21",
+    "track": "challenges",
+    "order": 21,
+    "title": "Side Step",
+    "introText": "A three-cell column stands in the way of the most direct upward route. But the column is only in the middle of the grid — if you hug the left wall and step out early, you can bypass it completely and race to the top-right corner.",
+    "goalDescription": "Navigate around the mid-column obstacle and reach the goal at (10, 10).",
+    "hintText": "Go up 2 steps, turn right and cross 10, then turn left and go up 8 more to the corner.",
+    "challenge": {
+      "grid": {
+        "width": 11,
+        "height": 11,
+        "obstacles": [
+          { "x": 5, "y": 3 },
+          { "x": 5, "y": 4 },
+          { "x": 5, "y": 5 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 10, "y": 10 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  },
+  {
+    "id": "challenge-22",
+    "track": "challenges",
+    "order": 22,
+    "title": "Wall Bypass",
+    "introText": "Four blocks form a wall at the bottom-right area. Going right and trying to pass through there will crash the robot! Instead, climb high and slide right far above the danger zone, then sweep to the goal.",
+    "goalDescription": "Avoid the bottom wall and reach the goal at (11, 6).",
+    "hintText": "Go right 5 steps, turn left and climb 6, then turn right and cross 6 more to the goal.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [
+          { "x": 6, "y": 0 },
+          { "x": 6, "y": 1 },
+          { "x": 6, "y": 2 },
+          { "x": 6, "y": 3 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "right"
+      },
+      "goal": { "x": 11, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  },
+  {
+    "id": "challenge-23",
+    "track": "challenges",
+    "order": 23,
+    "title": "High Road",
+    "introText": "Four obstacles form a tall pillar in the middle of the grid. There is an easy high road that completely avoids them: climb all the way to the top and then cruise right. The pillar is way below the top row!",
+    "goalDescription": "Take the high road and reach the goal at (6, 11).",
+    "hintText": "Go up all 11 steps to the top, then turn right and move right 6 steps.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [
+          { "x": 3, "y": 3 },
+          { "x": 3, "y": 4 },
+          { "x": 3, "y": 5 },
+          { "x": 3, "y": 6 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 6, "y": 11 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 7
+    }
+  },
+  {
+    "id": "challenge-24",
+    "track": "challenges",
+    "order": 24,
+    "title": "Drop and Run",
+    "introText": "The robot starts at the top-left corner facing right — but a tall column of five walls blocks the path along the top. You need to drop all the way to the bottom first, then race all the way right to the far corner.",
+    "goalDescription": "Drop to the bottom and race right to the goal at (11, 0).",
+    "hintText": "Turn right to face down, then move down 11, then turn left and move right 11.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [
+          { "x": 5, "y": 7 },
+          { "x": 5, "y": 8 },
+          { "x": 5, "y": 9 },
+          { "x": 5, "y": 10 },
+          { "x": 5, "y": 11 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 11 },
+        "facing": "right"
+      },
+      "goal": { "x": 11, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8
+    }
+  },
+  {
+    "id": "challenge-25",
+    "track": "challenges",
+    "order": 25,
+    "title": "Gap Finder",
+    "introText": "A long horizontal wall cuts most of the grid in half! There is a gap on the left side at x=0 and x=1. The robot must thread through the gap, jog right along the wall, and then climb to the top-right corner.",
+    "goalDescription": "Find the gap in the long wall and reach the goal at (11, 11).",
+    "hintText": "Go up 7 through the left gap, turn right and cross 9 to x=9, then turn left and go up 4, then turn right and go 2 more.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [
+          { "x": 3, "y": 6 },
+          { "x": 4, "y": 6 },
+          { "x": 5, "y": 6 },
+          { "x": 6, "y": 6 },
+          { "x": 7, "y": 6 },
+          { "x": 8, "y": 6 }
+        ]
+      },
+      "start": {
+        "position": { "x": 0, "y": 0 },
+        "facing": "up"
+      },
+      "goal": { "x": 11, "y": 11 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 11
+    }
+  },
+  {
+    "id": "challenge-26",
+    "track": "challenges",
+    "order": 26,
+    "title": "Launch Pad Approach",
+    "introText": "Vex needs to reach the launch pad on the far side of the training room. A sensor post juts out above the starting column, so climbing straight up too far is a dead end. Turn right at the right moment and cruise across.",
+    "goalDescription": "Reach the launch pad at (5, 4).",
+    "hintText": "Climb four rows, then turn right and move five steps across.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [
+          { "x": 0, "y": 6 }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 5, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-27",
+    "track": "challenges",
+    "order": 27,
+    "title": "Sensor Array Run",
+    "introText": "A sensor array sits at the far end of the bottom row — going all the way right will clip it. Vex must dash across most of the corridor, then bank upward to reach the monitoring station.",
+    "goalDescription": "Reach the monitoring station at (7, 5).",
+    "hintText": "Move right seven steps, then turn left and climb five rows to the station.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [
+          { "x": 8, "y": 0 }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 7, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-28",
+    "track": "challenges",
+    "order": 28,
+    "title": "Double Barrier Breach",
+    "introText": "Two obstacle formations guard the route — a vertical column in the lower-middle and a row of blocks on the right side at mid-height. Vex must climb high enough to clear the column, dash right, then rise past the row barrier.",
+    "goalDescription": "Navigate both barriers and reach the beacon at (9, 10).",
+    "hintText": "Go up six rows to clear the column, then turn right and cross nine columns, then turn left and climb four more rows.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 5, "y": 0 }, { "x": 5, "y": 1 }, { "x": 5, "y": 2 },
+          { "x": 5, "y": 3 }, { "x": 5, "y": 4 }, { "x": 5, "y": 5 },
+          { "x": 7, "y": 7 }, { "x": 8, "y": 7 }, { "x": 10, "y": 7 },
+          { "x": 11, "y": 7 }, { "x": 12, "y": 7 }, { "x": 13, "y": 7 }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 9, "y": 10 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-29",
+    "track": "challenges",
+    "order": 29,
+    "title": "Rooftop Descent",
+    "introText": "Vex starts on the rooftop platform facing down. The destination docking bay is five floors below and six bays to the right. A simple two-segment path will get there — just watch the sequence!",
+    "goalDescription": "Drop to the docking bay at (6, 3).",
+    "hintText": "Move down five rows, then turn left to face right and move six columns.",
+    "challenge": {
+      "grid": {
+        "width": 9,
+        "height": 9,
+        "obstacles": []
+      },
+      "start": { "position": { "x": 0, "y": 8 }, "facing": "down" },
+      "goal": { "x": 6, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-30",
+    "track": "challenges",
+    "order": 30,
+    "title": "Three-Leg Relay",
+    "introText": "A horizontal wall of debris cuts the left half of the grid at mid-height, and a crate stack blocks the lower right quadrant. Vex must weave through three straight legs to thread the gap and reach the relay tower.",
+    "goalDescription": "Complete the three-leg relay to reach the tower at (12, 9).",
+    "hintText": "Go right to the gap, climb up past the debris wall, dash right again, then turn and climb the final rows.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 0, "y": 6 }, { "x": 1, "y": 6 }, { "x": 2, "y": 6 },
+          { "x": 3, "y": 6 }, { "x": 4, "y": 6 }, { "x": 5, "y": 6 },
+          { "x": 10, "y": 0 }, { "x": 10, "y": 1 },
+          { "x": 10, "y": 2 }, { "x": 10, "y": 3 }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 12, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-31",
+    "track": "challenges",
+    "order": 31,
+    "title": "Corner Sprint",
+    "introText": "Open terrain — no walls, just distance. Vex starts in the corner and needs to reach a checkpoint far across and high up. Two loops and one turn is all it takes. Pick the right counts!",
+    "goalDescription": "Sprint to the checkpoint at (8, 6).",
+    "hintText": "Move right eight steps, then turn left and climb six rows.",
+    "challenge": {
+      "grid": {
+        "width": 9,
+        "height": 9,
+        "obstacles": []
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 8, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-32",
+    "track": "challenges",
+    "order": 32,
+    "title": "Canyon Crossing",
+    "introText": "Two obstacles carve a canyon through the grid. A row of boulders blocks the mid-right at y=5, and a boulder column guards x=9 at the bottom. Vex must find the single clear corridor through both obstacles.",
+    "goalDescription": "Cross the canyon to reach the outpost at (11, 9).",
+    "hintText": "Go right to the gap before the row barrier, climb up past it, then dash right and climb to the outpost.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 5, "y": 5 }, { "x": 6, "y": 5 }, { "x": 7, "y": 5 },
+          { "x": 8, "y": 5 }, { "x": 9, "y": 5 }, { "x": 10, "y": 5 },
+          { "x": 11, "y": 5 }, { "x": 12, "y": 5 }, { "x": 13, "y": 5 },
+          { "x": 9, "y": 0 }, { "x": 9, "y": 1 },
+          { "x": 9, "y": 2 }, { "x": 9, "y": 3 }, { "x": 9, "y": 4 }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 11, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-33",
+    "track": "challenges",
+    "order": 33,
+    "title": "Storm Runner",
+    "introText": "A plasma storm has shattered the grid into a maze of blocked corridors. Vex must navigate a winding seven-segment path through the wreckage — climbing, dashing right, dropping down, and finally sprinting to the storm shelter. This is the hardest navigation run yet.",
+    "goalDescription": "Navigate the storm debris and reach the shelter at (18, 19).",
+    "hintText": "Break the path into seven segments: up, right, up, right, down, right, then a long final climb.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 0, "y": 6 },
+          { "x": 5, "y": 0 }, { "x": 5, "y": 1 }, { "x": 5, "y": 2 },
+          { "x": 5, "y": 3 }, { "x": 5, "y": 4 }, { "x": 5, "y": 5 },
+          { "x": 5, "y": 6 }, { "x": 5, "y": 7 }, { "x": 5, "y": 8 },
+          { "x": 5, "y": 9 }, { "x": 5, "y": 10 },
+          { "x": 12, "y": 0 }, { "x": 12, "y": 1 }, { "x": 12, "y": 2 },
+          { "x": 12, "y": 3 }, { "x": 12, "y": 4 }, { "x": 12, "y": 5 },
+          { "x": 12, "y": 6 },
+          { "x": 11, "y": 12 }, { "x": 11, "y": 13 }, { "x": 11, "y": 14 },
+          { "x": 11, "y": 15 }, { "x": 11, "y": 16 }, { "x": 11, "y": 17 },
+          { "x": 11, "y": 18 }, { "x": 11, "y": 19 }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 18, "y": 19 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 21,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-34",
+    "track": "challenges",
+    "order": 34,
+    "title": "Calm After the Storm",
+    "introText": "After that wild run, HQ sends Vex to a quiet checkpoint. The path is wide open — just climb the left column and jog right to the beacon. Breathe, reset, and enjoy the easy win.",
+    "goalDescription": "Reach the beacon at (4, 8).",
+    "hintText": "Climb eight rows straight up, then turn right and move four steps.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": []
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 4, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-35",
+    "track": "challenges",
+    "order": 35,
+    "title": "The Grand Maze",
+    "introText": "The final navigation gauntlet! Walls of wreckage seal off every shortcut, forcing Vex through a winding nine-segment path that weaves right, up, down, right, up, down, right, and finally up to the summit beacon. Only a robot with perfect programming survives.",
+    "goalDescription": "Thread the grand maze and reach the summit at (17, 15).",
+    "hintText": "Plan each segment carefully — right, up, right, down, right, up, right, up. Count your blocks before you run.",
+    "challenge": {
+      "grid": {
+        "width": 18,
+        "height": 18,
+        "obstacles": [
+          { "x": 0, "y": 5 },
+          { "x": 10, "y": 0 }, { "x": 10, "y": 1 },
+          { "x": 6, "y": 9 }, { "x": 7, "y": 9 }, { "x": 8, "y": 9 },
+          { "x": 9, "y": 9 }, { "x": 10, "y": 9 }, { "x": 11, "y": 9 },
+          { "x": 12, "y": 9 },
+          { "x": 13, "y": 9 }, { "x": 13, "y": 10 }, { "x": 13, "y": 11 },
+          { "x": 13, "y": 12 }, { "x": 13, "y": 13 }, { "x": 13, "y": 14 },
+          { "x": 13, "y": 15 }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 17, "y": 15 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 23,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-36",
+    "track": "challenges",
+    "order": 36,
+    "title": "First Crystal",
+    "introText": "A single glowing energy crystal sits along the corridor ahead. Vex must move forward and pick it up — the Academy's collection system activates automatically when Vex steps on it. Simple mission, but a brand-new skill!",
+    "goalDescription": "Collect the crystal and reach the end of the corridor at (4, 0).",
+    "hintText": "Move right four steps — the crystal is right in your path at (2, 0).",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 2, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 4, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4,
+      "collectGoal": 1,
+      "parMoves": 4,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-37",
+    "track": "challenges",
+    "order": 37,
+    "title": "Twin Pickup",
+    "introText": "Two crystals are scattered along a bent path — one up the first column, one at the bend's end. Vex must travel an L-shaped route, scooping both crystals on the way to the finish.",
+    "goalDescription": "Collect both crystals and reach the station at (3, 5).",
+    "hintText": "Move up three rows to grab the first crystal, then turn right and move three columns to grab the second and reach the goal.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 3, "y": 5 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 3, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 10,
+      "collectGoal": 2,
+      "parMoves": 8,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-38",
+    "track": "challenges",
+    "order": 38,
+    "title": "Barrier Harvest",
+    "introText": "A wall of debris cuts the left side of the grid, forcing Vex to climb above it before collecting crystals along the top. Two gems lie along a four-segment path that weaves around the barrier.",
+    "goalDescription": "Collect at least two crystals and reach the relay point at (8, 9).",
+    "hintText": "Go right to the gap, climb past the barrier, collect the first gem, continue up to the second, then head right and climb to the finish.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [
+          { "x": 0, "y": 5 }, { "x": 1, "y": 5 }, { "x": 2, "y": 5 }, { "x": 3, "y": 5 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 4, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 8, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 8, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 14,
+      "collectGoal": 2,
+      "parMoves": 18,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-39",
+    "track": "challenges",
+    "order": 39,
+    "title": "Gem at the Summit",
+    "introText": "The crystal is waiting at the top-right of the room — right at the goal position. Vex just needs to climb and cross in the right order. Two moves in a loop, one turn — collect and land in one step!",
+    "goalDescription": "Collect the summit crystal and land on it at (5, 5).",
+    "hintText": "Climb five rows up, then turn right and move five columns — the crystal is waiting at the destination.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 5 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 5, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 1,
+      "parMoves": 10,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-40",
+    "track": "challenges",
+    "order": 40,
+    "title": "Column Cache",
+    "introText": "Three crystals are hidden in a U-shaped formation — one at the bottom, one at the top of the left column, one to the right. A vertical wall forces Vex to follow the exact U-route to reach all three.",
+    "goalDescription": "Collect all three crystals and reach the cache point at (10, 9).",
+    "hintText": "Move right to the first gem, turn up and climb to the second, then turn right and cross to the third at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 4, "y": 0 }, { "x": 4, "y": 1 }, { "x": 4, "y": 2 },
+          { "x": 4, "y": 3 }, { "x": 4, "y": 4 }, { "x": 4, "y": 5 },
+          { "x": 4, "y": 6 }, { "x": 4, "y": 7 }, { "x": 4, "y": 8 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 3, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 3, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 10, "y": 9 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 10, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9,
+      "collectGoal": 3,
+      "parMoves": 22,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-41",
+    "track": "challenges",
+    "order": 41,
+    "title": "Four-Corner Sweep",
+    "introText": "Four crystals are spread across the grid in an offset pattern. Vex must trace a zigzag path that picks up all four, with only three required to unlock the exit. Plan the sequence — collecting them out of order will leave you stranded.",
+    "goalDescription": "Collect at least three crystals and reach the depot at (10, 10).",
+    "hintText": "Climb up, go right to the second gem, continue up to the third, then turn right to the fourth at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 7, "y": 0 }, { "x": 7, "y": 1 }, { "x": 7, "y": 2 }, { "x": 7, "y": 3 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 6, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 10, "y": 10 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 10, "y": 10 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 24,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-42",
+    "track": "challenges",
+    "order": 42,
+    "title": "Crystal Storm",
+    "introText": "A massive energy storm scattered nine crystals across the grid in a winding spiral. Vex must trace a nine-segment path through walls of debris, collecting every single crystal. This is the most demanding crystal-collection mission yet — plan every move.",
+    "goalDescription": "Collect all nine crystals and reach the evac point at (17, 5).",
+    "hintText": "Trace the spiral: up, right, up, right, down, right, up, right, down — picking up one crystal per segment end.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 4, "y": 0 }, { "x": 4, "y": 1 }, { "x": 4, "y": 2 },
+          { "x": 0, "y": 4 }, { "x": 0, "y": 5 }, { "x": 0, "y": 6 }, { "x": 0, "y": 7 },
+          { "x": 9, "y": 0 }, { "x": 9, "y": 1 }, { "x": 9, "y": 2 },
+          { "x": 13, "y": 0 }, { "x": 13, "y": 1 }, { "x": 13, "y": 2 },
+          { "x": 13, "y": 3 }, { "x": 13, "y": 4 }, { "x": 13, "y": 5 },
+          { "x": 13, "y": 6 }, { "x": 13, "y": 7 }, { "x": 13, "y": 8 },
+          { "x": 13, "y": 9 }, { "x": 13, "y": 10 },
+          { "x": 18, "y": 0 }, { "x": 18, "y": 1 }, { "x": 18, "y": 2 },
+          { "x": 18, "y": 3 }, { "x": 18, "y": 4 }, { "x": 18, "y": 5 },
+          { "x": 18, "y": 6 }, { "x": 18, "y": 7 }, { "x": 18, "y": 8 },
+          { "x": 18, "y": 9 }, { "x": 18, "y": 10 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 3, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 3, "y": 8 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 8, "y": 8 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 8, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 12, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 12, "y": 11 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 17, "y": 11 }, "kind": "collectible" },
+          { "id": "gem-9", "position": { "x": 17, "y": 5 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 17, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 27,
+      "collectGoal": 9,
+      "parMoves": 48,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-43",
+    "track": "challenges",
+    "order": 43,
+    "title": "Quick Recovery",
+    "introText": "After that brutal spiral, Academy command gives Vex an easy recovery mission. One crystal, short path, open grid. Catch your breath and enjoy the win.",
+    "goalDescription": "Collect the crystal and reach the checkpoint at (5, 2).",
+    "hintText": "Move right five steps, then turn left and go up two rows — the crystal is right at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 2 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 5, "y": 2 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 1,
+      "parMoves": 7,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-44",
+    "track": "challenges",
+    "order": 44,
+    "title": "Dual Deposit",
+    "introText": "Two crystals lie along a straight L-shaped route. The first is up the column, the second is across at the goal. Climb first, then turn — both crystals collected in one smooth run.",
+    "goalDescription": "Collect both crystals and reach the deposit at (7, 3).",
+    "hintText": "Climb three rows to grab the first crystal, then turn right and cross seven columns to scoop the second at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 7, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 7, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 2,
+      "parMoves": 10,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-45",
+    "track": "challenges",
+    "order": 45,
+    "title": "Blocked Bounty",
+    "introText": "A column of debris seals the direct rightward path in the lower half. Three crystals are hidden on the safe route — Vex must go right to the gem below the wall, climb past the wall, grab the gem above, then cross to the finish.",
+    "goalDescription": "Collect all three crystals and reach the bounty cache at (10, 6).",
+    "hintText": "Go right to the first gem at (5, 0), climb up six rows past the wall, collect at (5, 6), then turn right and cross to the third crystal at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [
+          { "x": 6, "y": 0 }, { "x": 6, "y": 1 }, { "x": 6, "y": 2 },
+          { "x": 6, "y": 3 }, { "x": 6, "y": 4 }, { "x": 6, "y": 5 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 5, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 10, "y": 6 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 10, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9,
+      "collectGoal": 3,
+      "parMoves": 17,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-46",
+    "track": "challenges",
+    "order": 46,
+    "title": "Vertical Vault",
+    "introText": "Two crystals are stacked along a vertical path — one near the bottom, one high at the top. Vex must dash right to scoop the first, then turn and climb all the way to claim the second at the goal.",
+    "goalDescription": "Collect both crystals and reach the vault at (4, 8).",
+    "hintText": "Move right four steps to collect the first gem, then turn left and climb eight rows to the second gem and the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 4, "y": 8 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 4, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 2,
+      "parMoves": 12,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-47",
+    "track": "challenges",
+    "order": 47,
+    "title": "Zigzag Haul",
+    "introText": "Four crystals are arranged along a zigzag path, and a debris column blocks the shortcut to the right. Vex must climb, cross, climb again, and cross once more — collecting along the way.",
+    "goalDescription": "Collect at least three crystals and reach the haul point at (12, 10).",
+    "hintText": "Climb up five, then cross right eight to the second gem, climb five more, then cross right four to the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 9, "y": 0 }, { "x": 9, "y": 1 }, { "x": 9, "y": 2 },
+          { "x": 9, "y": 3 }, { "x": 9, "y": 4 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 8, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 8, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 12, "y": 10 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 12, "y": 10 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 24,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-48",
+    "track": "challenges",
+    "order": 48,
+    "title": "Spiral Siege",
+    "introText": "Seven energy crystals are scattered across a winding spiral path through walls of debris. Vex must navigate seven segments — climbing, diving, and dashing — to collect every crystal. Miss one and the mission fails. This is elite-level collection work.",
+    "goalDescription": "Collect all seven crystals and reach the siege point at (16, 4).",
+    "hintText": "Trace the spiral: up, right, up, right, down, right, down — one crystal at each turn.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 6, "y": 0 }, { "x": 6, "y": 1 }, { "x": 6, "y": 2 },
+          { "x": 0, "y": 4 }, { "x": 0, "y": 5 }, { "x": 0, "y": 6 },
+          { "x": 0, "y": 7 }, { "x": 0, "y": 8 },
+          { "x": 11, "y": 0 }, { "x": 11, "y": 1 }, { "x": 11, "y": 2 }, { "x": 11, "y": 3 },
+          { "x": 15, "y": 0 }, { "x": 15, "y": 1 }, { "x": 15, "y": 2 }, { "x": 15, "y": 3 },
+          { "x": 15, "y": 11 }, { "x": 15, "y": 12 }, { "x": 15, "y": 13 }, { "x": 15, "y": 14 },
+          { "x": 15, "y": 15 }, { "x": 15, "y": 16 }, { "x": 15, "y": 17 }, { "x": 15, "y": 18 },
+          { "x": 15, "y": 19 },
+          { "x": 19, "y": 0 }, { "x": 19, "y": 1 }, { "x": 19, "y": 2 }, { "x": 19, "y": 3 },
+          { "x": 19, "y": 4 }, { "x": 19, "y": 5 }, { "x": 19, "y": 6 }, { "x": 19, "y": 7 },
+          { "x": 19, "y": 8 }, { "x": 19, "y": 9 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 5, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 5, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 10, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 10, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 14, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 14, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 18, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-9", "position": { "x": 18, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 18, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 27,
+      "collectGoal": 7,
+      "parMoves": 52,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-49",
+    "track": "challenges",
+    "order": 49,
+    "title": "Gem Drop",
+    "introText": "One crystal sits at a simple intersection — right three, up three. No obstacles, no tricks. Just lock in the right sequence and collect the easy win.",
+    "goalDescription": "Collect the crystal and land on it at (3, 3).",
+    "hintText": "Move right three steps, then turn left and climb three rows to the crystal.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 3, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 3, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 1,
+      "parMoves": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-50",
+    "track": "challenges",
+    "order": 50,
+    "title": "High and Low",
+    "introText": "Two crystals sit at different heights along the route — one at mid-height along the left column, another up at the summit. Vex must climb past the first crystal, turn right, then turn again and climb to the top.",
+    "goalDescription": "Collect both crystals and reach the high point at (6, 7).",
+    "hintText": "Climb five rows to collect the first gem, then turn right and cross six, then turn left and climb two more.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 7 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 6, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9,
+      "collectGoal": 2,
+      "parMoves": 13,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-51",
+    "track": "challenges",
+    "order": 51,
+    "title": "Descent Cache",
+    "introText": "Four crystals trace a winding path — rightward, up, right, then down. A debris column cuts the shortcut, so Vex must collect along the exact required route. All four gems for the win!",
+    "goalDescription": "Collect at least three crystals and reach the cache at (11, 2).",
+    "hintText": "Go right to the first gem, climb seven to the second, cross right to the third, then drop down five to the fourth and the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 7, "y": 0 }, { "x": 7, "y": 1 }, { "x": 7, "y": 2 },
+          { "x": 7, "y": 3 }, { "x": 7, "y": 4 }, { "x": 7, "y": 5 }, { "x": 7, "y": 6 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 6, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 11, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 11, "y": 2 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 11, "y": 2 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 25,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-52",
+    "track": "challenges",
+    "order": 52,
+    "title": "Summit Sweep",
+    "introText": "Three crystals mark the route to the highest point in the sector. Climb the left column to the first gem, cross to the second, then make the final ascent to the third crystal at the summit goal.",
+    "goalDescription": "Collect all three crystals and reach the summit at (8, 12).",
+    "hintText": "Climb six rows to the first gem, turn right and cross eight to the second, then turn left and climb six more to the summit.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 9, "y": 0 }, { "x": 9, "y": 1 }, { "x": 9, "y": 2 },
+          { "x": 9, "y": 3 }, { "x": 9, "y": 4 }, { "x": 9, "y": 5 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 8, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 8, "y": 12 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 8, "y": 12 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9,
+      "collectGoal": 3,
+      "parMoves": 20,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-53",
+    "track": "challenges",
+    "order": 53,
+    "title": "Corner Crystals",
+    "introText": "Two gems sit along a clean right-then-up path. The first waits at the turn, the second is up at the goal. A classic collect-and-land run — no tricks, just precise movement.",
+    "goalDescription": "Collect both crystals and reach the corner at (4, 6).",
+    "hintText": "Move right four steps to collect the first gem, turn left, and climb six rows to collect the second gem at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 4, "y": 6 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 4, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 2,
+      "parMoves": 10,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-54",
+    "track": "challenges",
+    "order": 54,
+    "title": "Deepspace Spiral",
+    "introText": "Eight energy crystals drift in a wide Z-shaped spiral across a debris-strewn zone. Vex starts facing right this time — weaving through a different spiral pattern across an even bigger void. The walls are tighter and the path is longer. This is the ultimate crystal haul.",
+    "goalDescription": "Collect at least seven crystals and reach the deep-space beacon at (18, 14).",
+    "hintText": "Trace the spiral right-up-right-down-right-up-right-up — collecting at each turning point.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 6, "y": 0 }, { "x": 6, "y": 1 }, { "x": 6, "y": 2 },
+          { "x": 6, "y": 3 }, { "x": 6, "y": 4 }, { "x": 6, "y": 5 }, { "x": 6, "y": 6 },
+          { "x": 0, "y": 8 }, { "x": 0, "y": 9 }, { "x": 0, "y": 10 },
+          { "x": 0, "y": 11 }, { "x": 0, "y": 12 }, { "x": 0, "y": 13 }, { "x": 0, "y": 14 },
+          { "x": 11, "y": 0 }, { "x": 11, "y": 1 },
+          { "x": 15, "y": 0 }, { "x": 15, "y": 1 },
+          { "x": 15, "y": 11 }, { "x": 15, "y": 12 }, { "x": 15, "y": 13 }, { "x": 15, "y": 14 },
+          { "x": 15, "y": 15 }, { "x": 15, "y": 16 }, { "x": 15, "y": 17 }, { "x": 15, "y": 18 },
+          { "x": 15, "y": 19 },
+          { "x": 19, "y": 0 }, { "x": 19, "y": 1 }, { "x": 19, "y": 2 }, { "x": 19, "y": 3 },
+          { "x": 19, "y": 4 }, { "x": 19, "y": 5 }, { "x": 19, "y": 6 }, { "x": 19, "y": 7 },
+          { "x": 19, "y": 8 }, { "x": 19, "y": 9 }, { "x": 19, "y": 10 }, { "x": 19, "y": 11 },
+          { "x": 19, "y": 12 }, { "x": 19, "y": 13 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 5, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 10, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 10, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 14, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 14, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 18, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 18, "y": 14 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 18, "y": 14 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 25,
+      "collectGoal": 7,
+      "parMoves": 54,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-55",
+    "track": "challenges",
+    "order": 55,
+    "title": "Diamond Cross",
+    "introText": "Just one crystal, placed right at the center crossroads. Vex starts facing up — climb four rows, turn right, and walk four columns. The diamond is waiting. Simple, clean, satisfying.",
+    "goalDescription": "Collect the crystal and land on it at (4, 4).",
+    "hintText": "Climb four rows straight up, then turn right and move four steps — the crystal is at the destination.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 4, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 1,
+      "parMoves": 8,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-56",
+    "track": "challenges",
+    "order": 56,
+    "title": "Waypoint Rush",
+    "introText": "Two waypoint crystals mark the route — one straight up, one across. Climb to the first, then dash right to collect the second and land at the goal. Clean and quick.",
+    "goalDescription": "Collect both waypoint crystals and reach the station at (6, 4).",
+    "hintText": "Climb four rows to collect the first gem, then turn right and move six columns to the second gem at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 6, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 2,
+      "parMoves": 10,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-57",
+    "track": "challenges",
+    "order": 57,
+    "title": "Pillar Bypass Haul",
+    "introText": "A tall pillar of debris blocks the rightward path for the first eight rows. Three crystals are waiting on the safe route — go right to the first, climb above the pillar, collect the second, then dash right to the third.",
+    "goalDescription": "Collect all three crystals and reach the haul depot at (12, 8).",
+    "hintText": "Move right seven to the first gem, turn left and climb eight rows past the pillar, collect the second gem, then turn right and cross five to the third at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 8, "y": 0 }, { "x": 8, "y": 1 }, { "x": 8, "y": 2 },
+          { "x": 8, "y": 3 }, { "x": 8, "y": 4 }, { "x": 8, "y": 5 },
+          { "x": 8, "y": 6 }, { "x": 8, "y": 7 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 7, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 7, "y": 8 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 12, "y": 8 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 12, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9,
+      "collectGoal": 3,
+      "parMoves": 20,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-58",
+    "track": "challenges",
+    "order": 58,
+    "title": "Center Stone",
+    "introText": "One crystal glows at the center of the grid — equidistant from start in both directions. A simple right-then-up run collects it and lands Vex right on target.",
+    "goalDescription": "Collect the center crystal and land on it at (4, 4).",
+    "hintText": "Move right four steps, then turn left and climb four rows to the crystal.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 4, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 1,
+      "parMoves": 8,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-59",
+    "track": "challenges",
+    "order": 59,
+    "title": "Horseshoe Run",
+    "introText": "Four crystals trace a horseshoe path — up the left, across, and back down the right. A thick debris column blocks the far-right exit, so Vex must retrace leftward at the top. Collect three of the four to complete the run.",
+    "goalDescription": "Collect at least three crystals and reach the return point at (4, 11).",
+    "hintText": "Climb five rows to the first gem, dash right nine to the second, climb six to the third, then turn left and go five back to the fourth gem at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 10, "y": 0 }, { "x": 10, "y": 1 }, { "x": 10, "y": 2 },
+          { "x": 10, "y": 3 }, { "x": 10, "y": 4 }, { "x": 10, "y": 5 },
+          { "x": 10, "y": 6 }, { "x": 10, "y": 7 }, { "x": 10, "y": 8 },
+          { "x": 10, "y": 9 }, { "x": 10, "y": 10 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 9, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 9, "y": 11 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 4, "y": 11 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 4, "y": 11 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 26,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-60",
+    "track": "challenges",
+    "order": 60,
+    "title": "Vortex Loop",
+    "introText": "Eight crystals spiral outward through a vortex of debris walls. Vex must climb, dash right, climb, dash right, plunge down, dash right, climb, and dash again — all in sequence. One missed step and the vortex swallows the mission. This is elite-grade crystal collection.",
+    "goalDescription": "Collect at least seven crystals and reach the vortex exit at (18, 8).",
+    "hintText": "Trace the vortex: up four, right six, up six, right six, down eight, right four, up six, right two.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 7, "y": 0 }, { "x": 7, "y": 1 }, { "x": 7, "y": 2 }, { "x": 7, "y": 3 },
+          { "x": 0, "y": 5 }, { "x": 0, "y": 6 }, { "x": 0, "y": 7 },
+          { "x": 0, "y": 8 }, { "x": 0, "y": 9 },
+          { "x": 13, "y": 5 }, { "x": 13, "y": 6 }, { "x": 13, "y": 7 }, { "x": 13, "y": 8 }, { "x": 13, "y": 9 },
+          { "x": 17, "y": 0 }, { "x": 17, "y": 1 },
+          { "x": 19, "y": 0 }, { "x": 19, "y": 1 }, { "x": 19, "y": 2 }, { "x": 19, "y": 3 },
+          { "x": 19, "y": 4 }, { "x": 19, "y": 5 }, { "x": 19, "y": 6 }, { "x": 19, "y": 7 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 6, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 12, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 12, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 16, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 16, "y": 8 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 18, "y": 8 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 18, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 25,
+      "collectGoal": 7,
+      "parMoves": 50,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-61",
+    "track": "challenges",
+    "order": 61,
+    "title": "Soft Landing",
+    "introText": "One crystal, one short trip. Vex earned a breather after that wild vortex run. Dash right and climb up to collect the gem and land. Simple mission, full reward.",
+    "goalDescription": "Collect the crystal and reach the landing pad at (6, 3).",
+    "hintText": "Move right six steps, then turn left and climb three rows to the crystal at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 6, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 6, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 1,
+      "parMoves": 9,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-62",
+    "track": "challenges",
+    "order": 62,
+    "title": "Crescent Sweep",
+    "introText": "Four crystals curve in a crescent — up the left, across, up, and then back left. A pillar of debris cuts the far right, forcing the crescent shape. Collect three of the four gems to finish the sweep.",
+    "goalDescription": "Collect at least three crystals and reach the crescent tip at (5, 12).",
+    "hintText": "Climb six rows, cross eight, climb six more, then turn left and go back three to the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 9, "y": 0 }, { "x": 9, "y": 1 }, { "x": 9, "y": 2 },
+          { "x": 9, "y": 3 }, { "x": 9, "y": 4 }, { "x": 9, "y": 5 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 8, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 8, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 5, "y": 12 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 5, "y": 12 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 25,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-63",
+    "track": "challenges",
+    "order": 63,
+    "title": "Split Path",
+    "introText": "Two gems are split across the grid — one near the bottom, one high up. A two-segment trip collects both: move right to scoop the first, then turn and climb to the second at the goal.",
+    "goalDescription": "Collect both crystals and reach the upper station at (3, 7).",
+    "hintText": "Move right three steps to collect the first gem, then turn left and climb seven rows to the second at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 3, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 3, "y": 7 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 3, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 2,
+      "parMoves": 10,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-64",
+    "track": "challenges",
+    "order": 64,
+    "title": "Omega Loop",
+    "introText": "Four crystals trace a wide omega shape — up the left, across right, up again, and back across left. A tall debris pillar seals the far right, making the leftward return mandatory. Collect all four gems in a single run.",
+    "goalDescription": "Collect all four crystals and reach the omega return point at (2, 11).",
+    "hintText": "Climb six rows, dash right ten, climb five more, then turn left and go eight back to the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 11, "y": 0 }, { "x": 11, "y": 1 }, { "x": 11, "y": 2 },
+          { "x": 11, "y": 3 }, { "x": 11, "y": 4 }, { "x": 11, "y": 5 },
+          { "x": 11, "y": 6 }, { "x": 11, "y": 7 }, { "x": 11, "y": 8 },
+          { "x": 11, "y": 9 }, { "x": 11, "y": 10 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 10, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 10, "y": 11 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 2, "y": 11 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 2, "y": 11 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 4,
+      "parMoves": 29,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-65",
+    "track": "challenges",
+    "order": 65,
+    "title": "Step Collector",
+    "introText": "Two crystals are arranged in a step pattern — one at a mid-height crossing, one at the high goal. Climb a few rows, dash right to grab the first gem, then climb to the second.",
+    "goalDescription": "Collect both crystals and reach the high point at (4, 8).",
+    "hintText": "Climb three rows, turn right and move four to collect the first gem, then turn left and climb five more to the second at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 4, "y": 8 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 4, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 9,
+      "collectGoal": 2,
+      "parMoves": 12,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-66",
+    "track": "challenges",
+    "order": 66,
+    "title": "Nebula Harvest",
+    "introText": "Eight energy crystals are scattered across a wide nebula zone in a figure-eight pattern. Debris columns cut every shortcut. Vex must trace eight precise segments — climbing, crossing, diving, and spiraling — to collect every crystal and escape the nebula. This is the hardest crystal run yet.",
+    "goalDescription": "Collect at least seven crystals and reach the nebula exit at (16, 7).",
+    "hintText": "Trace up, right, up, right, down, right, up, right — one crystal at each turning point. Count every step.",
+    "challenge": {
+      "grid": {
+        "width": 18,
+        "height": 18,
+        "obstacles": [
+          { "x": 6, "y": 0 }, { "x": 6, "y": 1 }, { "x": 6, "y": 2 }, { "x": 6, "y": 3 },
+          { "x": 0, "y": 5 }, { "x": 0, "y": 6 }, { "x": 0, "y": 7 }, { "x": 0, "y": 8 },
+          { "x": 11, "y": 0 }, { "x": 11, "y": 1 },
+          { "x": 16, "y": 0 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 5, "y": 4 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 5, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 10, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 10, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 15, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 15, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 16, "y": 7 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 16, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 25,
+      "collectGoal": 7,
+      "parMoves": 45,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-67",
+    "track": "challenges",
+    "order": 67,
+    "title": "Rest Stop",
+    "introText": "One crystal, one easy trip. After the nebula gauntlet, Academy command sends Vex to a quiet rest stop. Just go right and up. Catch your breath.",
+    "goalDescription": "Collect the crystal and reach the rest stop at (5, 4).",
+    "hintText": "Move right five steps, then turn left and climb four rows to the crystal at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 5, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 1,
+      "parMoves": 9,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-68",
+    "track": "challenges",
+    "order": 68,
+    "title": "Angled Approach",
+    "introText": "Two crystals sit in a diagonal arrangement — one at the bottom, one high up and to the right. Vex needs three segments: turn, dash, and climb. Pick them up in order.",
+    "goalDescription": "Collect both crystals and reach the high station at (5, 7).",
+    "hintText": "Turn right and dash five steps to the first gem, then turn left and climb seven to the second.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 5, "y": 7 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 5, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 7,
+      "collectGoal": 2,
+      "parMoves": 12,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-69",
+    "track": "challenges",
+    "order": 69,
+    "title": "Box Route",
+    "introText": "Four crystals mark a rectangular box path — right, up, right, and down. A debris column forces Vex to follow the box exactly. Collect at least three gems to escape the zone.",
+    "goalDescription": "Collect at least three crystals and reach the box exit at (12, 4).",
+    "hintText": "Go right to the first gem, climb nine to the second, cross right six to the third, then drop five to the fourth and the goal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [
+          { "x": 7, "y": 0 }, { "x": 7, "y": 1 }, { "x": 7, "y": 2 },
+          { "x": 7, "y": 3 }, { "x": 7, "y": 4 }, { "x": 7, "y": 5 },
+          { "x": 7, "y": 6 }, { "x": 7, "y": 7 }, { "x": 7, "y": 8 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 6, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 12, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 12, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 12, "y": 4 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 26,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-70",
+    "track": "challenges",
+    "order": 70,
+    "title": "Cosmic Spiral",
+    "introText": "Nine energy crystals drift in a vast spiral across a 22-wide cosmic debris field. Vex must trace nine segments through interlocking walls of wreckage — climbing, dashing, diving, and spiraling outward. Only perfect planning collects them all. This is the ultimate collectible challenge.",
+    "goalDescription": "Collect at least seven crystals and reach the spiral terminus at (21, 7).",
+    "hintText": "Trace the spiral: up five, right seven, up seven, right seven, down ten, right five, up eight, right two, then drop three to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 22,
+        "height": 22,
+        "obstacles": [
+          { "x": 8, "y": 0 }, { "x": 8, "y": 1 }, { "x": 8, "y": 2 },
+          { "x": 8, "y": 3 }, { "x": 8, "y": 4 },
+          { "x": 0, "y": 6 }, { "x": 0, "y": 7 }, { "x": 0, "y": 8 },
+          { "x": 0, "y": 9 }, { "x": 0, "y": 10 }, { "x": 0, "y": 11 },
+          { "x": 15, "y": 4 }, { "x": 15, "y": 5 }, { "x": 15, "y": 6 },
+          { "x": 15, "y": 7 }, { "x": 15, "y": 8 }, { "x": 15, "y": 9 },
+          { "x": 15, "y": 10 }, { "x": 15, "y": 11 },
+          { "x": 20, "y": 0 }, { "x": 20, "y": 1 }, { "x": 20, "y": 2 },
+          { "x": 20, "y": 3 }, { "x": 20, "y": 4 }, { "x": 20, "y": 5 },
+          { "x": 20, "y": 6 }, { "x": 20, "y": 7 }, { "x": 20, "y": 8 },
+          { "x": 20, "y": 9 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 7, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 7, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 14, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 14, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 19, "y": 2 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 19, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 21, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-9", "position": { "x": 21, "y": 7 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 21, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 27,
+      "collectGoal": 7,
+      "parMoves": 60,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-71",
+    "track": "challenges",
+    "order": 71,
+    "title": "Ice Rink Intro",
+    "introText": "Academy engineers discovered a strange phenomenon: some floors are made of ice! When Vex lands on an ice tile, the robot slides one extra cell in the same direction. The crystal is just past the ice — one step sends Vex sliding right to it!",
+    "goalDescription": "Slide across the ice tile and collect the crystal at (2, 0).",
+    "hintText": "Move forward once — Vex will land on ice and slide one extra cell to collect the crystal at the goal.",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": [],
+        "terrain": [
+          { "x": 1, "y": 0, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 2, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 2, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 2,
+      "collectGoal": 1,
+      "parMoves": 1,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-72",
+    "track": "challenges",
+    "order": 72,
+    "title": "Ice Skip",
+    "introText": "Two ice tiles sit along the path — each one launches Vex an extra step forward. Plan ahead: count where Vex actually lands after the slides. The gem is right in the slide zone!",
+    "goalDescription": "Slide through both ice patches and collect the crystal to reach the exit at (7, 0).",
+    "hintText": "Move right — ice at position 2 slides you to 3, ice at position 5 slides you to 6. Then move once more to reach the goal at 7.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "terrain": [
+          { "x": 2, "y": 0, "kind": "ice" },
+          { "x": 5, "y": 0, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 6, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 7, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4,
+      "collectGoal": 1,
+      "parMoves": 5,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-73",
+    "track": "challenges",
+    "order": 73,
+    "title": "Slick Harvest",
+    "introText": "Ice tiles make the floor treacherous — step on one and Vex slides to the next cell automatically. Two crystals are waiting just past two ice patches. Navigate the slick floor to collect both gems.",
+    "goalDescription": "Slide across the ice patches, collect both crystals, and reach the exit at (9, 5).",
+    "hintText": "Climb four rows to the first ice tile, ride the slide up to collect gem one, then turn right and ride the second ice slide to collect gem two — then dash to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 4, "kind": "ice" },
+          { "x": 6, "y": 5, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 7, "y": 5 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 9, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 8,
+      "collectGoal": 2,
+      "parMoves": 12,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-74",
+    "track": "challenges",
+    "order": 74,
+    "title": "Ice Dash",
+    "introText": "One crystal sits just past an ice tile. Vex needs to line up, step onto the ice, and ride the slide straight to the gem. Simple — but only if Vex is facing the right direction!",
+    "goalDescription": "Slide to the crystal and land on it at (6, 3).",
+    "hintText": "Climb three rows, then turn right — the ice at (3, 3) launches Vex to (4, 3). Move two more steps to collect the gem at (6, 3).",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "terrain": [
+          { "x": 3, "y": 3, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 6, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 6, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 7,
+      "collectGoal": 1,
+      "parMoves": 8,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-75",
+    "track": "challenges",
+    "order": 75,
+    "title": "Frozen Corridor",
+    "introText": "A long icy corridor weaves across the grid. Three crystals are hidden at the end of each ice-launched path — step onto an ice tile and the slide carries Vex exactly to a gem. Navigate the frozen passageways and collect all three to reach the exit.",
+    "goalDescription": "Collect all three crystals from the icy corridors and reach the frozen exit at (12, 6).",
+    "hintText": "Use the ice slides to reach the gems — step onto each ice tile and let the slide carry you to the crystal. Then navigate to the next ice patch.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 3, "y": 0, "kind": "ice" },
+          { "x": 8, "y": 4, "kind": "ice" },
+          { "x": 11, "y": 6, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 8, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 12, "y": 6 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 12, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 14,
+      "collectGoal": 3,
+      "parMoves": 15,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-76",
+    "track": "challenges",
+    "order": 76,
+    "title": "Frozen Spiral",
+    "introText": "Eight crystals are locked deep in an icy maze. Two ice patches send Vex skidding along the floor — plan exactly where each slide lands or the whole spiral falls apart. Eight segments, eight turns, and two critical slides: this is the ultimate ice gauntlet.",
+    "goalDescription": "Collect at least seven crystals and reach the frozen exit at (18, 6).",
+    "hintText": "Trace the spiral segment by segment — two ice tiles will slide Vex one extra cell. Count every step precisely.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 4, "y": 7 }, { "x": 4, "y": 8 }, { "x": 4, "y": 9 }, { "x": 4, "y": 10 },
+          { "x": 10, "y": 0 }, { "x": 10, "y": 1 }, { "x": 10, "y": 2 },
+          { "x": 10, "y": 3 }, { "x": 10, "y": 4 }, { "x": 10, "y": 5 },
+          { "x": 15, "y": 6 }, { "x": 15, "y": 7 }, { "x": 15, "y": 8 },
+          { "x": 15, "y": 9 }, { "x": 15, "y": 10 },
+          { "x": 9, "y": 11 }, { "x": 9, "y": 12 },
+          { "x": 14, "y": 11 }, { "x": 14, "y": 12 },
+          { "x": 19, "y": 3 }, { "x": 19, "y": 4 }
+        ],
+        "terrain": [
+          { "x": 3, "y": 0, "kind": "ice" },
+          { "x": 17, "y": 3, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 4, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 9, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 9, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 14, "y": 10 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 14, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 18, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 18, "y": 6 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 18, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 25,
+      "collectGoal": 7,
+      "parMoves": 45,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-77",
+    "track": "challenges",
+    "order": 77,
+    "title": "Gentle Glide",
+    "introText": "After the brutal ice gauntlet, Vex gets one easy assignment: glide up a short corridor. There is one ice tile — step on it and slide right to the crystal. Just three steps and you are done.",
+    "goalDescription": "Slide up the ice tile and collect the crystal at (0, 3).",
+    "hintText": "Move up twice — the ice tile at row 2 launches Vex to row 3 where the crystal waits.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 2, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 0, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 3,
+      "collectGoal": 1,
+      "parMoves": 2,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-78",
+    "track": "challenges",
+    "order": 78,
+    "title": "Double Drift",
+    "introText": "Two ice patches line the runway — each launches Vex one extra cell forward. Two crystals sit just past the slides. Count carefully and Vex will skim right over both gems to the exit.",
+    "goalDescription": "Slide through both ice patches, collect both crystals, and reach the exit at (8, 0).",
+    "hintText": "Six forward moves will carry Vex across both ice slides — each one skips an extra cell and drops a crystal.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "terrain": [
+          { "x": 2, "y": 0, "kind": "ice" },
+          { "x": 5, "y": 0, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 3, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 8, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 3,
+      "collectGoal": 2,
+      "parMoves": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-79",
+    "track": "challenges",
+    "order": 79,
+    "title": "Ice Chain",
+    "introText": "Three crystals are scattered across a mid-size arena — but two are buried behind ice patches that launch Vex precisely to each one. Plan the full route: climb, slide, turn, cross, slide, dash.",
+    "goalDescription": "Ride the ice chain to collect all three crystals and reach the exit at (10, 9).",
+    "hintText": "Climb the ice to grab the first gem, cross right and climb to the second ice, then move right past the final slide to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 4, "kind": "ice" },
+          { "x": 5, "y": 9, "kind": "ice" },
+          { "x": 7, "y": 9, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 8, "y": 9 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 10, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 14,
+      "collectGoal": 3,
+      "parMoves": 16,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-80",
+    "track": "challenges",
+    "order": 80,
+    "title": "Short Slide",
+    "introText": "A single ice tile sits in the middle of the corridor. Slide past it to collect the crystal, then take one step to the exit. Short route, clean execution.",
+    "goalDescription": "Collect the crystal and reach the exit at (6, 0).",
+    "hintText": "Move right four times — the ice at position 4 launches Vex to the gem, then one more step to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "terrain": [
+          { "x": 4, "y": 0, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 6, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4,
+      "collectGoal": 1,
+      "parMoves": 5,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-81",
+    "track": "challenges",
+    "order": 81,
+    "title": "Triple Ice Run",
+    "introText": "Three ice patches in a row, each launching Vex precisely to a crystal. Navigate a short climb, a long crossing, and a final upward slide — then dash to the exit. All three gems are needed.",
+    "goalDescription": "Ride three ice slides to collect all crystals and reach the exit at (10, 9).",
+    "hintText": "Climb onto the first ice patch, then cross right and hit the second, then climb onto the third — each slide drops you on a crystal.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 4, "kind": "ice" },
+          { "x": 5, "y": 5, "kind": "ice" },
+          { "x": 6, "y": 8, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 6, "y": 9 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 10, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 14,
+      "collectGoal": 3,
+      "parMoves": 16,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-82",
+    "track": "challenges",
+    "order": 82,
+    "title": "Blizzard Run",
+    "introText": "Eight crystals spiral through a frozen wasteland. Two critical ice tiles will fling Vex further than expected — plan them into your route or miss the gems. This is the most complex ice challenge yet: eight segments, seven turns, two precision slides.",
+    "goalDescription": "Collect at least seven crystals and reach the blizzard exit at (19, 12).",
+    "hintText": "Spiral through eight segments — two ice patches will slide Vex one extra cell each. Trace every step or the spiral falls apart.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 0, "y": 6 }, { "x": 0, "y": 7 }, { "x": 0, "y": 8 },
+          { "x": 0, "y": 9 }, { "x": 0, "y": 10 },
+          { "x": 14, "y": 0 }, { "x": 14, "y": 1 }, { "x": 14, "y": 2 },
+          { "x": 14, "y": 11 }, { "x": 14, "y": 12 }, { "x": 14, "y": 13 },
+          { "x": 14, "y": 14 }, { "x": 14, "y": 15 },
+          { "x": 17, "y": 13 }, { "x": 17, "y": 14 }, { "x": 17, "y": 15 }
+        ],
+        "terrain": [
+          { "x": 16, "y": 3, "kind": "ice" },
+          { "x": 18, "y": 12, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 6, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 6, "y": 11 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 13, "y": 11 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 13, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 17, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 17, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 19, "y": 12 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 19, "y": 12 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 25,
+      "collectGoal": 7,
+      "parMoves": 55,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-83",
+    "track": "challenges",
+    "order": 83,
+    "title": "Quick Frost",
+    "introText": "One ice tile, one crystal, two steps. After the blizzard mega-run, Academy command sends Vex to the simplest assignment imaginable. Move right twice — ice launches Vex straight to the crystal.",
+    "goalDescription": "Slide across the ice tile and collect the crystal at (3, 0).",
+    "hintText": "Move right twice — the ice at column 2 slides Vex one extra step to the crystal.",
+    "challenge": {
+      "grid": {
+        "width": 6,
+        "height": 6,
+        "obstacles": [],
+        "terrain": [
+          { "x": 2, "y": 0, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 3, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 3, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 3,
+      "collectGoal": 1,
+      "parMoves": 2,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-84",
+    "track": "challenges",
+    "order": 84,
+    "title": "Drift and Dash",
+    "introText": "An ice patch throws Vex past the crystal — but not all the way to the exit. Slide to collect the gem, then dash two more steps to the goal. Simple two-phase route.",
+    "goalDescription": "Collect the crystal and reach the exit at (6, 0).",
+    "hintText": "Move right three times — the ice at position 3 slides Vex to the gem. Then move right two more steps to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "terrain": [
+          { "x": 3, "y": 0, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 6, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 5,
+      "collectGoal": 1,
+      "parMoves": 5,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-85",
+    "track": "challenges",
+    "order": 85,
+    "title": "Ice Lane Gems",
+    "introText": "Three crystals are scattered across a slick arena. Two ice patches launch Vex onto gems at key turn points. Navigate the L-shaped route — climbing, crossing, and sliding — to collect all three and reach the exit.",
+    "goalDescription": "Collect all three crystals using the ice slides and reach the frozen exit at (10, 7).",
+    "hintText": "Climb the first ice to grab gem one, cross the long corridor and grab gem two, then turn and use the second ice to slide to gem three at the exit.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 5, "kind": "ice" },
+          { "x": 9, "y": 7, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 8, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 10, "y": 7 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 10, "y": 7 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 15,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-86",
+    "track": "challenges",
+    "order": 86,
+    "title": "Ice Corner Route",
+    "introText": "A crystal sits behind an ice patch along the first corridor, and two more are tucked in the far corner. Slide past the first gem, pivot up, race to the second, then sprint to the exit. Three segments of precision.",
+    "goalDescription": "Collect all three crystals and reach the corner exit at (11, 8).",
+    "hintText": "Slide right through the first ice to gem one, dash across to the wall, turn up and ride the second ice to gem two, then sprint right and up to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 4, "y": 0, "kind": "ice" },
+          { "x": 8, "y": 5, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 8, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 11, "y": 8 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 11, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 15,
+      "collectGoal": 3,
+      "parMoves": 17,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-87",
+    "track": "challenges",
+    "order": 87,
+    "title": "Frosty Climb",
+    "introText": "The ice tile is right in the middle of the path up. Step carefully — the slide carries Vex to the crystal. One more step brings the exit in reach.",
+    "goalDescription": "Slide up to the crystal and reach the exit at (0, 5).",
+    "hintText": "Move up three times — the ice at row 3 slides Vex to row 4 where the crystal waits. Then one more step to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 3, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 4 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 0, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4,
+      "collectGoal": 1,
+      "parMoves": 4,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-88",
+    "track": "challenges",
+    "order": 88,
+    "title": "Stellar Spiral",
+    "introText": "Eight crystals are arranged in a massive eight-segment spiral across a 20-wide void. No ice — just precise counting through eight turning segments. Every step matters. This is the biggest pure-navigation challenge in the academy.",
+    "goalDescription": "Collect at least seven crystals and reach the stellar exit at (14, 12).",
+    "hintText": "Trace the spiral: up five, right eight, up eight, right eight, down ten, right three, up nine, then left five to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 20,
+        "height": 20,
+        "obstacles": [
+          { "x": 0, "y": 6 }, { "x": 0, "y": 7 }, { "x": 0, "y": 8 },
+          { "x": 0, "y": 9 }, { "x": 0, "y": 10 }, { "x": 0, "y": 11 },
+          { "x": 0, "y": 12 },
+          { "x": 9, "y": 0 }, { "x": 9, "y": 1 }, { "x": 9, "y": 2 },
+          { "x": 9, "y": 3 }, { "x": 9, "y": 4 },
+          { "x": 8, "y": 14 }, { "x": 8, "y": 15 },
+          { "x": 17, "y": 0 }, { "x": 17, "y": 1 }, { "x": 17, "y": 2 }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 8, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 8, "y": 13 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 16, "y": 13 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 16, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 19, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 19, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 14, "y": 12 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 14, "y": 12 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 25,
+      "collectGoal": 7,
+      "parMoves": 56,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-89",
+    "track": "challenges",
+    "order": 89,
+    "title": "Soft Landing",
+    "introText": "After the stellar spiral, one simple mission: move right, hit the ice, slide to the crystal. One command, one gem. Rest up for what is ahead.",
+    "goalDescription": "Slide to the crystal and land exactly at (4, 0).",
+    "hintText": "Move right three times — the ice at column 3 slides Vex to the crystal at column 4.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "terrain": [
+          { "x": 3, "y": 0, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 4, "y": 0 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 3,
+      "collectGoal": 1,
+      "parMoves": 3,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-90",
+    "track": "challenges",
+    "order": 90,
+    "title": "Slide and Dash",
+    "introText": "Two crystals on an L-shaped route. An ice tile launches Vex to the first gem, then a quick right turn and dash picks up the second at the exit.",
+    "goalDescription": "Collect both crystals and reach the exit at (5, 3).",
+    "hintText": "Move up twice — ice at row 2 slides to gem one. Turn right and dash five steps to gem two at the exit.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 2, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 5, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 5, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 2,
+      "parMoves": 7,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-91",
+    "track": "challenges",
+    "order": 91,
+    "title": "Corner Slide Grab",
+    "introText": "Three crystals are placed along a winding ice route. Two ice tiles launch Vex to key collection points. Navigate the corners precisely — every tile counts.",
+    "goalDescription": "Collect all three crystals and reach the corner exit at (12, 9).",
+    "hintText": "Slide right to gem one, dash across, pivot up and ride the second ice to gem two, then dash to the exit with gem three.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 4, "y": 0, "kind": "ice" },
+          { "x": 9, "y": 7, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 5, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 9, "y": 8 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 12, "y": 9 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 12, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 12,
+      "collectGoal": 3,
+      "parMoves": 18,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-92",
+    "track": "challenges",
+    "order": 92,
+    "title": "Quick Slide Up",
+    "introText": "One ice tile, two gems, two turns. Slide up to gem one, turn right, and dash across to gem two at the exit. Short and precise.",
+    "goalDescription": "Collect both crystals and reach the exit at (4, 3).",
+    "hintText": "Climb twice — ice at row 2 slides to gem one. Turn right and move four steps to gem two at the exit.",
+    "challenge": {
+      "grid": {
+        "width": 10,
+        "height": 10,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 2, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 4, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 4, "y": 3 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 6,
+      "collectGoal": 2,
+      "parMoves": 6,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-93",
+    "track": "challenges",
+    "order": 93,
+    "title": "Ice Zigzag",
+    "introText": "Three crystals zigzag across the arena — each requires a different direction change after an ice slide. Plan the full route: right, pivot, right-again, pivot up, and climb with a final ice slide to the exit.",
+    "goalDescription": "Collect all three crystals from the zigzag route and reach the exit at (12, 10).",
+    "hintText": "Slide right to gem one, pivot up and cross right through the second ice to gem two, then climb to the final ice slide at the exit.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 3, "y": 0, "kind": "ice" },
+          { "x": 10, "y": 6, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 11, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 12, "y": 10 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 12, "y": 10 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 16,
+      "collectGoal": 3,
+      "parMoves": 21,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-94",
+    "track": "challenges",
+    "order": 94,
+    "title": "Ice Summit",
+    "introText": "One ice tile guards the summit. Climb five rows to it and let the slide carry Vex to the crystal at the top. Clean and precise.",
+    "goalDescription": "Slide up to the crystal at the summit at (0, 6).",
+    "hintText": "Move up five times — the ice at row 5 slides Vex to the crystal at row 6.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 5, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 6 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 0, "y": 6 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 3,
+      "collectGoal": 1,
+      "parMoves": 5,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-95",
+    "track": "challenges",
+    "order": 95,
+    "title": "Polar Expedition",
+    "introText": "Nine crystals are scattered across a vast 24-wide frozen wasteland. Three ice patches send Vex skidding precisely to key gems — plan every slide or the expedition fails. Nine segments, eight pivots, and three critical ice landings: the hardest ice challenge in the academy.",
+    "goalDescription": "Collect at least seven crystals and reach the expedition base at (13, 8).",
+    "hintText": "Spiral through the wasteland — three ice tiles will slide Vex one extra cell. Trace every segment precisely or the route falls apart.",
+    "challenge": {
+      "grid": {
+        "width": 24,
+        "height": 24,
+        "obstacles": [
+          { "x": 0, "y": 7 }, { "x": 0, "y": 8 }, { "x": 0, "y": 9 },
+          { "x": 0, "y": 10 }, { "x": 0, "y": 11 }, { "x": 0, "y": 12 },
+          { "x": 0, "y": 13 },
+          { "x": 10, "y": 0 }, { "x": 10, "y": 1 }, { "x": 10, "y": 2 },
+          { "x": 10, "y": 3 }, { "x": 10, "y": 4 }, { "x": 10, "y": 5 },
+          { "x": 9, "y": 15 }, { "x": 9, "y": 16 }, { "x": 9, "y": 17 },
+          { "x": 19, "y": 0 }, { "x": 19, "y": 1 },
+          { "x": 23, "y": 13 }, { "x": 23, "y": 14 }, { "x": 23, "y": 15 },
+          { "x": 12, "y": 12 }
+        ],
+        "terrain": [
+          { "x": 0, "y": 6, "kind": "ice" },
+          { "x": 9, "y": 14, "kind": "ice" },
+          { "x": 22, "y": 3, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 9, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 9, "y": 15 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 18, "y": 15 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 18, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 23, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 23, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 13, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-9", "position": { "x": 13, "y": 8 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 13, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 28,
+      "collectGoal": 7,
+      "parMoves": 80,
+      "difficulty": "superHard"
+    }
+  },
+  {
+    "id": "challenge-96",
+    "track": "challenges",
+    "order": 96,
+    "title": "Easy Glide",
+    "introText": "After the polar expedition, one simple assignment: move forward from the top, step on the ice, and slide to the crystal below. One move, one gem.",
+    "goalDescription": "Slide down to the crystal at (0, 3).",
+    "hintText": "Move forward once — the ice at row 6 slides Vex down to the crystal at row 3.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 6, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 7 }, "facing": "down" },
+      "goal": { "x": 0, "y": 5 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 2,
+      "collectGoal": 1,
+      "parMoves": 1,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-97",
+    "track": "challenges",
+    "order": 97,
+    "title": "Twin Slide Dash",
+    "introText": "Two ice patches hide in the corners of this icy arena. Each one launches Vex to a crystal. Navigate the L-turn, ride both slides, and sprint to the exit to collect all three gems.",
+    "goalDescription": "Collect all three crystals and reach the exit at (10, 9).",
+    "hintText": "Slide up to gem one, keep climbing, turn right and ride the second ice to gem two, then move one step to gem three at the exit.",
+    "challenge": {
+      "grid": {
+        "width": 12,
+        "height": 12,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 4, "kind": "ice" },
+          { "x": 8, "y": 9, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 5 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 9, "y": 9 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 10, "y": 9 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 10, "y": 9 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 10,
+      "collectGoal": 3,
+      "parMoves": 17,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-98",
+    "track": "challenges",
+    "order": 98,
+    "title": "Dive Slide",
+    "introText": "Vex starts at the top and dives down — but an ice tile in the middle of the drop flings the robot one extra cell. Land on the crystal, then take one step to the exit below.",
+    "goalDescription": "Dive through the ice to collect the crystal and reach the exit at (0, 2).",
+    "hintText": "Move down three times — the ice at row 4 slides Vex to row 3 where the crystal waits. Then move down one more to the exit.",
+    "challenge": {
+      "grid": {
+        "width": 8,
+        "height": 8,
+        "obstacles": [],
+        "terrain": [
+          { "x": 0, "y": 4, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 3 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 7 }, "facing": "down" },
+      "goal": { "x": 0, "y": 2 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 4,
+      "collectGoal": 1,
+      "parMoves": 4,
+      "difficulty": "easy"
+    }
+  },
+  {
+    "id": "challenge-99",
+    "track": "challenges",
+    "order": 99,
+    "title": "Ice Zigzag Pro",
+    "introText": "A pro-level ice zigzag: three gems hide behind three slides in three different directions. Navigate the winding corridor, change directions twice, and use the final upward ice launch to reach the exit.",
+    "goalDescription": "Collect all three crystals from the zigzag route and reach the exit at (12, 12).",
+    "hintText": "Slide right to gem one, pivot up, cross right through the second ice to gem two, then pivot up again and ride the final ice to gem three at the exit.",
+    "challenge": {
+      "grid": {
+        "width": 14,
+        "height": 14,
+        "obstacles": [],
+        "terrain": [
+          { "x": 3, "y": 0, "kind": "ice" },
+          { "x": 8, "y": 6, "kind": "ice" },
+          { "x": 12, "y": 11, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 4, "y": 0 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 9, "y": 6 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 12, "y": 12 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "right" },
+      "goal": { "x": 12, "y": 12 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 16,
+      "collectGoal": 3,
+      "parMoves": 22,
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "challenge-100",
+    "track": "challenges",
+    "order": 100,
+    "title": "Final Frontier",
+    "introText": "One hundred challenges have led to this. Nine crystals spiral through a 24-wide frozen void — three ice tiles will fling Vex further than expected at critical turns. Every segment must be traced perfectly. This is the ultimate Forge Code challenge.",
+    "goalDescription": "Collect at least seven crystals and reach the final frontier exit at (13, 8).",
+    "hintText": "Trace nine perfect segments — three ice patches will slide Vex one extra cell. Plan every step: the exit is on the far side of the biggest spiral yet.",
+    "challenge": {
+      "grid": {
+        "width": 24,
+        "height": 24,
+        "obstacles": [
+          { "x": 0, "y": 7 }, { "x": 0, "y": 8 }, { "x": 0, "y": 9 },
+          { "x": 0, "y": 10 }, { "x": 0, "y": 11 }, { "x": 0, "y": 12 },
+          { "x": 0, "y": 13 },
+          { "x": 10, "y": 0 }, { "x": 10, "y": 1 }, { "x": 10, "y": 2 },
+          { "x": 10, "y": 3 }, { "x": 10, "y": 4 }, { "x": 10, "y": 5 },
+          { "x": 9, "y": 15 }, { "x": 9, "y": 16 }, { "x": 9, "y": 17 },
+          { "x": 19, "y": 0 }, { "x": 19, "y": 1 },
+          { "x": 23, "y": 13 }, { "x": 23, "y": 14 }, { "x": 23, "y": 15 },
+          { "x": 12, "y": 12 }
+        ],
+        "terrain": [
+          { "x": 0, "y": 6, "kind": "ice" },
+          { "x": 9, "y": 14, "kind": "ice" },
+          { "x": 22, "y": 3, "kind": "ice" }
+        ],
+        "items": [
+          { "id": "gem-1", "position": { "x": 0, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-2", "position": { "x": 9, "y": 7 }, "kind": "collectible" },
+          { "id": "gem-3", "position": { "x": 9, "y": 15 }, "kind": "collectible" },
+          { "id": "gem-4", "position": { "x": 18, "y": 15 }, "kind": "collectible" },
+          { "id": "gem-5", "position": { "x": 18, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-6", "position": { "x": 23, "y": 3 }, "kind": "collectible" },
+          { "id": "gem-7", "position": { "x": 23, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-8", "position": { "x": 13, "y": 12 }, "kind": "collectible" },
+          { "id": "gem-9", "position": { "x": 13, "y": 8 }, "kind": "collectible" }
+        ]
+      },
+      "start": { "position": { "x": 0, "y": 0 }, "facing": "up" },
+      "goal": { "x": 13, "y": 8 },
+      "allowedCommands": ["move", "turnLeft", "turnRight", "repeat", "if"],
+      "maxBlocks": 30,
+      "collectGoal": 7,
+      "parMoves": 80,
+      "difficulty": "superHard"
+    }
+  }
+]

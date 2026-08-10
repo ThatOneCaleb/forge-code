@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forge Code — Preview v3</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: #08060F;
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 48px 24px 100px; gap: 64px;
+  font-family: -apple-system, 'SF Pro Display', sans-serif; color: white;
+}
+header { text-align: center; display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #7FC8E8; opacity: .55; }
+h1 { font-size: 42px; font-weight: 800;
+  background: linear-gradient(130deg, #F0EDE8 0%, #7FC8E8 50%, #F5A623 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { font-size: 13px; color: #7A9AB8; }
+.section { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; max-width: 1200px; }
+.label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #7FC8E8; opacity:.4; align-self:flex-start; padding-left:4px; }
+.chars-row {
+  display: flex; gap: 0; align-items: flex-end; justify-content: center;
+  background: radial-gradient(ellipse at 50% 0%, rgba(15,30,60,.95) 0%, rgba(8,6,15,.98) 100%);
+  border: 1px solid rgba(127,200,232,.08); border-radius: 28px;
+  padding: 48px 24px 32px; width: 100%;
+  box-shadow: 0 20px 80px rgba(0,0,0,.7);
+}
+.char-block { display: flex; flex-direction: column; align-items: center; gap: 12px; flex: 1; }
+.char-name { font-size: 15px; font-weight: 700; color: #F0EDE8; }
+.char-role { font-size: 10px; color: #7FC8E8; opacity:.5; }
+.char-quote { font-size: 11px; color: #9ABCCC; font-style: italic; opacity:.7; text-align:center; max-width:160px; }
+.scene-wrap { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(127,200,232,.1); box-shadow: 0 40px 100px rgba(0,0,0,.85); }
+canvas { display: block; width: 100%; }
+.note { font-size: 12px; color: #506070; text-align: center; max-width: 700px; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Visual Direction Preview</div>
+  <h1>Forge Code — The Lost Expedition</h1>
+  <div class="subtitle">Characters · Landing Zone Base Camp · UI System</div>
+</header>
+
+<section class="section">
+  <div class="label">Characters</div>
+  <div class="chars-row">
+
+    <!-- VEX -->
+    <div class="char-block">
+      <svg width="160" height="270" viewBox="0 0 160 270">
+        <defs>
+          <radialGradient id="vEye" cx="40%" cy="35%" r="60%"><stop offset="0%" stop-color="#A0E8FF"/><stop offset="40%" stop-color="#38B8E8"/><stop offset="100%" stop-color="#0060A0"/></radialGradient>
+          <radialGradient id="vBody" cx="35%" cy="25%" r="70%"><stop offset="0%" stop-color="#F0EDE6"/><stop offset="100%" stop-color="#C8C4BA"/></radialGradient>
+          <filter id="eg"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <ellipse cx="80" cy="265" rx="38" ry="6" fill="rgba(0,0,0,0.35)"/>
+        <rect x="54" y="210" width="20" height="48" rx="7" fill="#9098B0"/>
+        <rect x="86" y="210" width="20" height="48" rx="7" fill="#9098B0"/>
+        <rect x="50" y="248" width="28" height="14" rx="5" fill="#7880A0"/>
+        <rect x="82" y="248" width="28" height="14" rx="5" fill="#7880A0"/>
+        <rect x="44" y="130" width="72" height="88" rx="12" fill="url(#vBody)"/>
+        <rect x="54" y="145" width="52" height="36" rx="6" fill="#D0CCC4"/>
+        <rect x="57" y="148" width="46" height="30" rx="4" fill="#B8B4A8"/>
+        <circle cx="80" cy="176" r="7" fill="#F6AD55"/>
+        <circle cx="80" cy="176" r="4" fill="#FF8C20"/>
+        <text x="80" y="180" text-anchor="middle" font-size="5" font-weight="bold" fill="white">F</text>
+        <rect x="44" y="155" width="6" height="4" rx="2" fill="#A0A098"/>
+        <rect x="44" y="163" width="6" height="4" rx="2" fill="#A0A098"/>
+        <rect x="110" y="155" width="6" height="4" rx="2" fill="#A0A098"/>
+        <rect x="110" y="163" width="6" height="4" rx="2" fill="#A0A098"/>
+        <!-- Arms reaching forward -->
+        <rect x="18" y="136" width="28" height="18" rx="8" fill="#D8D4CC"/>
+        <rect x="14" y="150" width="22" height="40" rx="8" fill="#C8C4BC"/>
+        <ellipse cx="25" cy="194" rx="12" ry="10" fill="#B8B4AE"/>
+        <rect x="114" y="136" width="28" height="18" rx="8" fill="#D8D4CC"/>
+        <rect x="124" y="150" width="22" height="40" rx="8" fill="#C8C4BC"/>
+        <ellipse cx="135" cy="194" rx="12" ry="10" fill="#B8B4AE"/>
+        <rect x="68" y="118" width="24" height="16" rx="5" fill="#C0BDB6"/>
+        <rect x="38" y="60" width="84" height="66" rx="16" fill="url(#vBody)"/>
+        <!-- Raised curious brows -->
+        <path d="M52 82 Q62 75 72 80" stroke="#807870" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M88 80 Q98 75 108 82" stroke="#807870" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="63" cy="97" rx="13" ry="14" fill="#001828"/>
+        <ellipse cx="97" cy="97" rx="13" ry="14" fill="#001828"/>
+        <ellipse cx="63" cy="97" rx="10" ry="11" fill="url(#vEye)" filter="url(#eg)"/>
+        <ellipse cx="97" cy="97" rx="10" ry="11" fill="url(#vEye)" filter="url(#eg)"/>
+        <circle cx="57" cy="91" r="3.5" fill="rgba(255,255,255,0.9)"/>
+        <circle cx="91" cy="91" r="3.5" fill="rgba(255,255,255,0.9)"/>
+        <line x1="100" y1="62" x2="118" y2="30" stroke="#A8A4A0" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="118" cy="28" r="6" fill="#7FC8E8" filter="url(#eg)"/>
+        <circle cx="118" cy="28" r="3" fill="#C8F0FF"/>
+        <path d="M38 75 L28 68 L28 88 L38 84 Z" fill="#C0BDB6"/>
+        <path d="M122 75 L132 68 L132 88 L122 84 Z" fill="#C0BDB6"/>
+      </svg>
+      <div class="char-name">Vex</div>
+      <div class="char-role">Robot Cadet — Player Character</div>
+      <div class="char-quote">"I'll figure it out. I always do."</div>
+    </div>
+
+    <!-- ATLAS -->
+    <div class="char-block">
+      <svg width="148" height="300" viewBox="0 0 148 300">
+        <defs>
+          <radialGradient id="atBody" cx="30%" cy="20%" r="75%"><stop offset="0%" stop-color="#7A8D9E"/><stop offset="100%" stop-color="#4A5E6E"/></radialGradient>
+          <radialGradient id="atEyeL" cx="35%" cy="30%" r="60%"><stop offset="0%" stop-color="#90C8E8"/><stop offset="100%" stop-color="#2060A0"/></radialGradient>
+          <radialGradient id="atEyeR" cx="35%" cy="30%" r="60%"><stop offset="0%" stop-color="#6898C0"/><stop offset="100%" stop-color="#183858"/></radialGradient>
+        </defs>
+        <ellipse cx="74" cy="296" rx="36" ry="5" fill="rgba(0,0,0,0.35)"/>
+        <rect x="28" y="220" width="26" height="68" rx="8" fill="#3A4C5C"/>
+        <rect x="94" y="220" width="26" height="68" rx="8" fill="#3A4C5C"/>
+        <rect x="22" y="275" width="34" height="16" rx="5" fill="#2A3C4C"/>
+        <rect x="92" y="275" width="34" height="16" rx="5" fill="#2A3C4C"/>
+        <rect x="26" y="120" width="96" height="108" rx="10" fill="url(#atBody)"/>
+        <rect x="38" y="136" width="28" height="5" rx="2" fill="#F6AD55"/>
+        <rect x="38" y="144" width="22" height="5" rx="2" fill="#F6AD55"/>
+        <rect x="38" y="152" width="18" height="5" rx="2" fill="#C08030"/>
+        <rect x="80" y="135" width="30" height="30" rx="5" fill="#3A5060"/>
+        <text x="95" y="156" text-anchor="middle" font-size="14" fill="#7FC8E8" font-weight="bold">⚙</text>
+        <!-- Arms crossed -->
+        <rect x="26" y="128" width="22" height="60" rx="9" fill="#607888"/>
+        <rect x="100" y="128" width="22" height="60" rx="9" fill="#506878"/>
+        <rect x="34" y="175" width="80" height="20" rx="8" fill="#607888"/>
+        <rect x="34" y="190" width="80" height="18" rx="8" fill="#506878"/>
+        <ellipse cx="26" cy="135" rx="14" ry="20" fill="#4A6070"/>
+        <ellipse cx="122" cy="135" rx="14" ry="20" fill="#3A5060"/>
+        <rect x="18" y="125" width="16" height="4" rx="2" fill="#F6AD55"/>
+        <rect x="18" y="132" width="16" height="4" rx="2" fill="#F6AD55"/>
+        <rect x="18" y="139" width="16" height="4" rx="2" fill="#F6AD55"/>
+        <rect x="52" y="108" width="44" height="16" rx="5" fill="#5A6E7E"/>
+        <rect x="28" y="45" width="92" height="72" rx="12" fill="url(#atBody)"/>
+        <!-- Heavy furrowed V brows -->
+        <path d="M40 72 Q55 62 68 70" stroke="#2A3C4C" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M80 70 Q93 62 108 72" stroke="#2A3C4C" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <line x1="68" y1="70" x2="80" y2="74" stroke="#2A3C4C" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="58" cy="84" rx="12" ry="11" fill="#001020"/>
+        <ellipse cx="90" cy="84" rx="12" ry="11" fill="#001020"/>
+        <ellipse cx="58" cy="84" rx="8" ry="8" fill="url(#atEyeL)"/>
+        <ellipse cx="90" cy="84" rx="7" ry="7" fill="url(#atEyeR)"/>
+        <circle cx="53" cy="79" r="3" fill="rgba(255,255,255,0.8)"/>
+        <circle cx="85" cy="79" r="2.5" fill="rgba(255,255,255,0.5)"/>
+        <line x1="82" y1="74" x2="92" y2="86" stroke="#5A7080" stroke-width="2"/>
+        <rect x="38" y="98" width="72" height="18" rx="4" fill="#5A6E7E"/>
+      </svg>
+      <div class="char-name">Commander Atlas</div>
+      <div class="char-role">Veteran — Crew Commander</div>
+      <div class="char-quote">"Don't celebrate yet."</div>
+    </div>
+
+    <!-- SPARK -->
+    <div class="char-block">
+      <svg width="172" height="262" viewBox="0 0 172 262">
+        <defs>
+          <radialGradient id="spBody" cx="30%" cy="20%" r="75%"><stop offset="0%" stop-color="#FFDD80"/><stop offset="100%" stop-color="#E09020"/></radialGradient>
+          <radialGradient id="spEye" cx="35%" cy="30%" r="60%"><stop offset="0%" stop-color="#FFF0A0"/><stop offset="100%" stop-color="#E0A020"/></radialGradient>
+        </defs>
+        <ellipse cx="86" cy="258" rx="42" ry="6" fill="rgba(0,0,0,0.3)"/>
+        <rect x="52" y="192" width="24" height="56" rx="8" fill="#C07818"/>
+        <rect x="96" y="192" width="24" height="56" rx="8" fill="#C07818"/>
+        <rect x="46" y="238" width="32" height="14" rx="5" fill="#A06010"/>
+        <rect x="94" y="238" width="32" height="14" rx="5" fill="#A06010"/>
+        <rect x="30" y="110" width="112" height="90" rx="20" fill="url(#spBody)"/>
+        <rect x="42" y="130" width="88" height="18" rx="8" fill="#E08010"/>
+        <rect x="50" y="133" width="8" height="10" rx="2" fill="#FFFCE8"/>
+        <rect x="62" y="133" width="8" height="10" rx="2" fill="#FFFCE8"/>
+        <rect x="74" y="133" width="8" height="10" rx="2" fill="#FFFCE8"/>
+        <rect x="86" y="133" width="8" height="10" rx="2" fill="#FFFCE8"/>
+        <rect x="98" y="133" width="8" height="10" rx="2" fill="#FFFCE8"/>
+        <rect x="110" y="133" width="8" height="10" rx="2" fill="#FFFCE8"/>
+        <circle cx="86" cy="168" r="10" fill="#C07018"/>
+        <circle cx="86" cy="168" r="6" fill="#E09020"/>
+        <circle cx="86" cy="168" r="3" fill="#FFDD80"/>
+        <!-- Arms raised wide -->
+        <rect x="5" y="100" width="28" height="20" rx="8" fill="#EEC040"/>
+        <rect x="2" y="85" width="26" height="36" rx="8" fill="#E0A830"/>
+        <ellipse cx="15" cy="80" rx="14" ry="12" fill="#D09820"/>
+        <rect x="139" y="100" width="28" height="20" rx="8" fill="#EEC040"/>
+        <rect x="144" y="85" width="26" height="36" rx="8" fill="#E0A830"/>
+        <ellipse cx="157" cy="80" rx="14" ry="12" fill="#D09820"/>
+        <circle cx="24" cy="55" r="18" fill="#E0A830"/>
+        <circle cx="148" cy="55" r="18" fill="#E0A830"/>
+        <circle cx="24" cy="55" r="10" fill="#C07818"/>
+        <circle cx="148" cy="55" r="10" fill="#C07818"/>
+        <rect x="66" y="98" width="40" height="16" rx="6" fill="#D09020"/>
+        <rect x="22" y="18" width="128" height="88" rx="24" fill="url(#spBody)"/>
+        <line x1="60" y1="20" x2="45" y2="-2" stroke="#C07818" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="45" cy="-3" r="6" fill="#FFDD80"/>
+        <line x1="110" y1="20" x2="130" y2="-8" stroke="#C07818" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="130" cy="-9" r="8" fill="#FFDD80"/>
+        <circle cx="130" cy="-9" r="4" fill="white"/>
+        <!-- High arched brows -->
+        <path d="M38 44 Q56 28 72 40" stroke="#C07018" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M100 40 Q116 28 134 44" stroke="#C07018" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="60" cy="62" r="18" fill="#5A3008"/>
+        <circle cx="112" cy="62" r="18" fill="#5A3008"/>
+        <circle cx="60" cy="62" r="13" fill="url(#spEye)"/>
+        <circle cx="112" cy="62" r="13" fill="url(#spEye)"/>
+        <circle cx="54" cy="55" r="5" fill="rgba(255,255,255,0.9)"/>
+        <circle cx="106" cy="55" r="5" fill="rgba(255,255,255,0.9)"/>
+        <path d="M46 88 Q86 108 126 88" stroke="#C07018" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="char-name">Spark</div>
+      <div class="char-role">Junior Crew — Vex's Partner</div>
+      <div class="char-quote">"I have a GREAT idea—"</div>
+    </div>
+
+    <!-- DR NOVA -->
+    <div class="char-block">
+      <svg width="138" height="300" viewBox="0 0 138 300">
+        <defs>
+          <radialGradient id="nvBody" cx="30%" cy="20%" r="75%"><stop offset="0%" stop-color="#A888E0"/><stop offset="100%" stop-color="#5A3890"/></radialGradient>
+          <radialGradient id="nvEye" cx="35%" cy="30%" r="60%"><stop offset="0%" stop-color="#D0A8FF"/><stop offset="100%" stop-color="#7040C0"/></radialGradient>
+          <filter id="mg"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <ellipse cx="69" cy="296" rx="32" ry="5" fill="rgba(0,0,0,0.3)"/>
+        <rect x="34" y="228" width="20" height="62" rx="7" fill="#40286A"/>
+        <rect x="84" y="228" width="20" height="62" rx="7" fill="#40286A"/>
+        <rect x="28" y="278" width="28" height="14" rx="5" fill="#301858"/>
+        <rect x="82" y="278" width="28" height="14" rx="5" fill="#301858"/>
+        <rect x="28" y="128" width="82" height="108" rx="12" fill="url(#nvBody)"/>
+        <rect x="35" y="148" width="68" height="50" rx="6" fill="#C8A8F8"/>
+        <rect x="40" y="155" width="56" height="36" rx="4" fill="#3A2070"/>
+        <line x1="48" y1="162" x2="88" y2="162" stroke="#7040C0" stroke-width="1.5"/>
+        <line x1="48" y1="168" x2="80" y2="168" stroke="#7040C0" stroke-width="1.5"/>
+        <line x1="48" y1="174" x2="84" y2="174" stroke="#7040C0" stroke-width="1.5"/>
+        <line x1="48" y1="180" x2="72" y2="180" stroke="#F6AD55" stroke-width="1.5"/>
+        <rect x="8" y="135" width="22" height="18" rx="7" fill="#8060C0"/>
+        <rect x="4" y="150" width="20" height="55" rx="7" fill="#6848A8"/>
+        <ellipse cx="14" cy="208" rx="11" ry="9" fill="#5840A0"/>
+        <rect x="108" y="135" width="22" height="18" rx="7" fill="#8060C0"/>
+        <rect x="112" y="150" width="20" height="40" rx="7" fill="#6848A8"/>
+        <rect x="52" y="112" width="34" height="20" rx="6" fill="#7050B0"/>
+        <rect x="20" y="30" width="98" height="88" rx="22" fill="url(#nvBody)"/>
+        <!-- Asymmetric brows — left normal, right raised (monocle quizzical) -->
+        <path d="M30 60 Q46 52 60 60" stroke="#2A1050" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <path d="M78 54 Q93 42 110 54" stroke="#2A1050" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <!-- Left eye -->
+        <ellipse cx="46" cy="76" rx="12" ry="13" fill="#0A0018"/>
+        <ellipse cx="46" cy="76" rx="8" ry="9" fill="url(#nvEye)"/>
+        <circle cx="41" cy="70" r="3" fill="rgba(255,255,255,0.85)"/>
+        <!-- Monocle ring -->
+        <circle cx="94" cy="76" r="19" fill="none" stroke="#C8E8FF" stroke-width="2.5" filter="url(#mg)"/>
+        <circle cx="94" cy="76" r="16" fill="rgba(140,210,255,0.2)"/>
+        <circle cx="94" cy="76" r="11" fill="#0A0018"/>
+        <circle cx="94" cy="76" r="8" fill="url(#nvEye)"/>
+        <circle cx="89" cy="70" r="2.5" fill="rgba(255,255,255,0.85)"/>
+        <path d="M110 84 Q118 96 112 115" stroke="#C8A8F8" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
+        <line x1="52" y1="102" x2="86" y2="102" stroke="#40286A" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="69" y1="30" x2="69" y2="4" stroke="#7050B0" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="69" cy="3" r="5" fill="#D0A8FF"/>
+      </svg>
+      <div class="char-name">Dr. Nova</div>
+      <div class="char-role">Scientist — The Meridian's Researcher</div>
+      <div class="char-quote">"Fascinating. And also, hello."</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ISOMETRIC BASE CAMP SCENE ═══ -->
+<section class="section">
+  <div class="label">Spot 1 — The Landing Zone · Base Camp</div>
+  <div class="scene-wrap">
+    <canvas id="scene" width="2300" height="1480" style="width:100%;display:block;"></canvas>
+  </div>
+</section>
+
+<p class="note">
+  Scene rendered with JavaScript Canvas isometric engine — painter's-algorithm sort, per-face lighting, radial glow effects, 2× resolution.<br>
+  Characters: Custom SwiftUI shape-art with idle animations. No SF Symbols, no stock assets.
+</p>
+
+<script>
+let _s=31337;
+function rng(){_s=(_s*1664525+1013904223)>>>0;return _s/0xFFFFFFFF;}
+
+const C=document.getElementById('scene');
+const ctx=C.getContext('2d');
+// Canvas is 2300×1480, scaled to ~1150×740 by CSS → native 2× sharpness
+ctx.scale(2,2);
+const W=1150,H=740;
+const TW=72,TH=36,OX=555,OY=325;
+
+function iso(c,r){return{x:OX+(c-r)*TW/2,y:OY+(c+r)*TH/2};}
+
+function poly(pts,fill,str,lw){
+  ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);
+  for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);
+  ctx.closePath();ctx.fillStyle=fill;ctx.fill();
+  if(str){ctx.strokeStyle=str;ctx.lineWidth=lw||1;ctx.stroke();}
+}
+
+function tile(c,r,fill,str){
+  const p=iso(c,r);
+  poly([[p.x,p.y],[p.x+TW/2,p.y+TH/2],[p.x,p.y+TH],[p.x-TW/2,p.y+TH/2]],fill,str);
+}
+
+function box(c,r,h,tc,lc,rc){
+  const p=iso(c,r);
+  poly([[p.x-TW/2,p.y+TH/2-h],[p.x,p.y+TH-h],[p.x,p.y+TH],[p.x-TW/2,p.y+TH/2]],lc);
+  poly([[p.x,p.y+TH-h],[p.x+TW/2,p.y+TH/2-h],[p.x+TW/2,p.y+TH/2],[p.x,p.y+TH]],rc);
+  poly([[p.x,p.y-h],[p.x+TW/2,p.y+TH/2-h],[p.x,p.y+TH-h],[p.x-TW/2,p.y+TH/2-h]],tc);
+}
+
+function mbox(c,r,cw,rw,h,tc,lc,rc){
+  const tl=iso(c,r),tr=iso(c+cw,r),bl=iso(c,r+rw),br=iso(c+cw,r+rw);
+  poly([[bl.x-TW/2,bl.y+TH/2-h],[br.x,br.y+TH-h],[br.x,br.y+TH],[bl.x-TW/2,bl.y+TH/2]],lc);
+  poly([[br.x,br.y+TH-h],[tr.x+TW/2,tr.y+TH/2-h],[tr.x+TW/2,tr.y+TH/2],[br.x,br.y+TH]],rc);
+  poly([[tl.x,tl.y-h],[tr.x+TW/2,tr.y+TH/2-h],[br.x,br.y+TH-h],[bl.x-TW/2,bl.y+TH/2-h]],tc);
+}
+
+function rg(x,y,r0,r1,c0,c1){const g=ctx.createRadialGradient(x,y,r0,x,y,r1);g.addColorStop(0,c0);g.addColorStop(1,c1);return g;}
+function lg(x0,y0,x1,y1,stops){const g=ctx.createLinearGradient(x0,y0,x1,y1);stops.forEach(([t,c])=>g.addColorStop(t,c));return g;}
+
+const RL=[];
+function push(key,fn){RL.push({key,fn});}
+
+// ── BACKGROUND ──
+function drawBG(){
+  ctx.fillStyle=lg(0,0,0,H,[[0,'#05030C'],[0.45,'#0E0618'],[0.78,'#1E0C06'],[1,'#2E1204']]);
+  ctx.fillRect(0,0,W,H);
+
+  // Stars
+  for(let i=0;i<130;i++){
+    const sx=rng()*W,sy=rng()*H*0.52,sr=rng()*1.8+0.2;
+    ctx.globalAlpha=0.2+rng()*0.8;
+    ctx.fillStyle='white';ctx.beginPath();ctx.arc(sx,sy,sr,0,Math.PI*2);ctx.fill();
+  }
+  ctx.globalAlpha=1;
+
+  // Big amber moon
+  ctx.fillStyle='#EDD898';ctx.beginPath();ctx.arc(135,82,54,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#CEBA70';
+  [[118,70,10],[148,98,7],[130,48,5],[158,76,4]].forEach(([mx,my,mr])=>{ctx.beginPath();ctx.arc(mx,my,mr,0,Math.PI*2);ctx.fill();});
+  ctx.fillStyle=rg(135,82,54,100,'rgba(237,216,152,0.2)','rgba(237,216,152,0)');
+  ctx.beginPath();ctx.arc(135,82,100,0,Math.PI*2);ctx.fill();
+
+  // Small purple moon
+  ctx.fillStyle='#A898C8';ctx.beginPath();ctx.arc(985,40,22,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#887898';ctx.beginPath();ctx.arc(978,36,6,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.arc(990,46,3,0,Math.PI*2);ctx.fill();
+
+  // Mountains — 3 layers
+  function mtns(col,pts){
+    ctx.fillStyle=col;ctx.beginPath();ctx.moveTo(0,H);
+    pts.forEach(([px,py])=>ctx.lineTo(px,py));
+    ctx.lineTo(W,H);ctx.closePath();ctx.fill();
+  }
+  mtns('#121028',[[0,H*.47],[90,H*.36],[210,H*.30],[370,H*.40],[510,H*.28],[640,H*.36],[780,H*.26],[920,H*.34],[1060,H*.24],[W,H*.33]]);
+  mtns('#1C1232',[[0,H*.52],[70,H*.44],[190,H*.39],[300,H*.47],[440,H*.35],[560,H*.43],[680,H*.33],[800,H*.41],[940,H*.31],[1070,H*.39],[W,H*.44]]);
+  mtns('#261840',[[0,H*.55],[110,H*.48],[240,H*.44],[380,H*.51],[520,H*.42],[650,H*.49],[770,H*.40],[890,H*.47],[1020,H*.44],[W,H*.51]]);
+
+  // Horizon haze
+  ctx.fillStyle=lg(0,H*.50,0,H*.66,[[0,'rgba(185,75,12,0.25)'],[1,'rgba(185,75,12,0)']]);
+  ctx.fillRect(0,H*.50,W,H*.16);
+
+  // Ground below grid
+  ctx.fillStyle=lg(0,H*.60,0,H,[[0,'#7C4010'],[1,'#3A1808']]);
+  ctx.fillRect(0,H*.60,W,H);
+}
+
+// ── GROUND TILES ──
+const COLS=15,ROWS=11;
+const gPal=['#C27A3A','#C67E3E','#BE7232','#CA8042','#B86C2E','#CC8244'];
+const PAD=new Set(['2,1','3,1','4,1','5,1','2,2','3,2','4,2','5,2','2,3','3,3','4,3','5,3']);
+const PATH=new Set(['5,4','5,5','5,6','6,6','7,6','7,5','7,4','4,5','4,6','4,7','5,7','6,7','6,8']);
+const ROCK=new Set(['0,0','1,0','2,0','3,0','4,0','5,0','6,0','7,0','8,0','9,0','10,0','11,0','12,0','13,0','14,0','0,1','14,1','0,2','14,2']);
+
+function buildGround(){
+  for(let c=0;c<COLS;c++){
+    for(let r=0;r<ROWS;r++){
+      const k=`${c},${r}`,sk=c+r;
+      if(PAD.has(k)){
+        push(sk,()=>{mbox(c,r,1,1,5,'#687480','#465662','#566472');});
+      }else if(PATH.has(k)){
+        push(sk,()=>{tile(c,r,'#9A5E20','rgba(0,0,0,0.15)');});
+      }else if(ROCK.has(k)){
+        push(sk,()=>{tile(c,r,'#7C5A38');});
+      }else{
+        const fill=gPal[(c*3+r*5)%gPal.length];
+        push(sk,()=>{tile(c,r,fill);});
+      }
+    }
+  }
+}
+
+// ── STRUCTURES ──
+
+function pushRocks(){
+  [[0,2],[0,4],[1,8],[13,1],[14,4],[2,0],[14,7]].forEach(([cc,rr])=>{
+    push(cc+rr+0.3,()=>{
+      const p=iso(cc,rr),rx=p.x,ry=p.y+TH/2;
+      ctx.fillStyle='#6A4A30';
+      ctx.beginPath();ctx.moveTo(rx-14,ry+4);ctx.lineTo(rx-20,ry-22);ctx.lineTo(rx-6,ry-38);ctx.lineTo(rx+7,ry-32);ctx.lineTo(rx+18,ry-12);ctx.lineTo(rx+12,ry+4);ctx.closePath();ctx.fill();
+      ctx.fillStyle='#8A6A48';
+      ctx.beginPath();ctx.moveTo(rx-14,ry-20);ctx.lineTo(rx-4,ry-36);ctx.lineTo(rx+6,ry-30);ctx.lineTo(rx+4,ry-20);ctx.closePath();ctx.fill();
+    });
+  });
+}
+
+function pushLandingPadMarkings(){
+  push(3+2+0.05,()=>{
+    const p=iso(4,2),cx=p.x,cy=p.y+TH/2-5;
+    ctx.save();ctx.translate(cx,cy);ctx.scale(1,0.45);
+    ctx.setLineDash([12,6]);ctx.strokeStyle='#F6AD55';ctx.lineWidth=3;
+    ctx.beginPath();ctx.arc(0,0,60,0,Math.PI*2);ctx.stroke();
+    ctx.setLineDash([8,4]);ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.arc(0,0,38,0,Math.PI*2);ctx.stroke();
+    ctx.setLineDash([]);ctx.restore();
+    ctx.strokeStyle='#F6AD55';ctx.lineWidth=2.5;
+    ctx.beginPath();ctx.moveTo(cx-20,cy-9);ctx.lineTo(cx+20,cy+9);ctx.moveTo(cx+20,cy-9);ctx.lineTo(cx-20,cy+9);ctx.stroke();
+  });
+}
+
+function pushDropship(){
+  push(3+1+0.6,()=>{
+    const p=iso(3,2),sx=p.x+TW/4,sy=p.y-10,H2=88;
+    // Engine glow
+    ctx.fillStyle=rg(sx,sy+H2,0,60,'rgba(255,110,20,0.4)','rgba(255,110,20,0)');
+    ctx.beginPath();ctx.arc(sx,sy+H2,60,0,Math.PI*2);ctx.fill();
+    // Shadow
+    ctx.fillStyle='rgba(0,0,0,0.3)';ctx.save();ctx.translate(sx,sy+H2+8);ctx.scale(1,0.22);ctx.beginPath();ctx.arc(0,0,40,0,Math.PI*2);ctx.fill();ctx.restore();
+    // Wings
+    poly([[sx-28,sy+H2-28],[sx-52,sy+H2-14],[sx-44,sy+H2-5],[sx-20,sy+H2-5]],'#3A4E68');
+    poly([[sx+28,sy+H2-28],[sx+52,sy+H2-14],[sx+44,sy+H2-5],[sx+20,sy+H2-5]],'#3A4E68');
+    // Body gradient
+    const hullFill=lg(sx-32,sy,sx+32,sy,[[0,'#3A5878'],[0.45,'#5878A0'],[1,'#304868']]);
+    ctx.fillStyle=hullFill;
+    ctx.beginPath();ctx.moveTo(sx,sy+6);ctx.bezierCurveTo(sx-42,sy+28,sx-40,sy+58,sx-28,sy+H2-28);ctx.lineTo(sx+28,sy+H2-28);ctx.bezierCurveTo(sx+40,sy+58,sx+42,sy+28,sx,sy+6);ctx.closePath();ctx.fill();
+    // Cockpit glow
+    const cFill=rg(sx,sy+30,4,20,'#FFE888','#FFAA18');
+    ctx.fillStyle=cFill;ctx.beginPath();ctx.ellipse(sx,sy+32,18,13,0,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle='#5878A0';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(sx,sy+32,18,13,0,0,Math.PI*2);ctx.stroke();
+    // Engine ports
+    [-20,0,20].forEach(ex=>{
+      ctx.fillStyle='#192028';ctx.beginPath();ctx.ellipse(sx+ex,sy+H2-5,7,4,0,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=rg(sx+ex,sy+H2+4,0,14,'rgba(255,130,30,0.95)','rgba(255,60,0,0)');
+      ctx.beginPath();ctx.arc(sx+ex,sy+H2+4,14,0,Math.PI*2);ctx.fill();
+    });
+    // Nav lights
+    ctx.fillStyle='#FF3030';ctx.beginPath();ctx.arc(sx-44,sy+H2-14,4,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#30FF70';ctx.beginPath();ctx.arc(sx+44,sy+H2-14,4,0,Math.PI*2);ctx.fill();
+  });
+}
+
+function pushCommDish(){
+  push(12+0+0.5,()=>{
+    const c=12,r=0;
+    box(c,r,48,'#4A5A68','#2E3848','#38485A');
+    const p=iso(c,r),tx=p.x,ty=p.y;
+    // Mast
+    ctx.fillStyle='#3A4858';ctx.fillRect(tx-4,ty-134,8,90);
+    // Braces
+    ctx.strokeStyle='#2C3848';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(tx-4,ty-134);ctx.lineTo(tx+18,ty-104);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(tx+4,ty-134);ctx.lineTo(tx-18,ty-104);ctx.stroke();
+    // Dish
+    ctx.save();ctx.translate(tx+22,ty-136);ctx.rotate(-0.42);ctx.scale(1,0.42);
+    ctx.fillStyle=lg(-28,0,28,0,[[0,'#5A7A8E'],[0.5,'#8AAABE'],[1,'#4A6A7E']]);
+    ctx.beginPath();ctx.arc(0,0,30,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle='#4A6A7E';ctx.lineWidth=1.5;
+    for(let a=0;a<6;a++){const ag=a*Math.PI/3;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(ag)*28,Math.sin(ag)*28);ctx.stroke();}
+    ctx.fillStyle='#F6AD55';ctx.beginPath();ctx.arc(0,0,5,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+    // Signal rings
+    for(let i=0;i<3;i++){
+      ctx.beginPath();ctx.arc(tx+22,ty-136,38+i*18,-Math.PI*0.72,-Math.PI*0.08);
+      ctx.strokeStyle=`rgba(127,200,232,${0.55-i*0.13})`;ctx.lineWidth=1.8;ctx.stroke();
+    }
+    // Beacon
+    ctx.fillStyle='#FF2828';ctx.beginPath();ctx.arc(tx,ty-138,5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=rg(tx,ty-138,0,16,'rgba(255,40,40,0.65)','rgba(255,40,40,0)');
+    ctx.beginPath();ctx.arc(tx,ty-138,16,0,Math.PI*2);ctx.fill();
+  });
+}
+
+function pushDepot(){
+  push(1+5+0.5,()=>{
+    mbox(1,5,2,3,64,'#607078','#3C4C58','#4C5C68');
+    const lp=iso(1,7),rp=iso(3,5);
+    // Windows SW face
+    for(let i=0;i<2;i++){
+      const wx=lp.x-TW/2+18+i*34,wy=lp.y+TH/2-55;
+      ctx.fillStyle='#FFE088';ctx.fillRect(wx,wy,15,18);
+      ctx.fillStyle=rg(wx+7,wy+9,0,24,'rgba(255,218,100,0.5)','rgba(255,218,100,0)');
+      ctx.beginPath();ctx.arc(wx+7,wy+9,24,0,Math.PI*2);ctx.fill();
+    }
+    // Door SE face
+    const dp=iso(2,7);
+    ctx.fillStyle='#283840';ctx.fillRect(dp.x+TW/4+2,dp.y+TH/2-40,17,34);
+    ctx.strokeStyle='rgba(246,173,85,0.6)';ctx.lineWidth=1.5;ctx.strokeRect(dp.x+TW/4+1,dp.y+TH/2-41,19,36);
+    ctx.fillStyle='#F6AD55';ctx.beginPath();ctx.arc(dp.x+TW/4+12,dp.y+TH/2-23,3,0,Math.PI*2);ctx.fill();
+    // Roof vents
+    const tp=iso(2,5);
+    ctx.fillStyle='#708088';ctx.fillRect(tp.x-6,tp.y-70,4,20);ctx.fillRect(tp.x+14,tp.y-66,4,16);
+    [[tp.x-30,tp.y-72],[tp.x-14,tp.y-74],[tp.x+2,tp.y-72]].forEach(([vx,vy])=>{
+      ctx.fillStyle='#505A60';ctx.fillRect(vx,vy,11,8);
+      ctx.fillStyle='#3A4448';ctx.fillRect(vx+1,vy+1,9,2);ctx.fillRect(vx+1,vy+4,9,2);
+    });
+    // Sign light
+    const sl=iso(1,6),slx=sl.x-TW/2+5,sly=sl.y+TH/2-38;
+    ctx.fillStyle=rg(slx,sly,0,20,'rgba(246,173,85,0.55)','rgba(246,173,85,0)');
+    ctx.beginPath();ctx.arc(slx,sly,20,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#F6AD55';ctx.beginPath();ctx.arc(slx,sly,5,0,Math.PI*2);ctx.fill();
+  });
+}
+
+function pushRover(){
+  push(6+3+0.5,()=>{
+    const p=iso(6,3),rx=p.x+TW/4,ry=p.y+TH/2,RH=34;
+    ctx.fillStyle='rgba(0,0,0,0.28)';ctx.save();ctx.translate(rx,ry+7);ctx.scale(1,0.28);ctx.beginPath();ctx.arc(0,0,34,0,Math.PI*2);ctx.fill();ctx.restore();
+    // Wheels
+    [[rx-36,ry+5],[rx-8,ry+11],[rx+22,ry+5],[rx-28,ry-9],[rx,ry-3],[rx+30,ry-9]].forEach(([wx,wy])=>{
+      ctx.fillStyle='#181E1E';ctx.beginPath();ctx.arc(wx,wy,9,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#303636';ctx.beginPath();ctx.arc(wx,wy,6,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle='#444';ctx.lineWidth=1;
+      for(let a=0;a<3;a++){const ag=a*Math.PI*2/3;ctx.beginPath();ctx.moveTo(wx,wy);ctx.lineTo(wx+Math.cos(ag)*5,wy+Math.sin(ag)*5);ctx.stroke();}
+    });
+    // Body
+    const bFill=lg(rx-30,ry-RH,rx+30,ry,[[0,'#7A9870'],[0.5,'#6A8860'],[1,'#587A50']]);
+    poly([[rx-36,ry],[rx+34,ry-4],[rx+34,ry-RH-4],[rx-36,ry-RH]],bFill);
+    poly([[rx+34,ry-4],[rx+48,ry-15],[rx+48,ry-RH-15],[rx+34,ry-RH-4]],'#4E6648');
+    poly([[rx-36,ry-RH],[rx+34,ry-RH-4],[rx+48,ry-RH-15],[rx-22,ry-RH-10]],'#9ABA90');
+    // Cab
+    poly([[rx-8,ry-RH],[rx+22,ry-RH-5],[rx+22,ry-RH-24],[rx-8,ry-RH-19]],'#7A9870');
+    poly([[rx+22,ry-RH-5],[rx+38,ry-RH-16],[rx+38,ry-RH-35],[rx+22,ry-RH-24]],'#567050');
+    poly([[rx-8,ry-RH-19],[rx+22,ry-RH-24],[rx+38,ry-RH-35],[rx+2,ry-RH-30]],'#9CBA92');
+    // Windshield
+    ctx.fillStyle='rgba(175,228,255,0.72)';
+    poly([[rx-4,ry-RH-1],[rx+20,ry-RH-6],[rx+20,ry-RH-22],[rx-4,ry-RH-17]],'rgba(175,228,255,0.72)');
+    // Headlights
+    [[rx-26,ry-7],[rx-26,ry-20]].forEach(([hx,hy])=>{
+      ctx.fillStyle='#FFE080';ctx.beginPath();ctx.arc(hx,hy,4,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=rg(hx,hy,0,12,'rgba(255,224,128,0.45)','rgba(255,224,128,0)');
+      ctx.beginPath();ctx.arc(hx,hy,12,0,Math.PI*2);ctx.fill();
+    });
+  });
+}
+
+function pushPowerGen(){
+  push(10+6+0.5,()=>{
+    mbox(10,6,2,2,54,'#384858','#203038','#2C3D48');
+    const pp=iso(11,7);
+    for(let i=0;i<4;i++){
+      const lx=pp.x-18+i*13,ly=pp.y+TH/2-44;
+      ctx.fillStyle='#50D068';ctx.beginPath();ctx.arc(lx,ly,4,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=rg(lx,ly,0,11,'rgba(80,208,104,0.65)','rgba(80,208,104,0)');
+      ctx.beginPath();ctx.arc(lx,ly,11,0,Math.PI*2);ctx.fill();
+    }
+    // Exhaust vents
+    const xp=iso(12,6);
+    for(let i=0;i<3;i++){ctx.fillStyle='#101820';ctx.fillRect(xp.x+TW/2-9,xp.y+TH/2-38+i*13,7,9);}
+    // Cable to dome
+    const dp=iso(10,6),hp=iso(9,5);
+    ctx.strokeStyle='#243040';ctx.lineWidth=4.5;
+    ctx.beginPath();ctx.moveTo(dp.x,dp.y-48);ctx.quadraticCurveTo(dp.x-TW,dp.y-22,hp.x+TW/4,hp.y-48);ctx.stroke();
+    ctx.strokeStyle='#344050';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(dp.x,dp.y-48);ctx.quadraticCurveTo(dp.x-TW,dp.y-22,hp.x+TW/4,hp.y-48);ctx.stroke();
+  });
+}
+
+function pushCargo(){
+  push(4+8+0.4,()=>{
+    box(4,9,28,'#826242','#523A22','#6A4E30');
+    box(4,8,25,'#927252','#624232','#7A5240');
+    box(5,8,21,'#725232','#4A2C1A','#5C4028');
+    const p=iso(4,9);
+    ctx.strokeStyle='rgba(80,48,18,0.55)';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(p.x-TW/2,p.y+TH/2-18);ctx.lineTo(p.x,p.y+TH-18);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(p.x,p.y+TH-18);ctx.lineTo(p.x+TW/2,p.y+TH/2-18);ctx.stroke();
+  });
+}
+
+function pushCrystals(){
+  [[11,7],[12,7],[12,8],[13,8],[11,9],[12,9],[13,9],[13,10]].forEach(([cc,rr])=>{
+    push(cc+rr+0.6,()=>{
+      const p=iso(cc,rr),colors=['#7AE8F8','#58D0E8','#9AECFF','#50C8DC'];
+      for(let ci=0;ci<4;ci++){
+        const ang=(ci/4)*Math.PI*2+cc*1.3+rr*0.9;
+        const ch=24+((cc*7+rr*5+ci*3)%18);
+        const cx=p.x+Math.cos(ang)*15,cy=p.y+TH/2+Math.sin(ang)*8;
+        ctx.globalAlpha=0.9;
+        ctx.fillStyle=colors[(cc+rr+ci)%colors.length];
+        ctx.beginPath();ctx.moveTo(cx,cy-ch);ctx.lineTo(cx+7,cy-ch/3);ctx.lineTo(cx+5,cy);ctx.lineTo(cx-5,cy);ctx.lineTo(cx-7,cy-ch/3);ctx.closePath();ctx.fill();
+        ctx.fillStyle='rgba(200,248,255,0.5)';
+        ctx.beginPath();ctx.moveTo(cx,cy-ch);ctx.lineTo(cx+7,cy-ch/3);ctx.lineTo(cx+2,cy-ch/3-4);ctx.closePath();ctx.fill();
+        ctx.fillStyle=rg(cx,cy-ch/2,0,18,'rgba(122,232,248,0.48)','rgba(122,232,248,0)');
+        ctx.beginPath();ctx.arc(cx,cy-ch/2,18,0,Math.PI*2);ctx.fill();
+        ctx.globalAlpha=1;
+      }
+    });
+  });
+}
+
+function pushDome(){
+  push(7+4+0.7,()=>{
+    // Foundation
+    mbox(7,4,3,4,22,'#5C6E7A','#384858','#485868');
+    // Foundation windows SW
+    const bl=iso(7,8);
+    for(let i=0;i<3;i++){
+      const wx=bl.x-TW/2+14+i*38,wy=bl.y+TH/2-20;
+      ctx.fillStyle='#FFE088';ctx.fillRect(wx,wy-15,16,15);
+      ctx.fillStyle=rg(wx+8,wy-7,0,26,'rgba(255,220,100,0.52)','rgba(255,220,100,0)');
+      ctx.beginPath();ctx.arc(wx+8,wy-7,26,0,Math.PI*2);ctx.fill();
+    }
+    // Airlock SE
+    const rp=iso(10,8);
+    ctx.fillStyle='#1E2828';ctx.fillRect(rp.x+TW/4+2,rp.y+TH/2-38,19,22);
+    ctx.strokeStyle='#F6AD55';ctx.lineWidth=1.5;ctx.strokeRect(rp.x+TW/4+1,rp.y+TH/2-39,21,24);
+    ctx.fillStyle='#F6AD55';ctx.beginPath();ctx.arc(rp.x+TW/4+13,rp.y+TH/2-27,2.5,0,Math.PI*2);ctx.fill();
+
+    // DOME SPHERE
+    const cen=iso(8.5,6);
+    const dx=cen.x,dy=cen.y-22,DR=90;
+
+    // Atmosphere halo
+    ctx.fillStyle=rg(dx,dy-DR*.4,0,DR*1.9,'rgba(155,218,255,0.13)','rgba(155,218,255,0)');
+    ctx.beginPath();ctx.arc(dx,dy-DR*.4,DR*1.9,0,Math.PI*2);ctx.fill();
+
+    // Base ellipse on slab
+    ctx.fillStyle='#3A5870';ctx.save();ctx.translate(dx,dy);ctx.scale(1,0.32);
+    ctx.beginPath();ctx.arc(0,0,DR,0,Math.PI*2);ctx.fill();ctx.restore();
+
+    // Interior warm glow (seen through dome)
+    ctx.fillStyle=rg(dx,dy-DR*.32,0,DR*.88,'rgba(255,205,90,0.48)','rgba(255,205,90,0)');
+    ctx.beginPath();ctx.arc(dx,dy-DR*.42,DR*.9,0,Math.PI*2);ctx.fill();
+
+    // Main sphere
+    const dFill=rg(dx-30,dy-DR*.85,10,dx,dy-DR*.38,DR,'#A8D8F4','#3A6888');
+    ctx.fillStyle=dFill;ctx.beginPath();ctx.arc(dx,dy-DR*.42,DR*.9,0,Math.PI*2);ctx.fill();
+
+    // Structural ribs
+    ctx.globalAlpha=0.17;ctx.strokeStyle='#A0D8F8';ctx.lineWidth=1.5;
+    for(let a=-60;a<=60;a+=20){
+      const aR=a*Math.PI/180;
+      ctx.beginPath();ctx.moveTo(dx,dy-DR*.42+DR*.9);
+      ctx.quadraticCurveTo(dx+Math.sin(aR)*DR*.9,dy-DR*.42,dx,dy-DR*.42-DR*.9);ctx.stroke();
+    }
+    for(let hi=1;hi<=5;hi++){
+      const hy=dy-DR*.42-DR*.9+hi*DR*1.8/6;
+      const hw=Math.sqrt(Math.max(0,(DR*.9)**2-(hy-(dy-DR*.42))**2));
+      if(hw>2){ctx.beginPath();ctx.ellipse(dx,hy,hw,hw*0.27,0,0,Math.PI*2);ctx.stroke();}
+    }
+    ctx.globalAlpha=1;
+
+    // Specular highlight
+    const spec=rg(dx-32,dy-DR-8,2,dx-18,dy-DR+18,DR*.55,'rgba(255,255,255,0.58)','rgba(255,255,255,0)');
+    ctx.fillStyle=spec;ctx.beginPath();ctx.arc(dx,dy-DR*.42,DR*.9,0,Math.PI*2);ctx.fill();
+
+    // Rim glow
+    ctx.save();ctx.translate(dx,dy);ctx.scale(1,0.32);
+    ctx.fillStyle=rg(0,0,DR*.75,DR*1.08,'rgba(127,200,232,0.42)','rgba(127,200,232,0)');
+    ctx.beginPath();ctx.arc(0,0,DR*1.08,0,Math.PI*2);ctx.fill();ctx.restore();
+
+    // Beacon top
+    const bx=dx,by=dy-DR*.42-DR*.88;
+    ctx.fillStyle='#7FC8E8';ctx.beginPath();ctx.arc(bx,by,5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=rg(bx,by,0,24,'rgba(127,200,232,0.72)','rgba(127,200,232,0)');
+    ctx.beginPath();ctx.arc(bx,by,24,0,Math.PI*2);ctx.fill();
+  });
+}
+
+function pushVex(){
+  push(6+5+0.9,()=>{
+    const p=iso(6,5),vx=p.x,vy=p.y+TH/2-2;
+    ctx.fillStyle='rgba(0,0,0,0.28)';ctx.save();ctx.translate(vx,vy+4);ctx.scale(1,0.28);ctx.beginPath();ctx.arc(0,0,14,0,Math.PI*2);ctx.fill();ctx.restore();
+    ctx.fillStyle='#8890B0';ctx.fillRect(vx-9,vy-18,8,18);ctx.fillRect(vx+1,vy-18,8,18);
+    ctx.fillStyle='#686880';ctx.fillRect(vx-11,vy-3,10,5);ctx.fillRect(vx-1,vy-3,12,5);
+    ctx.fillStyle='#D8D4CC';ctx.beginPath();ctx.roundRect(vx-13,vy-52,26,36,4);ctx.fill();
+    ctx.fillStyle='#B8B4A8';ctx.fillRect(vx-8,vy-47,16,12);
+    ctx.fillStyle='#F6AD55';ctx.beginPath();ctx.arc(vx,vy-32,4,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#C8C4BC';ctx.fillRect(vx-20,vy-49,8,22);ctx.fillRect(vx+12,vy-49,8,22);
+    ctx.fillStyle='#A8A4A0';ctx.beginPath();ctx.arc(vx-16,vy-26,5,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(vx+16,vy-26,5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#D8D4CC';ctx.beginPath();ctx.roundRect(vx-11,vy-72,22,22,5);ctx.fill();
+    ctx.fillStyle='#001830';ctx.beginPath();ctx.ellipse(vx-4,vy-63,5,6,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(vx+6,vy-63,5,6,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#7FC8E8';ctx.beginPath();ctx.ellipse(vx-4,vy-63,3.5,4.5,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(vx+6,vy-63,3.5,4.5,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='white';ctx.beginPath();ctx.arc(vx-6,vy-66,1.5,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(vx+4,vy-66,1.5,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle='#A8A4A0';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(vx+2,vy-72);ctx.lineTo(vx+8,vy-85);ctx.stroke();
+    ctx.fillStyle='#7FC8E8';ctx.beginPath();ctx.arc(vx+8,vy-86,3,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=rg(vx+8,vy-86,0,8,'rgba(127,200,232,0.7)','rgba(127,200,232,0)');
+    ctx.beginPath();ctx.arc(vx+8,vy-86,8,0,Math.PI*2);ctx.fill();
+  });
+}
+
+// ── UI OVERLAY ──
+function drawUI(){
+  // Star counter
+  ctx.fillStyle='rgba(8,6,20,0.84)';ctx.beginPath();ctx.roundRect(W-118,14,102,40,20);ctx.fill();
+  ctx.strokeStyle='rgba(246,173,85,0.38)';ctx.lineWidth=1;ctx.stroke();
+  ctx.fillStyle='#F6AD55';ctx.font='bold 16px -apple-system';ctx.fillText('★  42',W-101,40);
+
+  // Mission tag
+  ctx.fillStyle='rgba(8,6,20,0.78)';ctx.beginPath();ctx.roundRect(14,14,102,40,20);ctx.fill();
+  ctx.strokeStyle='rgba(127,200,232,0.22)';ctx.lineWidth=1;ctx.stroke();
+  ctx.fillStyle='rgba(127,200,232,0.65)';ctx.font='9px -apple-system';ctx.fillText('MISSION',28,30);
+  ctx.fillStyle='#F0EDE8';ctx.font='bold 16px -apple-system';ctx.fillText('24',28,47);
+
+  // Task list
+  const px=W-290,py=H-235;
+  ctx.fillStyle='rgba(8,6,18,0.92)';ctx.beginPath();ctx.roundRect(px,py,272,215,18);ctx.fill();
+  ctx.strokeStyle='rgba(127,200,232,0.2)';ctx.lineWidth=1;ctx.stroke();
+  ctx.fillStyle='rgba(127,200,232,0.58)';ctx.font='bold 9px -apple-system';ctx.fillText('BASE CAMP OBJECTIVES',px+14,py+22);
+
+  const tasks=[
+    {name:'Power the comms array',cost:3,done:true},
+    {name:'Set up supply depot',cost:5,done:false},
+    {name:'Build the habitat dome',cost:8,done:false},
+  ];
+  tasks.forEach((t,i)=>{
+    const ty=py+38+i*58;
+    ctx.fillStyle=t.done?'rgba(80,210,104,0.1)':'rgba(255,255,255,0.04)';
+    ctx.beginPath();ctx.roundRect(px+8,ty,256,50,10);ctx.fill();
+    if(t.done){
+      ctx.fillStyle='#58D870';ctx.font='bold 11px -apple-system';ctx.fillText('✓  '+t.name,px+20,ty+20);
+      ctx.fillStyle='rgba(88,216,112,0.5)';ctx.font='9px -apple-system';ctx.fillText('Complete',px+20,ty+37);
+    }else{
+      ctx.fillStyle='#F0EDE8';ctx.font='bold 11px -apple-system';ctx.fillText(t.name,px+20,ty+20);
+      ctx.fillStyle='#F6AD55';ctx.font='10px -apple-system';ctx.fillText('★ '+t.cost,px+20,ty+37);
+      ctx.fillStyle='#F6AD55';ctx.beginPath();ctx.roundRect(px+196,ty+16,58,22,8);ctx.fill();
+      ctx.fillStyle='#08060F';ctx.font='bold 10px -apple-system';ctx.fillText('▶ Code',px+200,ty+31);
+    }
+  });
+
+  // Atlas speech bubble
+  const bx=16,by=H-152;
+  ctx.fillStyle='rgba(8,6,18,0.93)';ctx.beginPath();ctx.roundRect(bx,by,285,124,16);ctx.fill();
+  ctx.strokeStyle='rgba(127,200,232,0.22)';ctx.lineWidth=1;ctx.stroke();
+  ctx.fillStyle='rgba(8,6,18,0.93)';ctx.beginPath();ctx.moveTo(bx+22,by+124);ctx.lineTo(bx+12,by+142);ctx.lineTo(bx+46,by+124);ctx.closePath();ctx.fill();
+  ctx.fillStyle='rgba(246,173,85,0.75)';ctx.font='bold 9px -apple-system';ctx.fillText('ATLAS',bx+14,by+20);
+  ctx.fillStyle='#E8E4DC';ctx.font='12px -apple-system';
+  ['"The dish is live. Start','earning stars — we need','that depot before dark."'].forEach((l,i)=>ctx.fillText(l,bx+14,by+40+i*24));
+  ctx.fillStyle='rgba(127,200,232,0.42)';ctx.font='9px -apple-system';ctx.fillText('tap to continue',bx+14,by+112);
+}
+
+// ── RENDER ──
+drawBG();
+buildGround();
+pushRocks();
+pushLandingPadMarkings();
+pushCommDish();
+pushDropship();
+pushDepot();
+pushRover();
+pushPowerGen();
+pushCargo();
+pushCrystals();
+pushDome();
+pushVex();
+
+RL.sort((a,b)=>a.key-b.key);
+RL.forEach(e=>e.fn());
+drawUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,693 @@
+[
+  {
+    "id": "field_warehouse",
+    "name": "Cargo Command",
+    "widthCm": 240,
+    "heightCm": 240,
+    "items": [
+      {
+        "id": "crate_A",
+        "position": {
+          "x": 60,
+          "y": 180
+        },
+        "color": "red",
+        "type": "crate",
+        "pickupRadius": 15
+      },
+      {
+        "id": "crate_B",
+        "position": {
+          "x": 120,
+          "y": 180
+        },
+        "color": "blue",
+        "type": "crate",
+        "pickupRadius": 15
+      },
+      {
+        "id": "barrel_1",
+        "position": {
+          "x": 210,
+          "y": 185
+        },
+        "color": "green",
+        "type": "barrel",
+        "pickupRadius": 15
+      },
+      {
+        "id": "barrel_2",
+        "position": {
+          "x": 30,
+          "y": 195
+        },
+        "color": "red",
+        "type": "barrel",
+        "pickupRadius": 15
+      },
+      {
+        "id": "crate_C",
+        "position": {
+          "x": 210,
+          "y": 75
+        },
+        "color": "blue",
+        "type": "crate",
+        "pickupRadius": 15
+      },
+      {
+        "id": "cell_1",
+        "position": {
+          "x": 170,
+          "y": 130
+        },
+        "color": "green",
+        "type": "cell",
+        "pickupRadius": 15
+      },
+      {
+        "id": "barrel_3",
+        "position": {
+          "x": 205,
+          "y": 210
+        },
+        "color": "red",
+        "type": "barrel",
+        "pickupRadius": 15
+      },
+      {
+        "id": "crate_R",
+        "position": {
+          "x": 85,
+          "y": 180
+        },
+        "color": "red",
+        "type": "crate",
+        "pickupRadius": 15
+      }
+    ],
+    "zones": [
+      {
+        "id": "depot_red",
+        "kind": "deposit",
+        "rect": {
+          "x": 10,
+          "y": 10,
+          "width": 50,
+          "height": 50
+        },
+        "color": "red",
+        "acceptsItemType": "crate"
+      },
+      {
+        "id": "depot_blue",
+        "kind": "deposit",
+        "rect": {
+          "x": 180,
+          "y": 10,
+          "width": 50,
+          "height": 50
+        },
+        "color": "blue",
+        "acceptsItemType": "crate"
+      },
+      {
+        "id": "goal_zone",
+        "kind": "goal",
+        "rect": {
+          "x": 100,
+          "y": 100,
+          "width": 40,
+          "height": 40
+        }
+      },
+      {
+        "id": "color_sensor_zone",
+        "kind": "detection",
+        "rect": {
+          "x": 80,
+          "y": 80,
+          "width": 40,
+          "height": 40
+        }
+      },
+      {
+        "id": "depot_green",
+        "kind": "deposit",
+        "rect": {
+          "x": 10,
+          "y": 180,
+          "width": 50,
+          "height": 50
+        },
+        "color": "green",
+        "acceptsItemType": "barrel"
+      },
+      {
+        "id": "detection_east",
+        "kind": "detection",
+        "rect": {
+          "x": 185,
+          "y": 55,
+          "width": 45,
+          "height": 40
+        }
+      },
+      {
+        "id": "home_base",
+        "kind": "goal",
+        "rect": {
+          "x": 95,
+          "y": 5,
+          "width": 50,
+          "height": 30
+        }
+      },
+      {
+        "id": "bay_zone",
+        "kind": "goal",
+        "rect": {
+          "x": 216,
+          "y": 100,
+          "width": 22,
+          "height": 28
+        }
+      }
+    ],
+    "obstacles": [
+      {
+        "id": "shelf_1",
+        "rect": {
+          "x": 90,
+          "y": 130,
+          "width": 60,
+          "height": 20
+        }
+      },
+      {
+        "id": "shelf_2",
+        "rect": {
+          "x": 190,
+          "y": 130,
+          "width": 50,
+          "height": 20
+        }
+      },
+      {
+        "id": "rack_1",
+        "rect": {
+          "x": 160,
+          "y": 155,
+          "width": 20,
+          "height": 75
+        }
+      },
+      {
+        "id": "rack_2",
+        "rect": {
+          "x": 160,
+          "y": 50,
+          "width": 20,
+          "height": 65
+        }
+      },
+      {
+        "id": "bay_door_bar",
+        "rect": {
+          "x": 212,
+          "y": 100,
+          "width": 5,
+          "height": 28
+        }
+      }
+    ],
+    "mechanisms": [
+      {
+        "id": "mech_bay_door",
+        "kind": "gate",
+        "position": {
+          "x": 214,
+          "y": 114
+        },
+        "trigger": "bump",
+        "triggerRadius": 16,
+        "unlocksObstacleId": "bay_door_bar"
+      },
+      {
+        "id": "mech_dock_ramp",
+        "kind": "platform",
+        "position": {
+          "x": 45,
+          "y": 110
+        },
+        "trigger": "armPress",
+        "triggerRadius": 20
+      },
+      {
+        "id": "mech_release_lever",
+        "kind": "lever",
+        "position": {
+          "x": 85,
+          "y": 155
+        },
+        "trigger": "armPress",
+        "triggerRadius": 20
+      }
+    ],
+    "lines": [
+      {
+        "id": "guide_line",
+        "points": [
+          {
+            "x": 120,
+            "y": 0
+          },
+          {
+            "x": 120,
+            "y": 120
+          }
+        ],
+        "width": 3
+      },
+      {
+        "id": "guide_line_east",
+        "points": [
+          {
+            "x": 120,
+            "y": 120
+          },
+          {
+            "x": 170,
+            "y": 120
+          },
+          {
+            "x": 170,
+            "y": 200
+          }
+        ],
+        "width": 3
+      },
+      {
+        "id": "guide_line_west",
+        "points": [
+          {
+            "x": 120,
+            "y": 120
+          },
+          {
+            "x": 60,
+            "y": 120
+          },
+          {
+            "x": 60,
+            "y": 200
+          }
+        ],
+        "width": 3
+      }
+    ],
+    "coloredRegions": [
+      {
+        "id": "red_tile",
+        "rect": {
+          "x": 80,
+          "y": 80,
+          "width": 40,
+          "height": 40
+        },
+        "color": "red"
+      },
+      {
+        "id": "blue_tile",
+        "rect": {
+          "x": 185,
+          "y": 55,
+          "width": 45,
+          "height": 40
+        },
+        "color": "blue"
+      },
+      {
+        "id": "green_tile",
+        "rect": {
+          "x": 10,
+          "y": 180,
+          "width": 50,
+          "height": 50
+        },
+        "color": "green"
+      }
+    ]
+  },
+  {
+    "id": "field_arena",
+    "name": "Mars Outpost",
+    "widthCm": 300,
+    "heightCm": 300,
+    "items": [
+      {
+        "id": "rock_alpha",
+        "position": {
+          "x": 75,
+          "y": 220
+        },
+        "color": "red",
+        "type": "sample",
+        "pickupRadius": 14
+      },
+      {
+        "id": "rock_beta",
+        "position": {
+          "x": 235,
+          "y": 218
+        },
+        "color": "blue",
+        "type": "sample",
+        "pickupRadius": 14
+      },
+      {
+        "id": "core_delta",
+        "position": {
+          "x": 150,
+          "y": 162
+        },
+        "color": "green",
+        "type": "core",
+        "pickupRadius": 14
+      },
+      {
+        "id": "rock_gamma",
+        "position": {
+          "x": 52,
+          "y": 185
+        },
+        "color": "red",
+        "type": "sample",
+        "pickupRadius": 14
+      },
+      {
+        "id": "cell_ion",
+        "position": {
+          "x": 255,
+          "y": 152
+        },
+        "color": "green",
+        "type": "cell",
+        "pickupRadius": 14
+      },
+      {
+        "id": "core_zeta",
+        "position": {
+          "x": 248,
+          "y": 38
+        },
+        "color": "blue",
+        "type": "core",
+        "pickupRadius": 14
+      },
+      {
+        "id": "rock_omega",
+        "position": {
+          "x": 30,
+          "y": 35
+        },
+        "color": "red",
+        "type": "sample",
+        "pickupRadius": 14
+      }
+    ],
+    "zones": [
+      {
+        "id": "bay_alpha",
+        "kind": "deposit",
+        "rect": {
+          "x": 5,
+          "y": 228,
+          "width": 62,
+          "height": 62
+        },
+        "color": "red",
+        "acceptsItemType": "sample"
+      },
+      {
+        "id": "bay_beta",
+        "kind": "deposit",
+        "rect": {
+          "x": 233,
+          "y": 228,
+          "width": 62,
+          "height": 62
+        },
+        "color": "blue",
+        "acceptsItemType": "core"
+      },
+      {
+        "id": "solar_pad",
+        "kind": "detection",
+        "rect": {
+          "x": 220,
+          "y": 45,
+          "width": 60,
+          "height": 55
+        }
+      },
+      {
+        "id": "beacon_pad",
+        "kind": "detection",
+        "rect": {
+          "x": 10,
+          "y": 50,
+          "width": 55,
+          "height": 55
+        }
+      },
+      {
+        "id": "launch_pad",
+        "kind": "goal",
+        "rect": {
+          "x": 120,
+          "y": 268,
+          "width": 60,
+          "height": 27
+        }
+      },
+      {
+        "id": "base_camp",
+        "kind": "goal",
+        "rect": {
+          "x": 108,
+          "y": 8,
+          "width": 84,
+          "height": 42
+        }
+      },
+      {
+        "id": "relay_station",
+        "kind": "deposit",
+        "rect": {
+          "x": 5,
+          "y": 168,
+          "width": 40,
+          "height": 45
+        },
+        "color": "green",
+        "acceptsItemType": "cell"
+      }
+    ],
+    "obstacles": [
+      {
+        "id": "boulder_W",
+        "rect": {
+          "x": 100,
+          "y": 128,
+          "width": 14,
+          "height": 70
+        }
+      },
+      {
+        "id": "boulder_N",
+        "rect": {
+          "x": 114,
+          "y": 184,
+          "width": 64,
+          "height": 14
+        }
+      },
+      {
+        "id": "boulder_S",
+        "rect": {
+          "x": 114,
+          "y": 126,
+          "width": 64,
+          "height": 14
+        }
+      },
+      {
+        "id": "crater_rim",
+        "rect": {
+          "x": 38,
+          "y": 154,
+          "width": 64,
+          "height": 14
+        }
+      },
+      {
+        "id": "boulder_scatter",
+        "rect": {
+          "x": 168,
+          "y": 62,
+          "width": 22,
+          "height": 22
+        }
+      },
+      {
+        "id": "nook_gate_bar",
+        "rect": {
+          "x": 68,
+          "y": 240,
+          "width": 34,
+          "height": 10
+        }
+      }
+    ],
+    "lines": [
+      {
+        "id": "track_base_to_relay",
+        "points": [
+          {
+            "x": 150,
+            "y": 30
+          },
+          {
+            "x": 150,
+            "y": 60
+          },
+          {
+            "x": 45,
+            "y": 60
+          },
+          {
+            "x": 45,
+            "y": 168
+          }
+        ],
+        "width": 4
+      },
+      {
+        "id": "track_main_north",
+        "points": [
+          {
+            "x": 150,
+            "y": 60
+          },
+          {
+            "x": 150,
+            "y": 270
+          }
+        ],
+        "width": 4
+      },
+      {
+        "id": "track_east_branch",
+        "points": [
+          {
+            "x": 150,
+            "y": 60
+          },
+          {
+            "x": 245,
+            "y": 60
+          }
+        ],
+        "width": 4
+      }
+    ],
+    "coloredRegions": [
+      {
+        "id": "solar_tile",
+        "rect": {
+          "x": 220,
+          "y": 45,
+          "width": 60,
+          "height": 55
+        },
+        "color": "yellow"
+      },
+      {
+        "id": "beacon_tile",
+        "rect": {
+          "x": 10,
+          "y": 50,
+          "width": 55,
+          "height": 55
+        },
+        "color": "orange"
+      },
+      {
+        "id": "waypoint_W",
+        "rect": {
+          "x": 38,
+          "y": 52,
+          "width": 16,
+          "height": 16
+        },
+        "color": "green"
+      },
+      {
+        "id": "waypoint_N",
+        "rect": {
+          "x": 142,
+          "y": 255,
+          "width": 16,
+          "height": 16
+        },
+        "color": "red"
+      }
+    ],
+    "mechanisms": [
+      {
+        "id": "mech_nook_gate",
+        "kind": "gate",
+        "position": {
+          "x": 85,
+          "y": 225
+        },
+        "trigger": "bump",
+        "triggerRadius": 22,
+        "unlocksObstacleId": "nook_gate_bar"
+      },
+      {
+        "id": "mech_drill_lever",
+        "kind": "lever",
+        "position": {
+          "x": 70,
+          "y": 140
+        },
+        "trigger": "armPress",
+        "triggerRadius": 22
+      },
+      {
+        "id": "mech_rocket_launch",
+        "kind": "launcher",
+        "position": {
+          "x": 150,
+          "y": 256
+        },
+        "trigger": "armPress",
+        "triggerRadius": 11,
+        "requiredAttachment": "launchTool"
+      },
+      {
+        "id": "mech_core_probe",
+        "kind": "excavator",
+        "position": {
+          "x": 255,
+          "y": 195
+        },
+        "trigger": "gripperPull",
+        "triggerRadius": 10,
+        "requiredAttachment": "fineHook"
+      }
+    ]
+  }
+]
