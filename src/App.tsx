@@ -1,26 +1,36 @@
 import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { StreakBadge } from "./components/StreakBadge";
-import { HomeScreen } from "./features/home/HomeScreen";
+import { HandleModal } from "./components/HandleModal";
+import { useProgress } from "./engine/progress/store";
 import { PathScreen } from "./features/path/PathScreen";
 import { ChallengeScreen } from "./features/challenge/ChallengeScreen";
 import { LessonScreen } from "./features/lesson/LessonScreen";
 import { CompeteScreen } from "./features/compete/CompeteScreen";
 import { ProfileScreen } from "./features/profile/ProfileScreen";
+import { DailyScreen } from "./features/daily/DailyScreen";
 
 const navItems = [
   { to: "/", label: "Home", end: true },
+  { to: "/daily", label: "Daily" },
   { to: "/academy", label: "Academy" },
   { to: "/gauntlet", label: "Gauntlet" },
   { to: "/compete", label: "Compete" },
-  { to: "/profile", label: "About" },
 ];
 
 export function App() {
   const location = useLocation();
+  const handle = useProgress((s) => s.handle);
+  const [showHandle, setShowHandle] = useState(false);
+
+  useEffect(() => {
+    if (!handle) setShowHandle(true);
+  }, [handle]);
 
   return (
     <div className="flex min-h-full flex-col">
+      {showHandle && <HandleModal onClose={() => setShowHandle(false)} />}
       <header className="sticky top-0 z-30 backdrop-blur-md" style={{ background: "rgba(242,242,235,0.9)", borderBottom: "1px solid rgba(32,46,68,0.1)" }}>
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 lg:px-8">
           <NavLink to="/" className="group flex items-center gap-1 transition-opacity hover:opacity-75">
@@ -58,7 +68,14 @@ export function App() {
                 </NavLink>
               );
             })}
-            <div className="ml-3 hidden sm:block">
+            <div className="ml-3 hidden sm:flex items-center gap-2">
+              <button
+                onClick={() => setShowHandle(true)}
+                className="rounded-full px-3 py-1 font-mono text-xs font-semibold transition-colors hover:opacity-80"
+                style={{ color: "#4A5568", background: "rgba(32,46,68,0.07)", border: "1px solid rgba(32,46,68,0.12)" }}
+              >
+                {handle || "Set handle"}
+              </button>
               <StreakBadge />
             </div>
           </nav>
@@ -67,14 +84,14 @@ export function App() {
 
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<HomeScreen />} />
+          <Route path="/" element={<ProfileScreen />} />
           <Route path="/academy" element={<PathScreen track="academy" />} />
           <Route path="/gauntlet" element={<PathScreen track="gauntlet" />} />
           <Route path="/challenge/:id" element={<ChallengeScreen />} />
           <Route path="/lesson/:id" element={<LessonScreen />} />
+          <Route path="/daily" element={<DailyScreen />} />
           <Route path="/compete" element={<CompeteScreen />} />
-          <Route path="/profile" element={<ProfileScreen />} />
-          <Route path="*" element={<HomeScreen />} />
+          <Route path="*" element={<ProfileScreen />} />
         </Routes>
       </main>
 

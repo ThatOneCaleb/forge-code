@@ -13,6 +13,7 @@
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/lang-python": "^6.1.6",
+    "@supabase/supabase-js": "^2.112.2",
     "@uiw/react-codemirror": "^4.23.7",
     "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.1",

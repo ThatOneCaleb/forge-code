@@ -6,6 +6,11 @@ import type { Extension } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import type { Language } from "../engine/types";
 
+const noPasteExtension = EditorView.domEventHandlers({
+  paste(e) { e.preventDefault(); return true; },
+  drop(e) { e.preventDefault(); return true; },
+});
+
 const forgeTheme = EditorView.theme({
   "&": {
     backgroundColor: "#1B1410",
@@ -44,8 +49,9 @@ const forgeTheme = EditorView.theme({
   },
 }, { dark: true });
 
-function extensions(language: Language): Extension[] {
-  return language === "python" ? [python()] : [javascript({ jsx: false })];
+function extensions(language: Language, noPaste = false): Extension[] {
+  const base = language === "python" ? [python()] : [javascript({ jsx: false })];
+  return noPaste ? [...base, noPasteExtension] : base;
 }
 
 interface EditorProps {
@@ -54,6 +60,8 @@ interface EditorProps {
   onChange: (value: string) => void;
   /** Accent color for the terminal chrome — ember for challenges, steel for lessons. */
   accent?: "ember" | "steel";
+  /** Block paste and drop (used for daily challenges). */
+  noPaste?: boolean;
 }
 
 const ACCENTS = {
@@ -61,7 +69,7 @@ const ACCENTS = {
   steel: { dot: "#4A90C4", glow: "rgba(74,144,196,0.5)", text: "#6BAAD8" },
 };
 
-export function Editor({ value, language, onChange, accent = "ember" }: EditorProps) {
+export function Editor({ value, language, onChange, accent = "ember", noPaste = false }: EditorProps) {
   const filename = language === "python" ? "solve.py" : "solve.js";
   const a = ACCENTS[accent];
   const lineCount = value.split("\n").length;
@@ -114,7 +122,7 @@ export function Editor({ value, language, onChange, accent = "ember" }: EditorPr
         value={value}
         theme={[oneDark, forgeTheme]}
         height="340px"
-        extensions={extensions(language)}
+        extensions={extensions(language, noPaste)}
         onChange={onChange}
         basicSetup={{
           lineNumbers: true,

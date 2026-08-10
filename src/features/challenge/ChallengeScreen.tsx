@@ -15,7 +15,6 @@ import { ChallengeArt } from "../../components/ui/challenge-art";
 import {
   HexGrid,
   GlowBlob,
-  CornerRune,
   CircuitTrace,
   MoltenSeam,
 } from "../../components/ui/forge-decor";
@@ -156,10 +155,6 @@ export function ChallengeScreen() {
               opacity={0.11}
             />
           </div>
-
-          {/* Corner runes — bottom pair only, keeps the top clean for the stamp */}
-          <CornerRune corner="bl" style={{ position: "absolute", bottom: 9, left: 9, zIndex: 3 }} color="#EA580C" opacity={0.3} />
-          <CornerRune corner="br" style={{ position: "absolute", bottom: 9, right: 9, zIndex: 3 }} color="#EA580C" opacity={0.3} />
 
           {/* Content layer */}
           <div className="relative flex flex-col divide-y divide-border px-5" style={{ zIndex: 2 }}>
