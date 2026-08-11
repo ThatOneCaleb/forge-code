@@ -35,7 +35,7 @@ function ActHeader({ act, isGauntlet }: { act: ActMeta; isGauntlet: boolean }) {
         fontWeight: 900,
         fontSize: 10,
         letterSpacing: "0.2em",
-        color: isGauntlet ? "#C2440C" : "#1D6FA8",
+        color: isGauntlet ? "#C2440C" : "#0E7490",
         textTransform: "uppercase",
       }}>
         Act {act.roman}
@@ -68,7 +68,7 @@ function PathRow({ item, status, challengeIdx }: {
   const href = item.kind === "lesson" ? `/lesson/${item.id}` : `/challenge/${item.id}`;
   const artId = item.kind === "challenge" ? item.challenge.id : "";
 
-  const accentHex = isLesson ? "#1D6FA8" : "#B83C0A";
+  const accentHex = isLesson ? "#0E7490" : "#B83C0A";
 
   const row = (
     <div
@@ -192,8 +192,8 @@ export function PathScreen({ track }: { track: Track }) {
     : 0;
 
   const isGauntlet = track === "gauntlet";
-  const accentHex = isGauntlet ? "#C2440C" : "#1D6FA8";
-  const accentBright = isGauntlet ? "#EA580C" : "#4A90C4";
+  const accentHex = isGauntlet ? "#C2440C" : "#0E7490";
+  const accentBright = isGauntlet ? "#EA580C" : "#0891B2";
 
   let challengeIdx = 0;
 

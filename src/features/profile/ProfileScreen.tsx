@@ -34,7 +34,7 @@ const GAUNTLET_COUNT = CHALLENGES.filter((c) => c.track === "gauntlet").length;
 const services = [
   {
     icon: <GraduationCap className="w-6 h-6" />,
-    secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#4A90C4]" />,
+    secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#0891B2]" />,
     title: "Academy Track",
     description: `${ACADEMY_COUNT} beginner challenges, each preceded by a lesson. Read it, run the example, then solve. Built for brand-new coders and kids.`,
     position: "left" as const,
@@ -55,14 +55,14 @@ const services = [
   },
   {
     icon: <Code2 className="w-6 h-6" />,
-    secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#4A90C4]" />,
+    secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#0891B2]" />,
     title: "JS & Python",
     description: "Pick your language. Your solve() runs client-side in a Web Worker: JavaScript natively, Python via Pyodide. No backend, no data sent.",
     position: "right" as const,
   },
   {
     icon: <BookOpen className="w-6 h-6" />,
-    secondaryIcon: <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#4A90C4]" />,
+    secondaryIcon: <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#0891B2]" />,
     title: "Technique Lessons",
     description: "Optional deep-dives on BFS, Dijkstra, cycle detection, CRT and more. Anchored to the challenge they unlock. Skip when you don't need them.",
     position: "right" as const,
@@ -223,7 +223,7 @@ function ForgeTerminal() {
   ];
 
   const colors: Record<string, string> = {
-    comment: "#6BAAD8",
+    comment: "#38BDF8",
     fn:      "#FB923C",
     code:    "#CBD5E1",
     return:  "#86EFAC",
@@ -332,7 +332,7 @@ export function ProfileScreen() {
       />
       <motion.div
         className="absolute bottom-20 right-10 w-80 h-80 rounded-full blur-3xl"
-        style={{ background: "rgba(74,144,196,0.06)", y: y2, rotate: rotate2 }}
+        style={{ background: "rgba(8,145,178,0.06)", y: y2, rotate: rotate2 }}
       />
       <motion.div
         className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full"
@@ -342,7 +342,7 @@ export function ProfileScreen() {
       />
       <motion.div
         className="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full"
-        style={{ background: "rgba(74,144,196,0.25)" }}
+        style={{ background: "rgba(8,145,178,0.25)" }}
         animate={{ y: [0, 20, 0], opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
@@ -439,7 +439,7 @@ export function ProfileScreen() {
               {/* Border frame */}
               <motion.div
                 className="absolute inset-0 rounded-xl -m-3 -z-10"
-                style={{ border: "4px solid rgba(74,144,196,0.35)" }}
+                style={{ border: "4px solid rgba(8,145,178,0.35)" }}
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -455,7 +455,7 @@ export function ProfileScreen() {
               />
               <motion.div
                 className="absolute -bottom-6 -left-10 w-20 h-20 rounded-full"
-                style={{ background: "rgba(74,144,196,0.1)", y: y2 }}
+                style={{ background: "rgba(8,145,178,0.1)", y: y2 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1.1 }}
@@ -468,7 +468,7 @@ export function ProfileScreen() {
               />
               <motion.div
                 className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full"
-                style={{ background: "#4A90C4" }}
+                style={{ background: "#0891B2" }}
                 animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               />
@@ -531,7 +531,7 @@ export function ProfileScreen() {
               <Link
                 to="/academy"
                 className="px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
-                style={{ background: "#4A90C4", color: "white" }}
+                style={{ background: "#0891B2", color: "white" }}
               >
                 Academy <ArrowRight className="w-4 h-4" />
               </Link>

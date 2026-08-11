@@ -18,7 +18,7 @@ export function Sprocket({
       className={className}
     >
       {/* Body */}
-      <rect x="3" y="3" width="34" height="34" rx="7" fill="#2D3139" stroke="#4A90C4" strokeWidth="1.5" />
+      <rect x="3" y="3" width="34" height="34" rx="7" fill="#2D3139" stroke="#0891B2" strokeWidth="1.5" />
 
       {/* Ear nubs */}
       <rect x="1" y="14" width="2" height="7" rx="1" fill="#4A505C" />
@@ -66,7 +66,7 @@ export function Sprocket({
       <rect x="3" y="33" width="34" height="4" rx="0" ry="0" />
       <rect x="3" y="34" width="34" height="3" rx="0" fill="#252930" />
       <circle cx="13" cy="35.5" r="1.5" fill={mood === "happy" ? "#22C55E" : "#EA580C"} opacity="0.8" />
-      <circle cx="20" cy="35.5" r="1.5" fill="#4A90C4" opacity="0.6" />
+      <circle cx="20" cy="35.5" r="1.5" fill="#0891B2" opacity="0.6" />
       <circle cx="27" cy="35.5" r="1.5" fill={mood === "thinking" ? "#FB923C" : "#4A505C"} opacity="0.5" />
     </svg>
   );

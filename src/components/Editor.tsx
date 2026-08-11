@@ -66,7 +66,7 @@ interface EditorProps {
 
 const ACCENTS = {
   ember: { dot: "#EA580C", glow: "rgba(234,88,12,0.55)", text: "#FB923C" },
-  steel: { dot: "#4A90C4", glow: "rgba(74,144,196,0.5)", text: "#6BAAD8" },
+  steel: { dot: "#0891B2", glow: "rgba(8,145,178,0.5)", text: "#38BDF8" },
 };
 
 export function Editor({ value, language, onChange, accent = "ember", noPaste = false }: EditorProps) {

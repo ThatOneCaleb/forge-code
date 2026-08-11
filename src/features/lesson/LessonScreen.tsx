@@ -108,7 +108,7 @@ export function LessonScreen() {
     <div style={{ background: "#1A1D22", minHeight: "100%" }}>
     <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8 lg:px-8">
       {/* Ambient page glow */}
-      <GlowBlob x="15%" y="-8%" color="#4A90C4" size={500} opacity={0.035} />
+      <GlowBlob x="15%" y="-8%" color="#0891B2" size={500} opacity={0.035} />
       <GlowBlob x="88%" y="90%" color="#EA580C" size={380} opacity={0.03} />
 
       <div className="flex flex-wrap items-center gap-3">
@@ -134,7 +134,7 @@ export function LessonScreen() {
             style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", overflow: "hidden" }}
           >
             <HexGrid style={{ opacity: 0.35 }} />
-            <GlowBlob x="92%" y="3%" color="#4A90C4" size={320} opacity={0.08} />
+            <GlowBlob x="92%" y="3%" color="#0891B2" size={320} opacity={0.08} />
             <GlowBlob x="4%" y="96%" color="#EA580C" size={240} opacity={0.04} />
 
             {/* Single ghost art watermark */}
@@ -148,14 +148,14 @@ export function LessonScreen() {
             <CircuitTrace
               flip
               style={{ position: "absolute", bottom: 44, right: 6 }}
-              color="#4A90C4"
+              color="#0891B2"
               opacity={0.09}
             />
           </div>
 
           {/* Corner runes — bottom pair only */}
-          <CornerRune corner="bl" style={{ position: "absolute", bottom: 9, left: 9, zIndex: 3 }} color="#4A90C4" opacity={0.3} />
-          <CornerRune corner="br" style={{ position: "absolute", bottom: 9, right: 9, zIndex: 3 }} color="#4A90C4" opacity={0.3} />
+          <CornerRune corner="bl" style={{ position: "absolute", bottom: 9, left: 9, zIndex: 3 }} color="#0891B2" opacity={0.3} />
+          <CornerRune corner="br" style={{ position: "absolute", bottom: 9, right: 9, zIndex: 3 }} color="#0891B2" opacity={0.3} />
 
           {/* Struck-metal "L" stamp, top-right */}
           <div
@@ -169,11 +169,11 @@ export function LessonScreen() {
           {/* Art banner */}
           <div
             className="relative flex items-center gap-5 border-b border-border px-6 py-5 pr-16"
-            style={{ zIndex: 2, background: "linear-gradient(135deg, rgba(74,144,196,0.1) 0%, rgba(42,45,51,0) 70%)" }}
+            style={{ zIndex: 2, background: "linear-gradient(135deg, rgba(8,145,178,0.1) 0%, rgba(42,45,51,0) 70%)" }}
           >
             <div
               className="rounded-xl overflow-hidden shrink-0"
-              style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(74,144,196,0.2)" }}
+              style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(8,145,178,0.2)" }}
             >
               {lesson.before
                 ? <ChallengeArt id={lesson.before} size={100} />

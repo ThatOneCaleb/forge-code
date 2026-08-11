@@ -146,11 +146,11 @@ export function CircuitTrace({
 /** Small scattered ember dots — baked positions, no random. */
 const BAKED: [number, number, number, string, number][] = [
   [11, 19, 2, "#EA580C", 0.28], [37, 54, 1.5, "#FB923C", 0.22],
-  [63, 11, 2.5, "#EA580C", 0.17], [84, 77, 2, "#4A90C4", 0.26],
+  [63, 11, 2.5, "#EA580C", 0.17], [84, 77, 2, "#0891B2", 0.26],
   [21, 87, 1.5, "#EA580C", 0.19], [92, 33, 2, "#FB923C", 0.22],
-  [49, 44, 1, "#4A90C4", 0.17], [74, 24, 2, "#EA580C", 0.25],
+  [49, 44, 1, "#0891B2", 0.17], [74, 24, 2, "#EA580C", 0.25],
   [6, 64, 1.5, "#FB923C", 0.18], [43, 81, 2.5, "#EA580C", 0.15],
-  [96, 8, 1.5, "#4A90C4", 0.2], [28, 31, 1, "#EA580C", 0.26],
+  [96, 8, 1.5, "#0891B2", 0.2], [28, 31, 1, "#EA580C", 0.26],
 ];
 
 export function EmberDots({ count = 8, style }: { count?: number; style?: React.CSSProperties }) {
@@ -207,9 +207,9 @@ export function ForgeStamp({
   dim?: boolean;
 }) {
   const id = useId();
-  const ring = accent === "ember" ? "#EA580C" : "#4A90C4";
-  const ringDim = accent === "ember" ? "#7A3410" : "#2E5573";
-  const text = accent === "ember" ? "#FB923C" : "#6BAAD8";
+  const ring = accent === "ember" ? "#EA580C" : "#0891B2";
+  const ringDim = accent === "ember" ? "#7A3410" : "#164E63";
+  const text = accent === "ember" ? "#FB923C" : "#38BDF8";
   // Octagon path in a 48 box
   const oct = "M16 3 L32 3 L45 16 L45 32 L32 45 L16 45 L3 32 L3 16 Z";
   return (
@@ -257,7 +257,7 @@ export function ForgeStamp({
 
 /** A glowing "molten seam" — a top-edge accent that reads like a strip of cooling metal. */
 export function MoltenSeam({ accent = "ember", style }: { accent?: "ember" | "steel"; style?: React.CSSProperties }) {
-  const c = accent === "ember" ? "234,88,12" : "74,144,196";
+  const c = accent === "ember" ? "234,88,12" : "8,145,178";
   return (
     <div aria-hidden="true" style={{ position: "relative", height: 3, ...style }}>
       <div

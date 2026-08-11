@@ -105,12 +105,12 @@ export function DailyScreen() {
             <div
               className="rounded-lg border px-4 py-2 text-center"
               style={{
-                borderColor: solved ? "rgba(74,144,196,0.4)" : "rgba(234,88,12,0.3)",
-                background: solved ? "rgba(74,144,196,0.08)" : "rgba(234,88,12,0.06)",
+                borderColor: solved ? "rgba(8,145,178,0.4)" : "rgba(234,88,12,0.3)",
+                background: solved ? "rgba(8,145,178,0.08)" : "rgba(234,88,12,0.06)",
               }}
             >
               <p className="font-mono text-[10px] uppercase tracking-wider text-dim">time</p>
-              <p className="font-display text-xl font-black" style={{ color: solved ? "#4A90C4" : "#EA580C" }}>
+              <p className="font-display text-xl font-black" style={{ color: solved ? "#0891B2" : "#EA580C" }}>
                 {fmt(finalTime ?? elapsedSecs)}
               </p>
             </div>
@@ -121,7 +121,7 @@ export function DailyScreen() {
         {solved && (
           <div
             className="rounded-xl border p-4 text-center"
-            style={{ borderColor: "rgba(74,144,196,0.35)", background: "rgba(74,144,196,0.08)" }}
+            style={{ borderColor: "rgba(8,145,178,0.35)", background: "rgba(8,145,178,0.08)" }}
           >
             <p className="font-display text-lg font-black text-steel">
               Solved in {fmt(finalTime ?? 0)}
@@ -199,8 +199,8 @@ export function DailyScreen() {
                   key={row.handle}
                   className="flex items-center gap-3 rounded-lg px-4 py-2"
                   style={{
-                    background: row.handle === handle ? "rgba(74,144,196,0.1)" : "rgba(255,255,255,0.03)",
-                    borderLeft: row.handle === handle ? "2px solid #4A90C4" : "2px solid transparent",
+                    background: row.handle === handle ? "rgba(8,145,178,0.1)" : "rgba(255,255,255,0.03)",
+                    borderLeft: row.handle === handle ? "2px solid #0891B2" : "2px solid transparent",
                   }}
                 >
                   <span className="w-6 font-display text-sm font-black" style={{ color: i === 0 ? "#D97706" : i === 1 ? "#9CA3AF" : i === 2 ? "#92400E" : "rgba(152,160,173,0.4)" }}>

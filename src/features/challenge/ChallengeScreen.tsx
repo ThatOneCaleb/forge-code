@@ -110,7 +110,7 @@ export function ChallengeScreen() {
     <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8 lg:px-8">
       {/* Ambient page glow */}
       <GlowBlob x="78%" y="-6%" color="#EA580C" size={560} opacity={0.035} />
-      <GlowBlob x="12%" y="88%" color="#4A90C4" size={420} opacity={0.03} />
+      <GlowBlob x="12%" y="88%" color="#0891B2" size={420} opacity={0.03} />
 
       {justSolved && <Celebration />}
 
@@ -142,7 +142,7 @@ export function ChallengeScreen() {
           >
             <HexGrid style={{ opacity: 0.4 }} />
             <GlowBlob x="94%" y="3%" color="#EA580C" size={340} opacity={0.09} />
-            <GlowBlob x="4%" y="96%" color="#4A90C4" size={280} opacity={0.05} />
+            <GlowBlob x="4%" y="96%" color="#0891B2" size={280} opacity={0.05} />
 
             {/* Single large ghost watermark, bottom-right */}
             <div style={{ position: "absolute", right: -30, bottom: -30, opacity: 0.05 }}>

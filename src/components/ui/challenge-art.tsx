@@ -1,7 +1,7 @@
 const E = "#EA580C"; // ember
 const EB = "#FB923C"; // ember-bright
-const S = "#4A90C4"; // steel
-const SD = "#6BAAD8"; // steel-dim
+const S = "#0891B2"; // steel
+const SD = "#38BDF8"; // steel-dim
 const G = "#22C55E"; // success
 const T = "#E9EAEE"; // text
 const D = "#98A0AD"; // dim

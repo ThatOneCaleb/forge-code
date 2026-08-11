@@ -96,8 +96,16 @@ export function App() {
       </main>
 
       <footer className="relative">
-        <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(234,88,12,0.2), rgba(74,144,196,0.1), transparent)" }} />
-        <div className="mx-auto max-w-6xl px-6 py-5 text-center font-mono text-xs text-dim lg:px-8" />
+        <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(234,88,12,0.2), rgba(8,145,178,0.1), transparent)" }} />
+        <div className="mx-auto max-w-6xl px-6 py-5 flex justify-center lg:px-8">
+          <iframe
+            src="https://ad-swap.web.app/frame.html?site=PIr6kUW6FtNHMCAJeWMG"
+            style={{ border: 0, width: 300, height: 130, maxWidth: "100%" }}
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-popups"
+            title="Ad"
+          />
+        </div>
       </footer>
     </div>
   );
