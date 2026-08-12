@@ -315,6 +315,7 @@ const services = [
     title: "Academy Track",
     description: `${ACADEMY_COUNT} beginner challenges, each preceded by a lesson. Read it, run the example, then solve. Built for brand-new coders and kids.`,
     position: "left" as const,
+    href: "/academy",
   },
   {
     icon: <Swords className="w-6 h-6" />,
@@ -322,6 +323,7 @@ const services = [
     title: "The Gauntlet",
     description: `${GAUNTLET_COUNT} story challenges across 5 acts. Starts hard, ends brutally hard. Every puzzle is wrapped in a continuous narrative.`,
     position: "left" as const,
+    href: "/gauntlet",
   },
   {
     icon: <Shuffle className="w-6 h-6" />,
@@ -329,6 +331,7 @@ const services = [
     title: "Per-Player Puzzles",
     description: "Hard challenges generate a unique input per player from a seeded RNG. No two answers are the same.",
     position: "left" as const,
+    href: "/gauntlet",
   },
   {
     icon: <Code2 className="w-6 h-6" />,
@@ -336,6 +339,7 @@ const services = [
     title: "JS & Python",
     description: "Pick your language. Your solve() runs client-side in a Web Worker: JavaScript natively, Python via Pyodide. No backend, no data sent.",
     position: "right" as const,
+    href: "/academy",
   },
   {
     icon: <BookOpen className="w-6 h-6" />,
@@ -343,6 +347,7 @@ const services = [
     title: "Technique Lessons",
     description: "Optional deep-dives on BFS, Dijkstra, cycle detection, CRT and more. Anchored to the challenge they unlock.",
     position: "right" as const,
+    href: "/gauntlet",
   },
   {
     icon: <Map className="w-6 h-6" />,
@@ -350,6 +355,7 @@ const services = [
     title: "Story Campaign",
     description: "Relight the Core, descend into the Waking Deep, unlock Founder secrets. Every Gauntlet puzzle carries a narrative beat.",
     position: "right" as const,
+    href: "/gauntlet",
   },
 ];
 
@@ -368,52 +374,55 @@ interface ServiceItemProps {
   variants: import("framer-motion").Variants;
   delay: number;
   direction: "left" | "right";
+  href: string;
 }
 
-function ServiceItem({ icon, secondaryIcon, title, description, variants, delay, direction }: ServiceItemProps) {
+function ServiceItem({ icon, secondaryIcon, title, description, variants, delay, direction, href }: ServiceItemProps) {
   return (
-    <motion.div
-      className="flex flex-col group"
-      variants={variants}
-      transition={{ delay }}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-    >
+    <Link to={href} style={{ textDecoration: "none" }}>
       <motion.div
-        className="flex items-center gap-3 mb-3"
-        initial={{ x: direction === "left" ? -20 : 20, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: delay + 0.2 }}
+        className="flex flex-col group cursor-pointer"
+        variants={variants}
+        transition={{ delay }}
+        whileHover={{ y: -5, transition: { duration: 0.2 } }}
       >
         <motion.div
-          className="relative p-3 rounded-lg transition-colors duration-300"
-          style={{ color: "#EA580C", background: "rgba(234,88,12,0.08)" }}
-          whileHover={{ rotate: [0, -10, 10, -5, 0], transition: { duration: 0.5 } }}
+          className="flex items-center gap-3 mb-3"
+          initial={{ x: direction === "left" ? -20 : 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: delay + 0.2 }}
         >
-          {icon}
-          {secondaryIcon}
+          <motion.div
+            className="relative p-3 rounded-lg transition-colors duration-300"
+            style={{ color: "#EA580C", background: "rgba(234,88,12,0.08)" }}
+            whileHover={{ rotate: [0, -10, 10, -5, 0], transition: { duration: 0.5 } }}
+          >
+            {icon}
+            {secondaryIcon}
+          </motion.div>
+          <h3
+            className="text-xl font-medium transition-colors duration-300 group-hover:text-[#EA580C]"
+            style={{ color: "#202e44" }}
+          >
+            {title}
+          </h3>
         </motion.div>
-        <h3
-          className="text-xl font-medium transition-colors duration-300 group-hover:text-[#EA580C]"
-          style={{ color: "#202e44" }}
+        <motion.p
+          className="text-sm leading-relaxed pl-12"
+          style={{ color: "rgba(32,46,68,0.75)" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: delay + 0.4 }}
         >
-          {title}
-        </h3>
+          {description}
+        </motion.p>
+        <div className="mt-3 pl-12 flex items-center text-xs font-medium opacity-0 group-hover:opacity-100" style={{ color: "#EA580C", transition: "opacity 200ms ease" }}>
+          <span className="flex items-center gap-1">
+            Go there <ArrowRight className="w-3 h-3" />
+          </span>
+        </div>
       </motion.div>
-      <motion.p
-        className="text-sm leading-relaxed pl-12"
-        style={{ color: "rgba(32,46,68,0.75)" }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: delay + 0.4 }}
-      >
-        {description}
-      </motion.p>
-      <div className="mt-3 pl-12 flex items-center text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: "#EA580C" }}>
-        <span className="flex items-center gap-1">
-          Learn more <ArrowRight className="w-3 h-3" />
-        </span>
-      </div>
-    </motion.div>
+    </Link>
   );
 }
 
@@ -654,6 +663,7 @@ export function ProfileScreen() {
                   variants={itemVariants}
                   delay={i * 0.2}
                   direction="left"
+                  href={s.href}
                 />
               ))}
             </div>
@@ -704,6 +714,7 @@ export function ProfileScreen() {
                   variants={itemVariants}
                   delay={i * 0.2}
                   direction="right"
+                  href={s.href}
                 />
               ))}
             </div>
