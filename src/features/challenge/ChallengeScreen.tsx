@@ -11,6 +11,7 @@ import { puzzleRng } from "../../engine/rng";
 import { Editor } from "../../components/Editor";
 import { OutputPanel } from "../../components/OutputPanel";
 import { Celebration } from "../../components/Celebration";
+import { EmberToastWrapper } from "../../components/EmberToast";
 import { ChallengeArt } from "../../components/ui/challenge-art";
 import {
   HexGrid,
@@ -49,6 +50,7 @@ export function ChallengeScreen() {
   const [grade, setGrade] = useState<GradeResult | null>(null);
   const [hintsShown, setHintsShown] = useState(0);
   const [justSolved, setJustSolved] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
 
   useEffect(() => { preloadRuntime(language); }, [language]);
@@ -101,7 +103,7 @@ export function ChallengeScreen() {
     if (g.correct) {
       const wasUnsolved = !solved.has(challenge.id);
       markSolved(challenge.id);
-      if (wasUnsolved) setJustSolved(true);
+      if (wasUnsolved) { setJustSolved(true); setShowToast(true); }
     }
   }
 
@@ -113,6 +115,11 @@ export function ChallengeScreen() {
       <GlowBlob x="12%" y="88%" color="#0891B2" size={420} opacity={0.03} />
 
       {justSolved && <Celebration />}
+      <EmberToastWrapper
+        show={showToast}
+        amount={challenge.difficulty * 5}
+        onDone={() => setShowToast(false)}
+      />
 
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3">

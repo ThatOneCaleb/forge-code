@@ -27,6 +27,8 @@ import {
 import { useProgress } from "../../engine/progress/store";
 import { CHALLENGES } from "../../content/challenges";
 import { activeStreak, todayISO } from "../../engine/progress/streak";
+import { EmberCoin } from "../../components/EmberCoin";
+import { computeEmbers } from "../../components/StreakBadge";
 
 const TOTAL = CHALLENGES.length;
 const ACADEMY_CHALLENGES = CHALLENGES.filter((c) => c.track === "academy");
@@ -275,6 +277,7 @@ function GameHUD() {
 
   const solvedSet = new Set(solved);
   const solvedCount = solved.length;
+  const embers = computeEmbers(solved);
   const { level, rank, progress, toNext } = computeLevel(solvedCount);
   const currentStreak = activeStreak(streak, todayISO());
 
@@ -456,6 +459,34 @@ function GameHUD() {
                   }}
                 >
                   / {TOTAL} solved
+                </span>
+              </div>
+
+              <div
+                style={{ width: 1, height: 14, background: "rgba(255,255,255,0.1)", flexShrink: 0 }}
+              />
+
+              {/* Embers */}
+              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <EmberCoin size={15} />
+                <span
+                  style={{
+                    fontFamily: '"Chakra Petch", sans-serif',
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: embers > 0 ? "#FB923C" : "rgba(233,234,238,0.25)",
+                  }}
+                >
+                  {embers}
+                </span>
+                <span
+                  style={{
+                    fontFamily: '"IBM Plex Sans", sans-serif',
+                    fontSize: 11,
+                    color: "rgba(233,234,238,0.3)",
+                  }}
+                >
+                  embers
                 </span>
               </div>
             </div>

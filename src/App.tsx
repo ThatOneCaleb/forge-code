@@ -1,7 +1,7 @@
 import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { StreakBadge } from "./components/StreakBadge";
+import { StreakBadge, EmberBadge } from "./components/StreakBadge";
 import { HandleModal } from "./components/HandleModal";
 import { useProgress } from "./engine/progress/store";
 import { PathScreen } from "./features/path/PathScreen";
@@ -76,6 +76,7 @@ export function App() {
               >
                 {handle || "Set handle"}
               </button>
+              <EmberBadge />
               <StreakBadge />
             </div>
           </nav>
