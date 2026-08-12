@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Code2,
@@ -436,19 +436,12 @@ interface StatCounterProps {
 
 function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
   const countRef = useRef(null);
-  const isInView = useInView(countRef, { once: false });
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const springValue = useSpring(0, { stiffness: 50, damping: 10 });
+  const isInView = useInView(countRef, { once: true });
+  const springValue = useSpring(0, { stiffness: 60, damping: 25 });
 
   useEffect(() => {
-    if (isInView && !hasAnimated) {
-      springValue.set(value);
-      setHasAnimated(true);
-    } else if (!isInView && hasAnimated) {
-      springValue.set(0);
-      setHasAnimated(false);
-    }
-  }, [isInView, value, springValue, hasAnimated]);
+    if (isInView) springValue.set(value);
+  }, [isInView, value, springValue]);
 
   const displayValue = useTransform(springValue, (latest) => Math.floor(latest));
 
