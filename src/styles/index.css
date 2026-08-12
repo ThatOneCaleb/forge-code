@@ -116,10 +116,3 @@ h1 {
   }
 }
 
-@media (max-width: 640px) {
-  .hud-grid {
-    grid-template-columns: 1fr !important;
-    justify-items: center;
-    text-align: center;
-  }
-}

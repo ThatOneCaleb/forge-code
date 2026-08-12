@@ -60,103 +60,6 @@ function computeLevel(solvedCount: number) {
   return { level, rank, progress, toNext, levelStart, levelEnd };
 }
 
-// ─── Level Badge ──────────────────────────────────────────────────────────────
-
-function LevelBadge({ level }: { level: number }) {
-  return (
-    <div style={{ position: "relative", width: 110, height: 110, flexShrink: 0 }}>
-      {/* Ambient glow */}
-      <motion.div
-        animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.08, 1] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-        style={{
-          position: "absolute",
-          inset: -18,
-          background: "radial-gradient(circle, rgba(234,88,12,0.5) 0%, transparent 70%)",
-          borderRadius: "50%",
-          filter: "blur(12px)",
-          pointerEvents: "none",
-        }}
-      />
-      {/* SVG diamond */}
-      <svg viewBox="0 0 110 110" width={110} height={110} style={{ position: "absolute", inset: 0 }}>
-        <defs>
-          <linearGradient id="badge-fill" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#2A1A0A" />
-            <stop offset="100%" stopColor="#111318" />
-          </linearGradient>
-          <linearGradient id="badge-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FB923C" />
-            <stop offset="100%" stopColor="#C2440C" />
-          </linearGradient>
-        </defs>
-        {/* Outer ring */}
-        <polygon
-          points="55,4 106,55 55,106 4,55"
-          fill="none"
-          stroke="url(#badge-stroke)"
-          strokeWidth="1"
-          opacity="0.3"
-        />
-        {/* Main diamond */}
-        <polygon
-          points="55,12 98,55 55,98 12,55"
-          fill="url(#badge-fill)"
-          stroke="url(#badge-stroke)"
-          strokeWidth="1.5"
-        />
-        {/* Inner accent */}
-        <polygon
-          points="55,28 82,55 55,82 28,55"
-          fill="none"
-          stroke="rgba(234,88,12,0.2)"
-          strokeWidth="0.75"
-        />
-      </svg>
-      {/* Text overlay */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 0,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: '"Chakra Petch", sans-serif',
-            fontSize: 9,
-            fontWeight: 700,
-            color: "#EA580C",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-          }}
-        >
-          LVL
-        </span>
-        <motion.span
-          key={level}
-          initial={{ scale: 0.6, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 18 }}
-          style={{
-            fontFamily: '"Chakra Petch", sans-serif',
-            fontSize: 36,
-            fontWeight: 700,
-            color: "#E9EAEE",
-            lineHeight: 1,
-          }}
-        >
-          {level}
-        </motion.span>
-      </div>
-    </div>
-  );
-}
-
 // ─── XP Bar ───────────────────────────────────────────────────────────────────
 
 function XPBar({ progress }: { progress: number }) {
@@ -280,368 +183,125 @@ function GameHUD() {
   const embers = computeEmbers(solved);
   const { level, rank, progress, toNext } = computeLevel(solvedCount);
   const currentStreak = activeStreak(streak, todayISO());
-
   const academySolved = ACADEMY_CHALLENGES.filter((c) => solvedSet.has(c.id)).length;
   const gauntletSolved = GAUNTLET_CHALLENGES.filter((c) => solvedSet.has(c.id)).length;
-
   const nextChallenge = CHALLENGES.find((c) => !solvedSet.has(c.id));
 
   return (
-    <div
-      style={{
-        background: "#111318",
-        borderBottom: "1px solid rgba(234,88,12,0.15)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Scan line texture */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px)",
-          pointerEvents: "none",
-        }}
-      />
-      {/* Ember radial atmosphere */}
-      <div
-        style={{
-          position: "absolute",
-          top: -60,
-          left: "20%",
-          width: 300,
-          height: 200,
-          background: "radial-gradient(ellipse, rgba(234,88,12,0.08) 0%, transparent 70%)",
-          filter: "blur(30px)",
-          pointerEvents: "none",
-        }}
-      />
+    <div style={{ background: "#111318", borderBottom: "1px solid rgba(234,88,12,0.12)", position: "relative", overflow: "hidden" }}>
 
+      {/* Giant ghost level number — the editorial anchor */}
       <div
+        aria-hidden="true"
         style={{
-          maxWidth: 1152,
-          margin: "0 auto",
-          padding: "32px 24px 28px",
+          position: "absolute",
+          right: -8,
+          bottom: -24,
+          fontFamily: '"Press Start 2P", monospace',
+          fontSize: "clamp(120px, 20vw, 220px)",
+          fontWeight: 400,
+          color: "#EA580C",
+          opacity: 0.055,
+          lineHeight: 1,
+          userSelect: "none",
+          pointerEvents: "none",
+          letterSpacing: "-0.02em",
         }}
       >
-        {/* Main grid: badge | stats | cta */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "auto 1fr auto",
-            gap: 32,
-            alignItems: "center",
-          }}
-          className="hud-grid"
-        >
-          {/* Level badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-          >
-            <LevelBadge level={level} />
-          </motion.div>
+        {level}
+      </div>
 
-          {/* Center: name + xp + stats */}
-          <motion.div
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            style={{ minWidth: 0 }}
-          >
-            {/* Handle + rank */}
-            <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 8 }}>
-              <span
-                style={{
-                  fontFamily: '"Chakra Petch", sans-serif',
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: "#E9EAEE",
-                  letterSpacing: "-0.02em",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {handle || "Anonymous"}
-              </span>
-              <span
-                style={{
-                  fontFamily: '"JetBrains Mono", monospace',
-                  fontSize: 11,
-                  color: "#EA580C",
-                  opacity: 0.8,
-                  flexShrink: 0,
-                }}
-              >
+      {/* Ember atmosphere */}
+      <div style={{ position: "absolute", top: 0, left: "30%", width: 400, height: "100%", background: "radial-gradient(ellipse at 50% 0%, rgba(234,88,12,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
+
+      <div style={{ maxWidth: 1152, margin: "0 auto", padding: "36px 32px 32px", position: "relative" }}>
+
+        {/* Top row: name left, stats right */}
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 20 }}>
+
+          {/* Left: name + rank */}
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+            <div style={{ fontFamily: '"Pixelify Sans", sans-serif', fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 700, color: "#E9EAEE", lineHeight: 1, letterSpacing: "0.01em", marginBottom: 6 }}>
+              {handle || "Anonymous"}
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: "#EA580C", letterSpacing: "0.12em", textTransform: "uppercase" }}>
                 {rank}
               </span>
-            </div>
-
-            {/* XP bar + label */}
-            <div style={{ marginBottom: 6 }}>
-              <XPBar progress={progress} />
-            </div>
-            <div
-              style={{
-                fontFamily: '"JetBrains Mono", monospace',
-                fontSize: 10,
-                color: "rgba(233,234,238,0.35)",
-                letterSpacing: "0.03em",
-                marginBottom: 16,
-              }}
-            >
-              {solvedCount} XP
-              {toNext > 0 && (
-                <span style={{ color: "rgba(234,88,12,0.6)" }}>
-                  {" "}· {toNext} to {RANKS[Math.min(level + 1, RANKS.length - 1)]}
-                </span>
-              )}
-            </div>
-
-            {/* Stat row */}
-            <div style={{ display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap", marginBottom: 14 }}>
-              {/* Streak */}
-              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-                <Flame
-                  style={{
-                    width: 14,
-                    height: 14,
-                    color: currentStreak > 0 ? "#FB923C" : "rgba(233,234,238,0.2)",
-                  }}
-                />
-                <span
-                  style={{
-                    fontFamily: '"Chakra Petch", sans-serif',
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: currentStreak > 0 ? "#FB923C" : "rgba(233,234,238,0.25)",
-                  }}
-                >
-                  {currentStreak}
-                </span>
-                <span
-                  style={{
-                    fontFamily: '"IBM Plex Sans", sans-serif',
-                    fontSize: 11,
-                    color: "rgba(233,234,238,0.3)",
-                  }}
-                >
-                  day streak
-                </span>
-              </div>
-
-              <div
-                style={{ width: 1, height: 14, background: "rgba(255,255,255,0.1)", flexShrink: 0 }}
-              />
-
-              {/* Stars */}
-              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-                <Star style={{ width: 13, height: 13, color: "#EA580C" }} />
-                <span
-                  style={{
-                    fontFamily: '"Chakra Petch", sans-serif',
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: "#E9EAEE",
-                  }}
-                >
-                  {solvedCount}
-                </span>
-                <span
-                  style={{
-                    fontFamily: '"IBM Plex Sans", sans-serif',
-                    fontSize: 11,
-                    color: "rgba(233,234,238,0.3)",
-                  }}
-                >
-                  / {TOTAL} solved
-                </span>
-              </div>
-
-              <div
-                style={{ width: 1, height: 14, background: "rgba(255,255,255,0.1)", flexShrink: 0 }}
-              />
-
-              {/* Embers */}
-              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-                <EmberCoin size={15} />
-                <span
-                  style={{
-                    fontFamily: '"Chakra Petch", sans-serif',
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: embers > 0 ? "#FB923C" : "rgba(233,234,238,0.25)",
-                  }}
-                >
-                  {embers}
-                </span>
-                <span
-                  style={{
-                    fontFamily: '"IBM Plex Sans", sans-serif',
-                    fontSize: 11,
-                    color: "rgba(233,234,238,0.3)",
-                  }}
-                >
-                  embers
-                </span>
-              </div>
-            </div>
-
-            {/* Track bars */}
-            <div style={{ display: "flex", gap: 16 }}>
-              <TrackBar
-                label="Academy"
-                solved={academySolved}
-                total={ACADEMY_COUNT}
-                color="#0891B2"
-              />
-              <TrackBar
-                label="Gauntlet"
-                solved={gauntletSolved}
-                total={GAUNTLET_COUNT}
-                color="#EA580C"
-              />
+              <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(234,88,12,0.4)", display: "inline-block" }} />
+              <span style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 11, color: "rgba(233,234,238,0.3)", letterSpacing: "0.06em" }}>
+                lvl {level}
+              </span>
             </div>
           </motion.div>
 
-          {/* Right: Continue CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            style={{ display: "flex", flexDirection: "column", gap: 10, flexShrink: 0 }}
-          >
+          {/* Right: stat pills */}
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.1 }} style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 8, padding: "7px 12px" }}>
+              <Flame style={{ width: 13, height: 13, color: currentStreak > 0 ? "#FB923C" : "rgba(233,234,238,0.2)" }} />
+              <span style={{ fontFamily: '"Pixelify Sans", sans-serif', fontSize: 15, fontWeight: 700, color: currentStreak > 0 ? "#FB923C" : "rgba(233,234,238,0.2)" }}>{currentStreak}</span>
+              <span style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, color: "rgba(233,234,238,0.25)" }}>streak</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 8, padding: "7px 12px" }}>
+              <EmberCoin size={14} />
+              <span style={{ fontFamily: '"Pixelify Sans", sans-serif', fontSize: 15, fontWeight: 700, color: embers > 0 ? "#FB923C" : "rgba(233,234,238,0.2)" }}>{embers}</span>
+              <span style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, color: "rgba(233,234,238,0.25)" }}>embers</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 8, padding: "7px 12px" }}>
+              <Star style={{ width: 13, height: 13, color: "#EA580C" }} />
+              <span style={{ fontFamily: '"Pixelify Sans", sans-serif', fontSize: 15, fontWeight: 700, color: "#E9EAEE" }}>{solvedCount}</span>
+              <span style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, color: "rgba(233,234,238,0.25)" }}>/ {TOTAL}</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* XP bar — full width */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.2 }} style={{ marginBottom: 8 }}>
+          <XPBar progress={progress} />
+        </motion.div>
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: 10, color: "rgba(233,234,238,0.25)", marginBottom: 24, letterSpacing: "0.04em" }}>
+          {solvedCount} XP{toNext > 0 && <span style={{ color: "rgba(234,88,12,0.5)" }}> · {toNext} to {RANKS[Math.min(level + 1, RANKS.length - 1)]}</span>}
+        </div>
+
+        {/* Bottom row: track bars left, continue button right */}
+        <div style={{ display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 20, flex: 1, minWidth: 200 }}>
+            <TrackBar label="Academy" solved={academySolved} total={ACADEMY_COUNT} color="#0891B2" />
+            <TrackBar label="Gauntlet" solved={gauntletSolved} total={GAUNTLET_COUNT} color="#EA580C" />
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.25 }} style={{ display: "flex", gap: 10, flexShrink: 0 }}>
+            <Link to="/daily" style={{ textDecoration: "none" }}>
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 8, padding: "10px 16px", cursor: "pointer" }}>
+                <Calendar style={{ width: 13, height: 13, color: "rgba(233,234,238,0.4)" }} />
+                <span style={{ fontFamily: '"Pixelify Sans", sans-serif', fontSize: 13, color: "rgba(233,234,238,0.5)" }}>Daily</span>
+              </motion.div>
+            </Link>
+
             {nextChallenge ? (
-              <Link
-                to={`/challenge/${nextChallenge.id}`}
-                style={{ textDecoration: "none" }}
-              >
+              <Link to={`/challenge/${nextChallenge.id}`} style={{ textDecoration: "none" }}>
                 <motion.div
-                  whileHover={{ scale: 1.04 }}
+                  whileHover={{ scale: 1.04, boxShadow: "0 6px 32px rgba(234,88,12,0.5), 0 0 0 1px rgba(251,146,60,0.25) inset" }}
                   whileTap={{ scale: 0.97 }}
-                  style={{
-                    background: "linear-gradient(135deg, #C2440C, #EA580C)",
-                    borderRadius: 10,
-                    padding: "14px 20px",
-                    cursor: "pointer",
-                    boxShadow:
-                      "0 4px 24px rgba(234,88,12,0.35), 0 0 0 1px rgba(251,146,60,0.2) inset",
-                    minWidth: 160,
-                  }}
+                  style={{ display: "flex", alignItems: "center", gap: 10, background: "#EA580C", borderRadius: 8, padding: "10px 20px", cursor: "pointer", boxShadow: "0 4px 20px rgba(234,88,12,0.3)" }}
                 >
-                  <div
-                    style={{
-                      fontFamily: '"JetBrains Mono", monospace',
-                      fontSize: 9,
-                      color: "rgba(255,255,255,0.65)",
-                      letterSpacing: "0.18em",
-                      textTransform: "uppercase",
-                      marginBottom: 4,
-                    }}
-                  >
-                    {solvedCount === 0 ? "Start here" : "Continue"}
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: 8,
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: '"Chakra Petch", sans-serif',
-                        fontSize: 13,
-                        fontWeight: 700,
-                        color: "white",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
-                        maxWidth: 120,
-                      }}
-                    >
-                      {nextChallenge.title}
-                    </span>
-                    <ArrowRight style={{ width: 14, height: 14, color: "rgba(255,255,255,0.7)", flexShrink: 0 }} />
-                  </div>
+                  <span style={{ fontFamily: '"Pixelify Sans", sans-serif', fontSize: 15, fontWeight: 700, color: "white", whiteSpace: "nowrap" }}>
+                    {solvedCount === 0 ? "Start forging" : nextChallenge.title}
+                  </span>
+                  <ArrowRight style={{ width: 14, height: 14, color: "rgba(255,255,255,0.8)", flexShrink: 0 }} />
                 </motion.div>
               </Link>
             ) : (
-              <div
-                style={{
-                  background: "rgba(34,197,94,0.1)",
-                  border: "1px solid rgba(34,197,94,0.3)",
-                  borderRadius: 10,
-                  padding: "14px 20px",
-                  textAlign: "center",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: '"Chakra Petch", sans-serif',
-                    fontSize: 13,
-                    fontWeight: 700,
-                    color: "#22C55E",
-                  }}
-                >
-                  All complete!
-                </span>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.25)", borderRadius: 8, padding: "10px 20px" }}>
+                <span style={{ fontFamily: '"Pixelify Sans", sans-serif', fontSize: 14, fontWeight: 700, color: "#22C55E" }}>All complete!</span>
               </div>
             )}
-
-            <Link
-              to="/daily"
-              style={{ textDecoration: "none" }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 10,
-                  padding: "10px 20px",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 6,
-                }}
-              >
-                <Calendar style={{ width: 13, height: 13, color: "#EA580C" }} />
-                <span
-                  style={{
-                    fontFamily: '"Chakra Petch", sans-serif',
-                    fontSize: 12,
-                    fontWeight: 600,
-                    color: "rgba(233,234,238,0.6)",
-                  }}
-                >
-                  Daily Challenge
-                </span>
-              </motion.div>
-            </Link>
           </motion.div>
         </div>
       </div>
 
-      {/* Bottom border glow */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: 1,
-          background:
-            "linear-gradient(90deg, transparent, rgba(234,88,12,0.4) 30%, rgba(234,88,12,0.4) 70%, transparent)",
-        }}
-      />
+      {/* Bottom edge glow */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(234,88,12,0.35) 40%, rgba(234,88,12,0.35) 60%, transparent)" }} />
     </div>
   );
 }

@@ -199,7 +199,7 @@ export function LessonScreen() {
             <p className="font-mono text-xs font-semibold uppercase tracking-wider text-steel">
               ▸ try it
             </p>
-            <p className="mt-1 text-sm text-text">{lesson.example.prompt}</p>
+            <p className="mt-1 text-sm text-text font-sans" style={{ fontFamily: 'var(--font-sans)' }}>{lesson.example.prompt}</p>
           </div>
 
           <div className="flex items-center justify-between">
@@ -286,9 +286,9 @@ function LessonBody({ body }: { body: string }) {
       const items: string[] = [];
       while (i < lines.length && lines[i].startsWith("- ")) items.push(lines[i++].slice(2));
       blocks.push(
-        <ul key={key++} className="my-2 flex list-disc flex-col gap-1 pl-5 text-dim">
+        <ul key={key++} className="my-2 flex list-disc flex-col gap-1.5 pl-5 text-dim font-sans" style={{ fontFamily: 'var(--font-sans)', fontSize: '0.875rem' }}>
           {items.map((it, n) => (
-            <li key={n}>{renderInline(it)}</li>
+            <li key={n} style={{ lineHeight: 1.6 }}>{renderInline(it)}</li>
           ))}
         </ul>,
       );
@@ -310,12 +310,12 @@ function LessonBody({ body }: { body: string }) {
       para.push(lines[i++]);
     }
     blocks.push(
-      <p key={key++} className="my-2 text-dim" style={{ lineHeight: 1.7 }}>
+      <p key={key++} className="my-2 text-dim font-sans" style={{ lineHeight: 1.75, fontFamily: 'var(--font-sans)', fontSize: '0.875rem' }}>
         {renderInline(para.join(" "))}
       </p>,
     );
   }
-  return <div className="text-sm">{blocks}</div>;
+  return <div>{blocks}</div>;
 }
 
 function renderInline(text: string): React.ReactNode {

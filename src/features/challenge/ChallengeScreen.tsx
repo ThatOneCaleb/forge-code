@@ -174,7 +174,7 @@ export function ChallengeScreen() {
                 <ChallengeArt id={challenge.id} size={112} />
               </div>
               {challenge.track === "gauntlet" && (
-                <p className="text-sm italic leading-relaxed text-dim">{challenge.story}</p>
+                <p className="text-sm italic text-dim font-sans" style={{ lineHeight: 1.7, fontFamily: 'var(--font-sans)' }}>{challenge.story}</p>
               )}
               {challenge.track === "academy" && (
                 <div>
@@ -203,7 +203,7 @@ export function ChallengeScreen() {
               <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-steel">
                 teaches: {challenge.concept}
               </p>
-              <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed text-text">{challenge.prompt}</pre>
+              <p className="whitespace-pre-wrap font-sans text-sm text-text" style={{ lineHeight: 1.7, fontFamily: 'var(--font-sans)' }}>{challenge.prompt}</p>
             </div>
 
             <details className="py-4 text-sm" open={Boolean(challenge.generate)}>
