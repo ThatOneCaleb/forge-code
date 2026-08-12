@@ -19,8 +19,8 @@
   --color-danger: #EF4444;
   --color-locked: #565C66;
 
-  --font-display: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Press Start 2P", ui-monospace, monospace;
+  --font-sans: "Pixelify Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
@@ -45,11 +45,11 @@ h2,
 h3,
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
 }
 
 h1 {
-  letter-spacing: -0.03em;
+  letter-spacing: 0.01em;
 }
 
 ::selection {
